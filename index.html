@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zerezes :: leitura criativa abril 2026 v4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--creme:#EDE9E1;--creme2:#E5E0D5;--creme3:#DDD7C9;--preto:#111;--preto2:#2a2a2a;--laranja:#D65B2F;--laranja2:#E87A4F;--linha:rgba(17,17,17,.15);--linha2:#1a1a1a;--cinza:#8a8478;--cinza2:#b8b2a4;--verde:#3A7D44;--vermelho:#C0392B;--amarelo:#D4A017}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--creme);color:var(--preto);font-family:'DM Sans',-apple-system,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:20px 56px;border-bottom:1px solid var(--linha2);font-size:13px;position:sticky;top:0;background:var(--creme);z-index:100;backdrop-filter:blur(8px)}
+.top-bar .center{font-weight:500}
+
+.pg{max-width:1440px;margin:0 auto;padding:0 56px}
+
+/* HERO */
+.hero{padding:96px 0 72px}
+.hero-label{font-size:13px;color:var(--cinza);margin-bottom:28px;letter-spacing:.02em}
+.hero h1{font-weight:700;font-size:clamp(52px,7.5vw,100px);line-height:.97;letter-spacing:-.035em;margin-bottom:40px}
+.hero h1 .or{color:var(--laranja)}
+.hero h1 .thin{font-weight:400}
+.hero-sub{max-width:720px;font-size:20px;line-height:1.5;color:var(--preto2);margin-bottom:56px}
+.hero-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:28px;font-size:12.5px;color:var(--cinza);border-top:1px solid var(--linha2);padding-top:28px;max-width:1000px}
+.hero-meta div strong{color:var(--preto);font-weight:600;display:block;margin-bottom:3px;font-size:14px}
+
+/* SECTIONS */
+section{padding:88px 0}
+.sh{margin-bottom:56px;padding-bottom:20px;border-bottom:1px solid var(--linha2);display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.sn{font-size:13px;color:var(--cinza);font-variant-numeric:tabular-nums}
+.sk{font-size:11px;letter-spacing:.1em;color:var(--laranja);text-transform:lowercase;margin-bottom:10px;font-weight:600}
+h2{font-weight:700;font-size:clamp(38px,4.5vw,60px);line-height:1.02;letter-spacing:-.025em}
+h2 .tema{display:block;margin-top:5px;font-weight:400;color:var(--preto2);font-size:.65em}
+h3{font-weight:700;font-size:28px;line-height:1.15;letter-spacing:-.015em;margin-bottom:18px}
+h3 .mu{color:var(--cinza);font-weight:400}
+h4{font-weight:700;font-size:20px;letter-spacing:-.01em;margin-bottom:12px;line-height:1.2}
+.pn{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja)}
+
+/* PROSE */
+.pr p{font-size:17px;line-height:1.65;color:var(--preto2);margin-bottom:20px;max-width:760px}
+.pr p.w{max-width:900px}
+.pr p.ld{font-size:21px;line-height:1.5;color:var(--preto);max-width:840px}
+.pr strong{color:var(--preto);font-weight:600}
+.pr em{font-style:italic;color:var(--preto)}
+
+/* EDITORIAL CARD */
+.ec{background:var(--creme2);padding:56px 52px;margin-bottom:44px;border-left:3px solid var(--laranja)}
+.ec .ey{font-size:11px;letter-spacing:.1em;color:var(--laranja);margin-bottom:12px;font-weight:600;text-transform:lowercase}
+.ec .bq{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(26px,3.3vw,42px);line-height:1.15;letter-spacing:-.01em}
+
+/* PULLQUOTE */
+.pq{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(24px,3vw,36px);line-height:1.22;max-width:900px;margin:52px 0;padding:28px 0 28px 28px;border-left:2px solid var(--laranja)}
+
+/* RESUMO CARDS */
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:44px 0}
+.rc{padding:32px 28px;background:var(--creme2);min-height:220px}
+.rc.hl{background:var(--preto);color:var(--creme)}
+.rc.hl .rl{color:var(--laranja2)}
+.rc.hl h4{color:var(--creme)}
+.rc.hl p{color:var(--creme);opacity:.85}
+.rl{font-size:11px;letter-spacing:.1em;color:var(--laranja);text-transform:lowercase;margin-bottom:16px;font-weight:600}
+.rc h4{font-size:22px;margin-bottom:14px}
+.rc p{font-size:14px;line-height:1.55;color:var(--preto2);margin:0}
+
+/* PRODUTO GRID */
+.prodg{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:0;margin:44px 0;border-top:1px solid var(--linha2);border-left:1px solid var(--linha2)}
+.prodc{border-right:1px solid var(--linha2);border-bottom:1px solid var(--linha2);padding:20px 16px;text-align:center;transition:background .2s}
+.prodc:hover{background:var(--creme2)}
+.prodc img{width:100%;max-width:140px;height:auto;display:block;margin:0 auto 14px}
+.prodc .nm{font-weight:700;font-size:14px;letter-spacing:.02em;margin-bottom:3px}
+.prodc .lv{font-family:'DM Serif Display',serif;font-style:italic;font-size:12px;color:var(--laranja);margin-bottom:2px}
+.prodc .au{font-size:10px;color:var(--cinza);letter-spacing:.03em}
+
+/* CREATIVE GRID */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;margin:44px 0}
+.cc{display:flex;flex-direction:column}
+.ciw{aspect-ratio:4/5;background:#fff;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.ciw img,.ciw video{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+.ciw.zere{background:var(--creme2)}
+.ciw.zere img,.ciw.zere video{width:100%;height:100%;object-fit:cover}
+.ciw.vid::after{content:"▶ vídeo";position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);color:#fff;padding:4px 10px;border-radius:100px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;pointer-events:none}
+.cm{padding:12px 0 4px}
+.cb{font-size:10px;color:var(--laranja);letter-spacing:.08em;margin-bottom:6px;font-weight:600;text-transform:lowercase}
+.ct{font-size:14px;font-weight:500;line-height:1.35;margin-bottom:6px}
+.cap{font-size:12px;color:var(--cinza);font-style:italic;line-height:1.4}
+.ccp{font-size:12.5px;color:var(--preto2);line-height:1.4;margin-top:8px;padding-top:8px;border-top:1px solid var(--linha);font-style:italic}
+
+/* TAGS / CHIPS */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:10px;padding:3px 10px;border-radius:100px;letter-spacing:.03em;font-weight:500}
+.tag.fmt{background:var(--preto);color:var(--creme)}
+.tag.hook{background:var(--laranja);color:var(--creme)}
+.tag.cluster{background:var(--creme3);color:var(--preto)}
+.tag.funil{background:var(--verde);color:#fff}
+.tag.funil-m{background:var(--amarelo);color:var(--preto)}
+.tag.funil-b{background:var(--vermelho);color:#fff}
+.tag.angle{border:1px solid var(--linha2);color:var(--preto);background:transparent}
+
+/* BIG IMAGE */
+.bi{margin:52px 0}
+.bi img{width:100%;display:block}
+.bi .bic{padding:14px 0 0;font-size:13px;color:var(--cinza);font-style:italic;border-top:1px solid var(--linha);margin-top:14px}
+
+/* PERSONAS */
+.persg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;margin:44px 0}
+.pers{padding:24px 0;border-top:2px solid var(--preto)}
+.pers .role{font-size:10px;letter-spacing:.1em;color:var(--laranja);text-transform:lowercase;margin-bottom:10px;font-weight:600}
+.pers h4{font-size:20px;margin-bottom:8px}
+.pers .mdl{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja);font-size:15px;margin-bottom:10px}
+.pers p{font-size:14px;line-height:1.5;color:var(--preto2)}
+
+/* EDITORIAL LIST */
+.el{margin:44px 0;max-width:920px}
+.el .it{padding:28px 0;border-top:1px solid var(--linha2);display:grid;grid-template-columns:72px 1fr;gap:28px}
+.el .it:last-child{border-bottom:1px solid var(--linha2)}
+.el .itn{font-family:'DM Serif Display',serif;font-style:italic;font-size:36px;color:var(--laranja);line-height:1;padding-top:3px}
+.el .itb h4{font-size:20px;margin-bottom:10px}
+.el .itb p{font-size:15.5px;line-height:1.6;color:var(--preto2);margin:0}
+
+/* PILLARS */
+.pt{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:44px 0;border-top:1px solid var(--linha2);border-bottom:1px solid var(--linha2)}
+.pc{padding:28px 28px 28px 0;border-right:1px solid var(--linha2)}
+.pc:last-child{border-right:none;padding-left:28px;padding-right:0}
+.pc:not(:first-child){padding-left:28px}
+.pc .lb{font-size:11px;letter-spacing:.1em;color:var(--laranja);text-transform:lowercase;margin-bottom:12px;font-weight:600}
+.pc h5{font-size:20px;font-weight:700;margin-bottom:12px;letter-spacing:-.01em;line-height:1.15}
+.pc p{font-size:14px;line-height:1.55;color:var(--preto2)}
+
+/* COLL BLOCKS */
+.cb-block{padding:56px 0;border-top:1px solid var(--linha2)}
+.cb-block:first-of-type{border-top:none;padding-top:0}
+.cbh{display:grid;grid-template-columns:120px 1fr;gap:36px;margin-bottom:32px;align-items:baseline}
+.cbn{font-family:'DM Serif Display',serif;font-style:italic;font-size:48px;color:var(--laranja);line-height:1}
+
+/* HEATMAP */
+.heatmap{margin:44px 0;overflow-x:auto}
+.heatmap table{width:100%;border-collapse:collapse;font-size:13px}
+.heatmap th{text-align:left;padding:12px 16px;font-weight:700;border-bottom:2px solid var(--linha2);font-size:12px;letter-spacing:.05em;text-transform:lowercase}
+.heatmap td{padding:12px 16px;border-bottom:1px solid var(--linha);vertical-align:middle}
+.heatmap .cell-ok{background:rgba(58,125,68,.15);text-align:center;font-weight:600;color:var(--verde)}
+.heatmap .cell-gap{background:rgba(192,57,43,.08);text-align:center;color:var(--vermelho);font-style:italic;font-size:12px}
+.heatmap .cell-partial{background:rgba(212,160,23,.12);text-align:center;color:var(--amarelo);font-weight:500}
+.heatmap .cluster-name{font-weight:700;color:var(--preto)}
+.heatmap .model-name{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja);font-size:14px}
+
+/* SIDENOTE */
+.sn-box{background:var(--creme2);padding:28px 32px;margin:44px 0;font-size:15px;line-height:1.6;color:var(--preto2);max-width:920px}
+.sn-box strong{color:var(--preto)}
+.sn-box .slb{font-size:11px;letter-spacing:.1em;color:var(--laranja);text-transform:lowercase;margin-bottom:8px;display:block;font-weight:600}
+
+/* ANATOMY */
+.anatomy{margin:44px 0;background:var(--preto);color:var(--creme);padding:56px 52px}
+.anatomy h3{color:var(--creme);margin-bottom:24px}
+.anatomy .zone{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:20px 0;border-top:1px solid rgba(255,255,255,.15)}
+.anatomy .zone:first-of-type{border-top:none}
+.anatomy .zn{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja2);font-size:20px}
+.anatomy .zd{font-size:14.5px;line-height:1.55;color:rgba(237,233,225,.8)}
+.anatomy .zd strong{color:var(--creme)}
+
+/* CHECKLIST */
+.checklist{margin:44px 0;max-width:920px}
+.checklist .ck-item{display:grid;grid-template-columns:36px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--linha);align-items:start}
+.checklist .ck-box{width:24px;height:24px;border:2px solid var(--laranja);border-radius:4px;margin-top:2px}
+.checklist .ck-title{font-weight:700;font-size:16px;margin-bottom:4px}
+.checklist .ck-desc{font-size:14px;color:var(--preto2);line-height:1.5}
+.checklist .ck-who{font-size:11px;color:var(--laranja);font-weight:600;letter-spacing:.08em;text-transform:lowercase;margin-top:6px}
+
+/* CLOSING */
+.closing{padding:100px 0 72px;border-top:1px solid var(--linha2)}
+.closing .pr p.ld{font-size:23px;line-height:1.4;max-width:880px}
+.closing .sig{font-family:'DM Serif Display',serif;font-size:64px;color:var(--laranja);font-style:italic;margin-top:36px}
+.footer-meta{display:flex;justify-content:space-between;padding:28px 56px;border-top:1px solid var(--linha2);font-size:12px;color:var(--cinza);letter-spacing:.04em;max-width:1440px;margin:0 auto;flex-wrap:wrap;gap:14px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.top-bar{padding:14px 20px;font-size:11px}.top-bar .center{display:none}
+.pg{padding:0 20px}
+.hero{padding:52px 0 36px}
+section{padding:56px 0}
+.pt{grid-template-columns:1fr}.pc{border-right:none;border-bottom:1px solid var(--linha2);padding:24px 0!important}.pc:last-child{border-bottom:none}
+.cbh{grid-template-columns:1fr;gap:6px}.cbn{font-size:32px}
+.el .it{grid-template-columns:40px 1fr;gap:14px}.el .itn{font-size:28px}
+.ec{padding:36px 24px}
+.sh{flex-direction:column;align-items:start}
+.anatomy{padding:40px 24px}
+.anatomy .zone{grid-template-columns:1fr;gap:8px}
+}
+
+/* PDF BUTTON */
+.pdf-btn{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--preto);color:var(--creme);border:none;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:lowercase;border-radius:100px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:all .2s;display:flex;align-items:center;gap:8px}
+.pdf-btn:hover{background:var(--laranja);transform:translateY(-2px);box-shadow:0 6px 20px rgba(214,91,47,.3)}
+.pdf-btn::before{content:"↓";font-size:14px}
+
+/* PRINT STYLES (for PDF export) */
+@media print{
+  .pdf-btn,.toc-nav,.top-bar{display:none!important}
+  body{background:#fff}
+  section{padding:40px 0;page-break-inside:avoid}
+  .cb-block{page-break-inside:avoid}
+  .rc,.bp,.pers,.pc,.prodc,.cc,.el .it,.ck-item{page-break-inside:avoid}
+  h2,h3{page-break-after:avoid}
+  .hero{padding:40px 0 32px}
+  img,video{max-width:100%!important;page-break-inside:avoid}
+  .pq,.ec{page-break-inside:avoid}
+  a[href^="http"]:after{content:" (" attr(href) ")";font-size:9px;color:#888}
+  .pg{padding:0 30px;max-width:none}
+}
+
+/* ENTRANTES */
+.rc.ent{border-left:3px solid var(--laranja);background:#FDFAF2;position:relative}
+.ent-tag{display:inline-block;background:var(--laranja);color:var(--creme);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:100px;margin-left:8px;font-weight:700;vertical-align:middle}
+
+/* COPY TABLE */
+.copy-tbl{margin:32px 0;overflow-x:auto}
+.copy-tbl table{width:100%;border-collapse:collapse;font-size:13.5px}
+.copy-tbl th{text-align:left;padding:14px 14px;border-bottom:2px solid var(--linha2);font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:lowercase;color:var(--cinza);background:var(--creme)}
+.copy-tbl td{padding:16px 14px;border-bottom:1px solid var(--linha);vertical-align:top;line-height:1.5}
+.copy-tbl td.cp{font-family:'DM Serif Display',serif;font-style:italic;font-size:15px;color:var(--preto);max-width:360px}
+.copy-tbl td.cp.hl{color:var(--laranja)}
+.copy-tbl td.mk{font-weight:700;color:var(--preto);white-space:nowrap}
+.copy-tbl tbody tr:hover{background:var(--creme2)}
+
+/* BEST PRACTICES GRID */
+.bp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;margin:32px 0;border-top:1px solid var(--linha2);border-left:1px solid var(--linha2)}
+.bp{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:24px 22px;border-right:1px solid var(--linha2);border-bottom:1px solid var(--linha2);align-items:start}
+.bpn{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja);font-size:22px;line-height:1}
+.bpb strong{display:block;font-size:14.5px;margin-bottom:6px;line-height:1.3}
+.bpb span{font-size:13px;line-height:1.55;color:var(--preto2)}
+
+/* TOC NAV */
+.toc-nav{display:flex;gap:4px;padding:10px 56px;border-bottom:1px solid var(--linha2);font-size:11.5px;letter-spacing:.04em;background:var(--creme);position:sticky;top:57px;z-index:99;overflow-x:auto;white-space:nowrap;backdrop-filter:blur(8px)}
+.toc-nav a{color:var(--cinza);text-decoration:none;padding:6px 12px;border-radius:100px;transition:all .2s;flex-shrink:0}
+.toc-nav a:hover{color:var(--preto);background:var(--creme2)}
+.toc-nav a .n{color:var(--laranja);font-variant-numeric:tabular-nums;font-weight:600;margin-right:6px}
+
+/* PRAZER MOCKUP */
+.prazer-mock{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:36px 0 20px}
+.prazer-card{background:var(--creme2);aspect-ratio:4/5;padding:36px 28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;border:1px solid var(--linha)}
+.prazer-card .pc-head{font-size:10px;letter-spacing:.1em;color:var(--cinza);text-transform:uppercase}
+.prazer-card .pc-middle{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.prazer-card .pc-glass{width:88%;max-width:200px;height:auto;margin:0 auto;display:block;object-fit:contain;opacity:.95}
+.prazer-card .pc-glass-fallback{width:100%;height:80px;background:linear-gradient(90deg,transparent 0,transparent 12%,var(--preto) 12%,var(--preto) 44%,transparent 44%,transparent 56%,var(--preto) 56%,var(--preto) 88%,transparent 88%);border-radius:12px;opacity:.85}
+.prazer-card .pc-hl{font-family:'DM Sans',sans-serif;font-size:22px;font-weight:400;line-height:1.1;color:var(--preto)}
+.prazer-card .pc-hl em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja);font-weight:400;font-size:30px}
+.prazer-card .pc-meta{font-size:11px;color:var(--cinza);line-height:1.4}
+.prazer-card .pc-foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:11px;color:var(--cinza)}
+.prazer-card .pc-foot .price{color:var(--preto);font-weight:600}
+.prazer-card .pc-sig{font-family:'DM Serif Display',serif;color:var(--laranja);font-style:italic;font-size:16px}
+
+/* WIREFRAME */
+.wireframe{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:36px 0;align-items:start}
+.wf-canvas{aspect-ratio:4/5;background:var(--creme);border:1px dashed var(--laranja);position:relative;overflow:hidden}
+.wf-zone{position:absolute;border:1px dashed var(--laranja);background:rgba(214,91,47,.04);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--laranja);letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:6px;text-align:center}
+.wf-zone.z1{top:4%;left:4%;right:4%;height:14%}
+.wf-zone.z2{top:22%;left:15%;right:15%;height:34%}
+.wf-zone.z3{top:60%;left:6%;right:6%;height:18%}
+.wf-zone.z4{bottom:8%;left:6%;width:60%;height:8%}
+.wf-zone.z5{bottom:8%;right:6%;width:26%;height:8%}
+.wf-legend{display:flex;flex-direction:column;gap:14px}
+.wf-legend .wfl{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:baseline;padding-bottom:12px;border-bottom:1px dashed var(--linha)}
+.wf-legend .wfl-n{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja);font-size:18px;line-height:1}
+.wf-legend .wfl-b strong{display:block;font-size:13px;margin-bottom:2px}
+.wf-legend .wfl-b span{font-size:12.5px;color:var(--preto2);line-height:1.45}
+
+@media(max-width:900px){
+.toc-nav{padding:8px 14px}
+.wireframe{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<button class="pdf-btn" onclick="window.print()" aria-label="baixar em PDF">baixar PDF</button>
+<div class="top-bar"><div>marketing | mídia</div><div class="center">leitura criativa :: abril 26 · v4</div><div>zerezes</div></div>
+<nav class="toc-nav" aria-label="índice">
+<a href="#resumo"><span class="n">00</span>resumo</a>
+<a href="#tese"><span class="n">01</span>tese</a>
+<a href="#funil"><span class="n">02</span>funil</a>
+<a href="#heatmap"><span class="n">03</span>mapa</a>
+<a href="#colecao"><span class="n">04</span>coleção</a>
+<a href="#mercado"><span class="n">05</span>mercado</a>
+<a href="#palavras"><span class="n">06</span>palavras</a>
+<a href="#anatomia"><span class="n">07</span>anatomia</a>
+<a href="#apostas"><span class="n">08</span>apostas</a>
+<a href="#checklist"><span class="n">09</span>checklist</a>
+<a href="#outras-frentes"><span class="n">10</span>outras frentes</a>
+</nav>
+<div class="pg">
+
+<!-- HERO -->
+<header class="hero">
+<div class="hero-label">meta ads :: grau 26 + conta completa · 7 marcas analisadas</div>
+<h1>leitura criativa<span class="or">::</span><br><span class="thin">o que a conta disse em abril</span></h1>
+<p class="hero-sub">um olhar editorial sobre a vida criativa da zerezes — o que grau 26 colocou no ar, o que o mercado está fazendo (warby parker, oakley, ace&tate, fuel, chilli beans, livo, óticas carol), e onde o time de criação pode levar a campanha no próximo mês.</p>
+<div class="sn-box" style="margin:0 0 40px;max-width:900px"><span class="slb">nota de escopo</span><p><strong>dentro:</strong> grau 26 (foco principal — maior parte do spend em abril) · 6 concorrentes Meta. <strong>fora desta rodada:</strong> AON Solar, AON Sports, bestsellers e as collabs MASP e FARM — mapeadas em seção curta no fim; aprofundamento fica para a próxima leitura. <strong>ausentes no recorte de concorrentes:</strong> rayban e lapima — rayban tem tese próxima à oakley (tech/esporte) e lapima opera em escala editorial pequena; ambos ficam para uma rodada temática específica.</p></div>
+<div class="hero-meta">
+<div><strong>para</strong>criação & comunicação + studio</div>
+<div><strong>por</strong>mídia</div>
+<div><strong>período</strong>01 — 15 abril 2026 (primeira quinzena)</div>
+<div><strong>escopo</strong>meta ads · 7 concorrentes</div>
+</div>
+</header>
+
+<!-- 00 RESUMO -->
+<section id="resumo">
+<div class="sh"><div><div class="sk">resumo executivo</div><h2>o mês em uma página</h2></div><div class="sn">00 ::</div></div>
+<div class="pr"><p class="ld">a <strong>primeira quinzena de abril</strong> é o primeiro recorte cheio de <em>grau 26</em> no ar — e o sinal é bom. a coleção já é o centro da conta, o catálogo dinâmico trabalha pesado, os criadores chegaram no topo do funil com autoria, e o mercado está com espaço livre para quem quer ocupar o lugar editorial. este documento celebra o que está funcionando até aqui, mapeia o que os concorrentes estão dizendo, e propõe apostas concretas para o fim de abril e maio — incluindo a collab <em>The Simple Gyn</em> (AON Sports) e a campanha de novas cores dos bestsellers.</p></div>
+
+<div class="rg">
+<div class="rc"><div class="rl">o que funcionou</div><h4>grau 26 virou protagonista</h4><p>o catálogo dinâmico de lançamento é o ad de maior alcance da conta inteira. o carrossel de coleção roda em 6 adsets. a coleção é, de fato, o centro da narrativa zerezes em abril.</p></div>
+<div class="rc"><div class="rl">surpresa positiva</div><h4>criadores no topo de funil</h4><p>rafaela amorim, rodrigo bez, giorgia, mourajo, alice fleury — cinco vozes reais traduzindo "só quem usa sabe" em pessoa de verdade. é o pedaço mais fiel ao briefing.</p></div>
+<div class="rc hl"><div class="rl">grande oportunidade</div><h4>autoria editorial na mídia paga</h4><p>os 16 nomes literários (lena, jig, keí, lusti) e as 4 personas do filme ainda não viraram criativos individuais. é o próximo passo natural — e o material já existe.</p></div>
+<div class="rc"><div class="rl">mercado</div><h4>espaço largo e aberto</h4><p>warby é editorial por modelo. oakley aposta em tech. ace&tate é irreverente. chilli saiu de produto. livo está fragmentada. óticas carol fala de lente e preço. o lugar cultural é da zerezes.</p></div>
+</div>
+
+<div class="pq">o filme existe, os personagens existem, os nomes de <span class="pn">lena</span>, <span class="pn">jig</span>, <span class="pn">lusti</span>, <span class="pn">keí</span> existem. em maio, a gente pode trazer essa autoria para dentro da mídia paga — sem inventar nada novo.</div>
+</section>
+
+
+<!-- 01 TESE -->
+<section id="tese">
+<div class="sh"><div><div class="sk">tese</div><h2>o centro gravitacional</h2></div><div class="sn">01 ::</div></div>
+<div class="ec"><div class="ey">tese editorial</div><p class="bq">grau 26 já é o coração da conta. agora começa o capítulo em que a coleção deixa de ser "a mais nova" e vira personagem — com nome, rosto e literatura.</p></div>
+<div class="pr">
+<p class="ld">a coleção estreou em 17 de março. a primeira quinzena de abril é o primeiro recorte da coleção como rotina — não mais como novidade. e a rotina mostra: grau 26 concentra o maior volume de mídia, o catálogo de lançamento é o ad de maior alcance da conta, e os creators estão trazendo o "só quem usa sabe" para o topo do funil.</p>
+<p class="w">o briefing construiu quatro camadas lindas — a big idea "de volta à vida real", os 4 personagens (<span class="pn">laura lufesi</span>, <span class="pn">túlio linare</span>, <span class="pn">letrux</span>, <span class="pn">philipp lavra</span>), os 15 nomes da literatura brasileira e o escritório na garcia. no feed pago de abril, <strong>parte dessas camadas já está presente</strong> — a outra parte está pronta para entrar. este documento é um convite para pensar como trazê-la.</p>
+</div>
+<div class="bi"><img src="zerezes-imgs/banner-kv-desk.jpg" alt="KV Zerezes"><div class="bic">kv da campanha no site :: "de volta à vida real" como mensagem guarda-chuva da coleção grau 26</div></div>
+</section>
+
+<!-- 02 FUNIL GRAU26 -->
+<section id="funil">
+<div class="sh"><div><div class="sk">grau 26 por etapa de funil</div><h2>topo · meio · fundo <span class="tema">o que está em cada camada</span></h2></div><div class="sn">02 ::</div></div>
+
+<div class="pr"><p class="ld">antes de olhar peça por peça, uma visão de como os criativos grau 26 se distribuem ao longo do funil. a seção mais importante para o time de criação: <strong>onde tem camada e onde tem buraco</strong>.</p></div>
+
+<!-- TOPO -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">i.</div><div><h3>topo de funil <span class="mu">:: alcance com criadores</span></h3></div></div>
+<div class="pr"><p class="w">a camada de prospecção ampla roda em <strong>similares 94-96</strong> com objetivo de alcance. é aqui que os criadores vivem — Rafaela Amorim, Rodrigo Bez, Giorgia, MouraJo, Alice Fleury. vídeos nativos, rostos reais, linguagem mobile-first. <strong>é o pedaço mais editorial da conta em abril</strong> e está funcionando como porta de entrada.</p>
+<p class="w"><em>ponto de atenção construtivo:</em> rodrigo bez e rafaela amorim concentram quase todo o orçamento desta camada. os outros três rodaram com volume discreto — vale decidir em maio se "aprofundamos nos dois líderes" ou "damos mais chão aos outros antes de concluir".</p></div>
+
+<div class="cg">
+<div class="cc"><div class="ciw zere"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1475248017581775/69cad5c91ae2df5b3ca23295/73a840bb-38bd-43c3-913d-b376717890ed.jpg" alt="Rafaela Amorim — vídeo de coleção"></div><div class="cm"><div class="cb">zerezes · grau26 · creators</div><div class="ct">Rafaela Amorim — vídeo de coleção</div><div class="cap">spend R$874 · CTR 0,06% · effectivePost em alcance</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag funil">topo de funil</span><span class="tag cluster">fashion girlie</span><span class="tag hook">hook: rosto + produto</span><span class="tag angle">ângulo: estilo de vida</span></div></div></div>
+<div class="cc"><div class="ciw zere"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/933168706307205/69d903304dbfa8a40b30037b/c68500ff-2106-4253-921a-d057169c5660.jpg" alt="Rodrigo Bez — vídeo de coleção"></div><div class="cm"><div class="cb">zerezes · grau26 · creators</div><div class="ct">Rodrigo Bez — vídeo de coleção</div><div class="cap">spend R$1.285 · CTR 0,08% · maior volume entre creators</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag funil">topo de funil</span><span class="tag cluster">boy zerezes</span><span class="tag hook">hook: rosto + movimento</span><span class="tag angle">ângulo: dia a dia</span></div></div></div>
+</div>
+
+<div class="sn-box"><span class="slb">oportunidade topo de funil</span><p>hoje os creators <strong>só existem em alcance</strong> — o mesmo usuário que viu o vídeo da Rafaela não é reimpactado depois com um carrossel dela em conversão. o raciocínio narrativo se interrompe no meio. em maio, vale testar a costura completa: creator → carrossel com o creator → catálogo dinâmico para quem viu o vídeo.</p></div>
+</div>
+
+<!-- MEIO -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">ii.</div><div><h3>meio de funil <span class="mu">:: prospecção qualificada</span></h3></div></div>
+<div class="pr"><p class="w">os carrosséis e vídeos de coleção genéricos rodam em <strong>similares 97-99</strong> — público mais próximo da conversão. é aqui que o criativo precisa convencer. os assets são versáteis: o mesmo carrossel genérico (160325) e os vídeos de coleção (260326 e 090426) sustentam toda a camada.</p>
+<p class="w"><strong>a oportunidade:</strong> hoje, meio de funil e retargeting usam exatamente o mesmo criativo. um prospect que nunca ouviu falar da zerezes vê a mesma peça que um visitante do site. em maio, criar uma variação com <em>headline editorial</em> ("de volta à vida real") para o meio — diferenciando-o do fundo — já muda a conversa.</p></div>
+
+<div class="cg">
+<div class="cc"><div class="ciw zere"><img src="zerezes-imgs/grau26_meio_1.jpg" alt="carrossel coleção 160325"></div><div class="cm"><div class="cb">zerezes · grau26 · meio de funil</div><div class="ct">carrossel_coleção_generico_160325_Grau26</div><div class="cap">spend R$11.372 · CTR 1,34% · top asset da conta · roda em 6 adsets</div><div class="tags"><span class="tag fmt">carrossel</span><span class="tag funil-m">meio de funil</span><span class="tag cluster">coleção completa</span><span class="tag hook">hook: vitrine de produtos</span><span class="tag angle">ângulo: apresentação genérica</span></div></div></div>
+<div class="cc"><div class="ciw zere"><img src="zerezes-imgs/grau26_meio_2.jpg" alt="imagem coleção 160325"></div><div class="cm"><div class="cb">zerezes · grau26 · meio de funil</div><div class="ct">imagem_coleção_generico_160325_Grau26</div><div class="cap">spend R$2.622 · CTR 1,23% · copy diferente: "de volta à realidade, 16 modelos"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag funil-m">meio de funil</span><span class="tag cluster">coleção completa</span><span class="tag hook">hook: headline editorial</span><span class="tag angle">ângulo: produto still</span></div></div></div>
+<div class="cc"><div class="ciw zere"><img src="zerezes-imgs/grau26_meio_3.jpg" alt="vídeo coleção 260326"></div><div class="cm"><div class="cb">zerezes · grau26 · meio de funil</div><div class="ct">video_coleção_generico_260326_Grau26</div><div class="cap">spend R$5.197 · CTR 0,21% · primeira rodada de vídeo para prospecção</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag funil-m">meio de funil</span><span class="tag hook">hook: abertura de coleção</span><span class="tag angle">ângulo: catálogo em movimento</span></div></div></div>
+<div class="cc"><div class="ciw zere"><img src="zerezes-imgs/grau26_meio_4.jpg" alt="vídeo coleção 090426"></div><div class="cm"><div class="cb">zerezes · grau26 · meio de funil</div><div class="ct">video_coleção_generico_090426_Grau26 (+ Copy)</div><div class="cap">spend R$2.852 + R$2.139 · CTR ~0,26% · segunda rodada, mesma linguagem</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag funil-m">meio de funil</span><span class="tag hook">hook: abertura de coleção</span><span class="tag angle">ângulo: catálogo em movimento</span></div></div></div>
+</div>
+</div>
+
+<!-- FUNDO -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">iii.</div><div><h3>fundo de funil <span class="mu">:: retargeting e conversão</span></h3></div></div>
+<div class="pr"><p class="w">o catálogo dinâmico de lançamento é a peça mais forte da conta inteira em abril — <strong>maior alcance, maior volume, maior reuso</strong>. faz o trabalho silencioso de fechar vendas. ao lado dele, os mesmos carrosséis genéricos rodam para clientes e clusters comportamentais (ClustieHPB, ClustieLTV, variantes com seed).</p>
+<p class="w"><strong>a oportunidade principal:</strong> os 4 clusters comportamentais de retargeting <em>rodam o mesmo criativo</em>. um cliente de alto valor vê o mesmo que um seed. criar variações por cluster (ex: para HPB, um carrossel com os skus A que <em>aquele cluster</em> mais visualizou) seria o teste natural.</p></div>
+
+<div class="cg">
+<div class="cc"><div class="ciw zere"><img src="zerezes-imgs/grau26_fundo_1.jpg" alt="catálogo dinâmico lançamento"></div><div class="cm"><div class="cb">zerezes · grau26 · fundo de funil</div><div class="ct">catalogo_produto_generico_LançamentoGrau26</div><div class="cap">dinâmico · maior alcance da conta inteira em abril</div><div class="tags"><span class="tag fmt">catálogo dinâmico</span><span class="tag funil-b">fundo de funil</span><span class="tag hook">hook: produto + preço</span><span class="tag angle">ângulo: funcional, sem narrativa</span></div></div></div>
+<div class="cc"><div class="ciw zere"><img src="zerezes-imgs/grau26_fundo_2.jpg" alt="carrossel ClustieHPB"></div><div class="cm"><div class="cb">zerezes · grau26 · fundo de funil</div><div class="ct">carrossel_coleção em ClustieHPB</div><div class="cap">mesmo carrossel 160325, rodando em cluster de alta propensão</div><div class="tags"><span class="tag fmt">carrossel</span><span class="tag funil-b">fundo de funil</span><span class="tag cluster">ClustieHPB</span><span class="tag angle">ângulo: idêntico ao meio</span></div></div></div>
+<div class="cc"><div class="ciw zere"><img src="zerezes-imgs/grau26_fundo_3.jpg" alt="carrossel ClustieLTV"></div><div class="cm"><div class="cb">zerezes · grau26 · fundo de funil</div><div class="ct">carrossel_coleção em ClustieLTV</div><div class="cap">clusters LTV e LTVSEED também rodando o mesmo asset</div><div class="tags"><span class="tag fmt">carrossel</span><span class="tag funil-b">fundo de funil</span><span class="tag cluster">ClustieLTV</span><span class="tag angle">ângulo: idêntico ao meio</span></div></div></div>
+</div>
+</div>
+</section>
+
+
+<!-- 03 HEATMAP DE COBERTURA -->
+<section id="heatmap">
+<div class="sh"><div><div class="sk">cobertura criativa</div><h2>o mapa de buracos <span class="tema">cluster × etapa de funil</span></h2></div><div class="sn">03 ::</div></div>
+<div class="pr"><p class="ld">esta matriz mostra <strong>onde tem criativo e onde tem vazio</strong>. para o studio, é o mapa do que precisa ser produzido. cada célula verde tem cobertura; cada célula vermelha é uma peça que o briefing pede e a mídia ainda não tem.</p></div>
+
+<div class="heatmap">
+<table>
+<thead>
+<tr>
+<th>cluster</th>
+<th>modelos</th>
+<th style="text-align:center">topo<br><span style="font-weight:400;font-size:10px">creators/alcance</span></th>
+<th style="text-align:center">meio<br><span style="font-weight:400;font-size:10px">prospect 97-99</span></th>
+<th style="text-align:center">fundo<br><span style="font-weight:400;font-size:10px">RTG/clientes</span></th>
+<th style="text-align:center">persona<br><span style="font-weight:400;font-size:10px">corte individual</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="cluster-name">Clássico Refinado</td>
+<td class="model-name">Lena · Jig · Quin</td>
+<td class="cell-ok">✓ genérico</td>
+<td class="cell-ok">✓ genérico</td>
+<td class="cell-ok">✓ catálogo</td>
+<td class="cell-gap">ausente</td>
+</tr>
+<tr>
+<td class="cluster-name">Transição</td>
+<td class="model-name">Raf · Bizza · Cid</td>
+<td class="cell-ok">✓ genérico</td>
+<td class="cell-ok">✓ genérico</td>
+<td class="cell-ok">✓ catálogo</td>
+<td class="cell-gap">ausente</td>
+</tr>
+<tr>
+<td class="cluster-name">Releitura</td>
+<td class="model-name">Keí · Dora · Lira</td>
+<td class="cell-partial">parcial</td>
+<td class="cell-ok">✓ genérico</td>
+<td class="cell-ok">✓ catálogo</td>
+<td class="cell-gap">ausente</td>
+</tr>
+<tr>
+<td class="cluster-name">Statement</td>
+<td class="model-name">Lusti</td>
+<td class="cell-gap">ausente</td>
+<td class="cell-partial">parcial</td>
+<td class="cell-ok">✓ catálogo</td>
+<td class="cell-gap">ausente</td>
+</tr>
+<tr>
+<td class="cluster-name">Oversized/Vanguarda</td>
+<td class="model-name">Lori · Cap</td>
+<td class="cell-gap">ausente</td>
+<td class="cell-partial">parcial</td>
+<td class="cell-ok">✓ catálogo</td>
+<td class="cell-gap">ausente</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="pr"><p class="w"><strong>o que o mapa mostra:</strong> o catálogo dinâmico cobre todos os clusters no fundo — isso é saudável. o meio de funil roda carrosséis genéricos que incluem todos os modelos, mas não tratam nenhum cluster como protagonista. o topo existe para os clusters mais comerciais (Clássico Refinado e Transição via creators), mas <strong>Statement e Oversized/Vanguarda simplesmente não têm presença criativa individual em nenhuma etapa</strong>. e a coluna de personas (cortes individuais do filme) está inteiramente vazia.</p>
+<p class="w">em resumo: <strong>o funil funciona de forma horizontal</strong> (tudo genérico) mas não vertical (nenhum cluster tem sua própria jornada). é a principal oportunidade para maio.</p></div>
+</section>
+
+<!-- 04 COLEÇÃO COMPLETA -->
+<section id="colecao">
+<div class="sh"><div><div class="sk">a coleção</div><h2>16 modelos, 16 personagens <span class="tema">cada óculos é batizado pela literatura brasileira</span></h2></div><div class="sn">04 ::</div></div>
+
+<div class="pr"><p class="w">esse é o <strong>gancho criativo mais original da campanha</strong> — e o que ainda não virou criativo em mídia paga. cada óculos carrega um personagem literário, um autor, uma obra. em maio, eles podem virar headlines de ad: <em>"prazer, lena"</em>, <em>"prazer, keí"</em>, <em>"prazer, lusti"</em>.</p></div>
+
+<div class="prodg">
+<div class="prodc"><img src="zerezes-imgs/lena.jpg" alt="Lena"><div class="nm">LENA</div><div class="lv">Helena</div><div class="au">Machado de Assis</div></div>
+<div class="prodc"><img src="zerezes-imgs/jig.jpg" alt="Jig"><div class="nm">JIG</div><div class="lv">Macunaíma</div><div class="au">Mário de Andrade</div></div>
+<div class="prodc"><img src="zerezes-imgs/quin.jpg" alt="Quin"><div class="nm">QUIN</div><div class="lv">Quincas Borba</div><div class="au">Machado de Assis</div></div>
+<div class="prodc"><img src="zerezes-imgs/cid.jpg" alt="Cid"><div class="nm">CID</div><div class="lv">Auto da Compadecida</div><div class="au">Ariano Suassuna</div></div>
+<div class="prodc"><img src="zerezes-imgs/lusti.jpg" alt="Lusti"><div class="nm">LUSTI</div><div class="lv">Torto Arado</div><div class="au">Itamar Vieira Jr</div></div>
+<div class="prodc"><img src="zerezes-imgs/raf.jpg" alt="Raf"><div class="nm">RAF</div><div class="lv">Serafim Ponte Grande</div><div class="au">Oswald de Andrade</div></div>
+<div class="prodc"><img src="zerezes-imgs/bizza.jpg" alt="Bizza"><div class="nm">BIZZA</div><div class="lv">Olhos D'Água</div><div class="au">Conceição Evaristo</div></div>
+<div class="prodc"><img src="zerezes-imgs/dora.jpg" alt="Dora"><div class="nm">DORA</div><div class="lv">A Odisseia</div><div class="au">Itamar Vieira Jr</div></div>
+<div class="prodc"><img src="zerezes-imgs/lira.jpg" alt="Lira"><div class="nm">LIRA</div><div class="lv">Nove Noites</div><div class="au">Bernardo Carvalho</div></div>
+<div class="prodc"><img src="zerezes-imgs/lori.jpg" alt="Lori"><div class="nm">LORI</div><div class="lv">Uma Aprendizagem</div><div class="au">Clarice Lispector</div></div>
+<div class="prodc"><img src="zerezes-imgs/kei.jpg" alt="Keí"><div class="nm">KEÍ</div><div class="lv">Um Defeito de Cor</div><div class="au">Ana Maria Gonçalves</div></div>
+<div class="prodc"><img src="zerezes-imgs/nisi.jpg" alt="Nisi"><div class="nm">NISI</div><div class="lv">Torto Arado</div><div class="au">Itamar Vieira Jr</div></div>
+<div class="prodc"><img src="zerezes-imgs/dina.jpg" alt="Dina"><div class="nm">DINA</div><div class="lv">Capitães de Areia</div><div class="au">Jorge Amado</div></div>
+<div class="prodc"><img src="zerezes-imgs/viv.jpg" alt="Viv"><div class="nm">VIV</div><div class="lv">Viva o Povo Brasileiro</div><div class="au">João Ubaldo Ribeiro</div></div>
+<div class="prodc"><img src="zerezes-imgs/cap.png" alt="Cap"><div class="nm">CAP</div><div class="lv">referência literária</div><div class="au">a confirmar com criação</div></div>
+</div>
+<div class="sn-box" style="margin-top:24px"><span class="slb">nota de consistência</span><p>a copy da estática de melhor performance ("Zerezes Grau 2026 | de volta à realidade. <strong>conheça 16 novos modelos</strong>.") confirma <strong>16 modelos</strong> na coleção. 14 estão mapeados acima com referência literária; <strong>CAP</strong> aparece no heatmap (cluster Oversized/Vanguarda ao lado de LORI) sem autor amarrado; e há <strong>1 modelo ainda não identificado</strong> neste documento — vale alinhar com o time de criação para fechar os 16 antes de virar criativo individual de mídia.</p></div>
+
+<!-- PERSONAS -->
+<h3 style="margin-top:48px">as quatro personas do filme</h3>
+<div class="pr"><p class="w">o briefing desenhou 4 arquétipos, cada um com cluster de produto, personalidade e ângulo. em abril, viveram forte em orgânico, evento e PR. na mídia paga, ainda são oportunidade — <strong>os cortes de 10" do filme hero estão prontos para ir ao ar</strong>.</p></div>
+
+<div class="persg">
+<div class="pers"><div class="role">fashion girlie</div><h4>a ansiosa</h4><div class="mdl">laura lufesi</div><p>o primeiro dia de trabalho com o coração disparado. modelos: keí, dora, nisi, dina, viv. cluster mais fashion-forward.</p></div>
+<div class="pers"><div class="role">minimal vintage</div><h4>o atrasado</h4><div class="mdl">túlio linare</div><p>elevador, espelho, correria. modelos: lena, jig, cid, lira, dina. a volta ao trampo depois do carnaval.</p></div>
+<div class="pers"><div class="role">fashion chique</div><h4>a chefe pró-presencial</h4><div class="mdl">letrux</div><p>referência cultural embutida. modelos: lusti, bizza, keí. a autoridade que decide voltar ao escritório.</p></div>
+<div class="pers"><div class="role">boy zerezes</div><h4>o metódico</h4><div class="mdl">philipp lavra</div><p>clássico com edge. modelos: lena, jig, quin, cid. carrega o cluster de maior volume de venda.</p></div>
+</div>
+</section>
+
+
+<!-- 05 MERCADO EXPANDIDO -->
+<section id="mercado">
+<div class="sh"><div><div class="sk">mercado :: 7 marcas</div><h2>o que cada um está dizendo <span class="tema">2 internacionais + 5 brasil</span></h2></div><div class="sn">05 ::</div></div>
+<div class="pr"><p class="ld">sete marcas de óculos, sete apostas diferentes na primeira quinzena de abril. organizamos por postura criativa: quem está fazendo editorial, quem está vendendo franquia, quem está focado em tech, quem está competindo por preço, quem está fazendo moda urbana. ver todas juntas revela onde está o espaço.</p></div>
+
+<!-- WARBY PARKER -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">i.</div><div><h3>warby parker <span class="mu">:: editorial por modelo individual</span></h3></div></div>
+<div class="pr"><p class="w">cada armação é um personagem: <em>brady</em>, <em>franny</em>, <em>beale</em> — todos ganham seu próprio ad, headline e landing. copy editorial sofisticado ("your glasses can change the way you see the world"). <strong>é, estruturalmente, o que o briefing da grau 26 promete</strong> — tratam cada óculos como protagonista, não como item de catálogo.</p></div>
+
+<div class="cg">
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1469767781466853/69daab6185c4679ee1c68638/9c3c8c24-6efb-4532-a125-8f31d44e04fe.jpg" alt="WP Spring"></div><div class="cm"><div class="cb">warby parker</div><div class="ct">Out now: Spring 2026</div><div class="cap">apresentação da coleção inteira</div><div class="ccp">"our first frames of the year are here — and they feel like a fresh start."</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag funil">awareness</span><span class="tag hook">hook: seasonal launch</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2183848749069786/69daab6285c4679ee1c68680/07813344-6a5e-469a-9307-11b3aceaf1d2.jpg" alt="WP Beale"></div><div class="cm"><div class="cb">warby parker</div><div class="ct">Beale in Cognac Tortoise</div><div class="ccp">"meet your new favorite frame"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag hook">hook: modelo individual</span><span class="tag angle">ângulo: personagem</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2142600313193266/69daab6385c4679ee1c686be/58b98ed5-6e45-4d6e-a9dd-b7702409affc.jpg" alt="WP Brady"></div><div class="cm"><div class="cb">warby parker</div><div class="ct">Brady in Sea Glass Grey</div><div class="ccp">"good things are in sight"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag hook">hook: modelo individual</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1240515098065267/69daab6285c4679ee1c68679/55c02fc9-c8a7-443f-ab64-ea4c98f116f3.jpg" alt="WP Franny"></div><div class="cm"><div class="cb">warby parker</div><div class="ct">Franny in Jet Black</div><div class="ccp">"a new way to wear Franny"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag hook">hook: novo colorway de bestseller</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1625757671997484/69daab6185c4679ee1c68641/1b563f11-6721-440c-815f-3ed47961e40a.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1625757671997484/69daab6185c4679ee1c68641/1833027e-0ac5-4138-a0cf-ab3e1d23fa46.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">warby parker · vídeo</div><div class="ct">Vídeo Franny :: novo colorway</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag hook">hook: visual, sem áudio</span><span class="tag angle">ângulo: lifestyle editorial</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2372775659907592/69daab6185c4679ee1c6864c/d98b86c4-047d-4e81-8e37-2427afdba3c0.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2372775659907592/69daab6185c4679ee1c6864c/5ebd1378-d3fa-4344-9126-74e1deb8a129.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">warby parker · vídeo</div><div class="ct">"Change the way you see the world"</div><div class="cap">headline editorial, não comercial</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag hook">hook: "find your new favorite frame"</span><span class="tag angle">ângulo: manifesto de marca</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1515678836794399/69daab6385c4679ee1c686b7/d37f56da-8971-44ca-a1a3-740ce2809890.jpg" alt="WP Tint"></div><div class="cm"><div class="cb">warby parker</div><div class="ct">Tinted lenses</div><div class="ccp">"just a hint of tint"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: produto adjacente</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1490623429373722/69daab6285c4679ee1c68674/fb377357-4082-4fb6-a97e-43b45cf8f7f7.jpg" alt="WP Quiz"></div><div class="cm"><div class="cb">warby parker</div><div class="ct">Take our style quiz</div><div class="ccp">"a bevy of styles to choose from"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: ferramenta interativa</span></div></div></div>
+</div>
+
+<div class="sn-box"><span class="slb">o que a warby ensina</span><p>ela opera com uma <strong>matriz criativa</strong> — não uma peça só. tem ad de coleção, ad de modelo individual, vídeo conceitual, ad de produto adjacente (lentes tinted), e ferramenta interativa (quiz). cada entrada reforça a outra. a zerezes em grau 26 pode montar o mesmo sistema: peça de coleção + peça "prazer, lena" + filme da persona + quiz de formato de rosto.</p></div>
+</div>
+
+<!-- OAKLEY -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">ii.</div><div><h3>oakley <span class="mu">:: tecnologia como narrativa principal</span></h3></div></div>
+<div class="pr"><p class="w">a oakley em abril está apostando pesado nos <strong>Oakley Meta smart glasses</strong> — óculos com IA, novos colorways. é uma marca que decidiu competir por inovação de produto, não por estética editorial. ao lado disso, linha de golf, Transitions, e customização. <em>é o anti-editorial: pura funcionalidade e tech</em>.</p></div>
+
+<div class="cg">
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/4492988780944509/69d19b5e4dbfa8a40b51b229/0cf14beb-d9ff-46f8-892e-10443a511275.jpg" alt="Oakley Meta Vanguard"></div><div class="cm"><div class="cb">oakley</div><div class="ct">Oakley Meta Vanguard — novos colorways</div><div class="ccp">"new colors. same athletic intelligence."</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag hook">hook: tech + AI</span><span class="tag angle">ângulo: inovação de produto</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/962156339596554/69d19b5e4dbfa8a40b51b228/689c7f0f-44de-470d-b2e8-8f0e8801736b.jpg" alt="Oakley Meta v2"></div><div class="cm"><div class="cb">oakley</div><div class="ct">Meta Vanguard — variação de cor</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag hook">hook: produto em detalhe</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2098776604386716/69d19b5e4dbfa8a40b51b226/aef1dfa5-5394-4e61-8cf5-f41a36905e5d.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2098776604386716/69d19b5e4dbfa8a40b51b226/4bc20414-d6b2-4818-aac6-bc7e04b60315.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">oakley · vídeo</div><div class="ct">Meta HSTN — Performance AI Glasses</div><div class="cap">vídeo de produto focado em smart glasses</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag hook">hook: tech em ação</span><span class="tag angle">ângulo: performance</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2144240079644092/69da0000ca829b117eac803d/4481357c-6f83-411b-9bef-9a74de8ab6fc.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2144240079644092/69da0000ca829b117eac803d/fc2dff8c-9843-4fd8-bb9c-2fc61703f12a.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">oakley · vídeo</div><div class="ct">Oakley Transitions® Lenses</div><div class="ccp">"one pair, all day"</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag hook">hook: funcionalidade</span><span class="tag angle">ângulo: conveniência</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1271284217760051/69cff6c84dbfa8a40b5c33c9/5378f508-bb01-4115-a508-485220ba55f9.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1271284217760051/69cff6c84dbfa8a40b5c33c9/47a1ca5c-92fa-4923-931a-24d8d263d4e6.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">oakley · vídeo</div><div class="ct">Oakley Custom</div><div class="ccp">"see it your way"</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag angle">ângulo: personalização</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/877391028648518/69cff6c84dbfa8a40b5c33c8/c1c1125e-ec26-4fa7-bd97-28724ff13de8.jpg" alt="Oakley Golf"></div><div class="cm"><div class="cb">oakley</div><div class="ct">Golf Collection</div><div class="ccp">"the grind stayed, the game changed."</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: esporte vertical</span></div></div></div>
+</div>
+
+<div class="sn-box"><span class="slb">insight oakley</span><p>a oakley <strong>não compete no mesmo terreno que a zerezes</strong> — compete por funcionalidade e tecnologia. mas os templates visuais dela (produto em detalhe com copy funcional curtíssimo) são uma lição de clareza. e o ângulo de customização ("see it your way") é algo que a zerezes, com seus 45 skus e 5 clusters, poderia traduzir para "encontre o seu grau 26".</p></div>
+</div>
+
+<!-- ACE & TATE -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">iii.</div><div><h3>ace & tate <span class="mu">:: irreverência editorial europeia</span></h3></div></div>
+<div class="pr"><p class="w">a ace & tate é a marca que mais se parece com a zerezes em tom — <strong>irreverente, editorial, jovem, quirky</strong>. em abril, lançou a campanha "90s edit" com headline <em>"get in bed with glasses — glasses so nice you'll take them to bed"</em>. também roda booking de exame de vista com vídeos nativos. é a marca que mais "conversa" com o público da grau 26.</p></div>
+
+<div class="cg">
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1794450158194370/69daadc1836a8f46e3eb8e2f/4ddc7d05-ead7-40f2-991f-786f656159fe.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1794450158194370/69daadc1836a8f46e3eb8e2f/4d502de6-6a78-4321-820e-a77901075573.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">ace & tate · vídeo</div><div class="ct">"Get in bed with glasses" — 90s Edit</div><div class="ccp">"glasses so nice you'll take them to bed"</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag hook">hook: humor + estilo de vida</span><span class="tag angle">ângulo: editorial irreverente</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/759573167092923/69daadc1836a8f46e3eb8e2c/a0262e5a-541c-4b1e-9021-488da3ca47ff.jpg" alt="A&T static"></div><div class="cm"><div class="cb">ace & tate</div><div class="ct">"Get in bed with glasses" — estática</div><div class="cap">variação imagem da mesma campanha</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag hook">hook: visual lifestyle</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1898619400787784/69daadc1836a8f46e3eb8e27/bc67eba9-b52f-417c-bf95-83bc3d2819b0.jpg" alt="A&T UK"></div><div class="cm"><div class="cb">ace & tate · uk</div><div class="ct">"Get in bed with glasses" — UK market</div><div class="cap">mesmo conceito, mercado UK</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: localização geográfica</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/4311478625785824/69daadc1836a8f46e3eb8e36/13de321d-53b2-4976-8f9d-aa898dbb4b9c.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/4311478625785824/69daadc1836a8f46e3eb8e36/c899a7a9-983c-4ba0-8dbc-f5198616172f.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">ace & tate · vídeo</div><div class="ct">"New glasses are here, time to unwind"</div><div class="cap">vídeo de coleção com linguagem relaxada</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag hook">hook: relaxamento + novidade</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1279984934099258/69daadc15f662ed7aa2d933d/a2acf3f6-8b5a-4792-86f4-1dd9d48ca1b5.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1279984934099258/69daadc15f662ed7aa2d933d/5e585806-d2cf-4a8b-a81b-8d11da5a0994.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">ace & tate · vídeo</div><div class="ct">Exame de vista — booking direto</div><div class="cap">CTA de agendamento via vídeo nativo</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag angle">ângulo: serviço + booking</span></div></div></div>
+</div>
+
+<div class="sn-box"><span class="slb">o que a ace & tate ensina</span><p>"get in bed with glasses" é a prova de que copy editorial e humor funcionam lado a lado no feed. é exatamente o tom que o briefing descreve como <em>"quirky-cool bem-humorada e nativa digital"</em>. a ace & tate traduz esse espírito melhor do que qualquer marca no radar — e a zerezes tem uma vantagem: <strong>tem mais território narrativo (literatura, personas, cenário na garcia) do que a ace & tate jamais terá</strong>.</p></div>
+</div>
+
+<!-- FUEL -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">iv.</div><div><h3>fuel <span class="mu">:: referência de posicionamento, não de mídia</span></h3></div></div>
+<div class="pr"><p class="w">a fuel (usefuel.com.br) se posiciona como marca de <strong>óculos personalizado e jovem</strong>, tagline <em>"óculos tão únicos quanto você"</em>. opera por <strong>coleções temáticas com nome</strong> (Street Flow, Burn My Fashion, Retro Wave, Classic Wings, Kinesis, ColorFuel, Born In Rio) e <strong>collabs com clubes/universos</strong> (Flamengo, Four Winds). tom aspiracional urbano: <em>"Acenda seu Estilo"</em>, <em>"Ousamos criar o impossível"</em>.</p>
+<p class="w"><strong>nota importante:</strong> a fuel <strong>não roda mídia paga no Meta</strong> — não tem ads ativos e nunca teve. entra aqui como <em>referência de posicionamento e brand</em>, não como concorrente de mídia. toda a leitura abaixo é sobre o site, não sobre o que ela está dizendo no feed pago.</p></div>
+
+<div class="sn-box"><span class="slb">o que a fuel ensina (e onde conflita)</span><p>a mecânica de <strong>coleções nomeadas</strong> é idêntica à da grau 26 — cada coleção como personagem, não como SKU. é a prova de que funciona no BR (a fuel vende isso há anos). <strong>diferença de tom:</strong> fuel é urbano/aspiracional direto ("acenda seu estilo"); zerezes é editorial/literário ("de volta à realidade"). mesma mecânica, territórios opostos — a zerezes tem mais camada narrativa (literatura + personas + escritório na garcia), a fuel tem mais volume de collabs. <strong>sinal:</strong> para a collab The Simple Gyn (AON Sports), vale estudar como a fuel construiu "Four Winds" e "Born In Rio" — coleções temáticas que viram universo próprio.</p></div>
+</div>
+
+<!-- CHILLI, LIVO, OTICAS CAROL -->
+<div class="cb-block">
+<div class="cbh"><div class="cbn">v.</div><div><h3>o cenário brasileiro <span class="mu">:: chilli · livo · óticas carol</span></h3></div></div>
+<div class="pr"><p class="w">as três grandes do mercado BR de óculos em abril mostram uma paisagem surpreendente: <strong>nenhuma delas está falando de design, autoexpressão ou cultura</strong>. chilli está vendendo franquia. livo está fragmentada entre lentes, esportivo, cupom e franquia. óticas carol compete por lente e preço.</p></div>
+
+<h4 style="margin-top:32px">chilli beans :: 100% franquia</h4>
+<div class="cg">
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1317687840172764/69db62f1d6540a3067ae3123/ddde52e2-1b51-41a2-b55c-267c508fe99e.jpg" alt="Chilli franquia"></div><div class="cm"><div class="cb">chilli beans</div><div class="ct">Seja um Franqueado</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: B2B franquia</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/777323441898612/69db62f1d6540a3067ae311f/238d25ed-671b-4956-b7b7-9344f38df034.jpg" alt="Chilli repasse"></div><div class="cm"><div class="cb">chilli beans</div><div class="ct">Oportunidade de repasse</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: investimento</span></div></div></div>
+</div>
+
+<h4 style="margin-top:32px">livo :: fragmentada em 5 mensagens</h4>
+<div class="cg">
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1852209142132559/69de6517c949388fa9b89006/50471085-4b59-4c78-8a0b-3e3705520488.jpg" alt="Livo Active"></div><div class="cm"><div class="cb">livo</div><div class="ct">LIVO ACTIVE</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: esportivo</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2007536650201516/69de6517c949388fa9b89024/cc74fe23-64fd-4c13-bc20-8d494b0e57e3.jpg" alt="Livo WhatsApp"></div><div class="cm"><div class="cb">livo</div><div class="ct">Exame visual gratuito via WhatsApp</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: serviço + whatsapp</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/4235745169974790/69de6517c949388fa9b88ff3/25013c46-8b29-4a73-af0f-ed64856cc9f9.jpg" alt="Livo cupom"></div><div class="cm"><div class="cb">livo</div><div class="ct">Cupom ABRIL10</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: promoção sazonal</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1278738463645282/69de6517c949388fa9b89014/46257458-5441-4743-8bf7-864aee307f8c.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1278738463645282/69de6517c949388fa9b89014/4da7e46c-a6d6-4956-9889-d9e8d6946c29.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">livo · vídeo</div><div class="ct">Franquia: "a primeira eyetech do brasil"</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag angle">ângulo: B2B franquia</span></div></div></div>
+</div>
+
+<h4 style="margin-top:32px">óticas carol :: lentes e parcelamento</h4>
+<div class="cg">
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/832764833185862/69d9f59ef31a6d0835f8327f/e0fad4cf-11b6-488b-a341-8ad6d4bc4052.jpg" alt="Óticas Carol lentes"></div><div class="cm"><div class="cb">óticas carol</div><div class="ct">MaxClear com Transitions Gen S</div><div class="ccp">"lentes pra você ver o mundo"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: tecnologia de lente</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1288586116541544/69d9f59ef31a6d0835f8327c/6cc5a76f-7b1d-4cf9-9b9e-daa03270ac14.jpg" alt="Óticas Carol filtro azul"></div><div class="cm"><div class="cb">óticas carol</div><div class="ct">MaxClear com AR — filtro azul</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: funcional + preço</span></div></div></div>
+<div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2653792471688357/69d9f59ef31a6d0835f83272/4afc2aa6-fd13-4cab-8609-52a04d454266.jpg" alt="Óticas Carol parcelamento"></div><div class="cm"><div class="cb">óticas carol</div><div class="ct">Parcele em até 10x de R$120</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: preço + parcelamento</span></div></div></div>
+<div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1942827576338400/69d9f59ef31a6d0835f83273/23cbcfbf-1827-423b-868a-084ba0c083bc.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1942827576338400/69d9f59ef31a6d0835f83273/6aeb98e3-5791-4d5d-bbd4-06ae1f04e0d8.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">óticas carol · vídeo</div><div class="ct">Antirreflexo para conforto visual</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag angle">ângulo: benefício funcional</span></div></div></div>
+</div>
+
+<div class="pq">o espaço cultural, editorial e de autoexpressão no mercado BR de óculos está <strong>completamente vago</strong>. chilli fala de franquia, livo fala de lente, carol fala de preço. ninguém está fazendo o que o briefing de grau 26 propõe — e é aí que a zerezes entra.</div>
+</div>
+</section>
+
+
+<!-- 06 PALAVRAS / COPY -->
+<section id="palavras">
+<div class="sh"><div><div class="sk">palavras :: leitura de copy</div><h2>o que cada marca está dizendo <span class="tema">headlines + primary copy em abril 1–15</span></h2></div><div class="sn">06 ::</div></div>
+
+<div class="pr"><p class="ld">criativo não é só imagem — <strong>é voz</strong>. esta seção coloca as copies reais lado a lado. a zerezes está dizendo duas coisas na primeira quinzena; cada concorrente tem uma voz própria. três aprendizados saltam: <em>onde a zerezes está, onde pode economizar palavras e onde pode nomear o que ainda é genérico</em>.</p></div>
+
+<h3 style="margin-top:36px">zerezes :: duas copies rodando</h3>
+<div class="pr"><p class="w">os 6 ads com maior spend da primeira quinzena rodam <strong>apenas duas variações de copy</strong>. uma que concentra o volume e outra, com melhor CTR relativo, que apareceu só na estática. os creators (Rafaela, Rodrigo, Giorgia, MouraJo) entram como <em>effectivePost</em> — sem copy de anúncio, carregam a legenda original deles.</p></div>
+
+<div class="copy-tbl">
+<table>
+<thead><tr><th>copy rodando</th><th>em quantos ads</th><th>spend (R$)</th><th>CTR médio</th><th>leitura</th></tr></thead>
+<tbody>
+<tr><td class="cp">"nova coleção Zerezes ;;) | volte à rotina com nossos modelos de grau ::)"</td><td>5 ads</td><td>~21.850</td><td>0,4%</td><td>copy "rotina" — genérica, serve de guarda-chuva, não diz nada sobre a coleção em si</td></tr>
+<tr><td class="cp hl">"Zerezes Grau 2026 | de volta à realidade. conheça 16 novos modelos."</td><td>1 ad (estática)</td><td>~2.620</td><td><strong>1,23%</strong></td><td>3× o CTR da anterior — <strong>"de volta à realidade" + número concreto</strong> vende melhor que "volte à rotina"</td></tr>
+<tr><td class="cp">(sem copy — effectivePost dos creators)</td><td>5 ads</td><td>~2.170</td><td>0,05–0,08%</td><td>topo de funil objetivo alcance — CTR baixo esperado, mas vale testar boost com copy própria</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="sn-box"><span class="slb">sinal de copy</span><p>a copy com melhor CTR (<strong>1,23%</strong>) traz três elementos que a outra não tem: <strong>um ângulo</strong> ("de volta à realidade"), <strong>um número</strong> ("16 modelos") e <strong>uma promessa de novidade</strong> ("conheça"). é exatamente o que a warby parker faz ("our first frames of the year are here"): ângulo + novidade + ação. em maio, vale promover essa copy para os carrosséis e vídeos também.</p></div>
+
+<h3 style="margin-top:48px">mercado :: voz por marca</h3>
+<div class="copy-tbl">
+<table>
+<thead><tr><th>marca</th><th>headline que mais roda</th><th>tom</th><th>aprendizado aplicável</th></tr></thead>
+<tbody>
+<tr><td class="mk">warby parker</td><td>"Meet your new favorite frame" · "Good things are in sight" · "A new way to wear Franny"</td><td>editorial + promessa pessoal</td><td><strong>nome próprio no headline</strong> (Franny, Beale, Brady). zerezes pode copiar a mecânica: "a new way to wear <em>lena</em>", "meet <em>keí</em>"</td></tr>
+<tr><td class="mk">ace & tate</td><td>"Get in bed with glasses" · "glasses so nice you'll take them to bed"</td><td>humor + lifestyle</td><td>copy <strong>curta, irreverente, sem jargão</strong>. uma ideia por peça. zerezes tem espaço pra brincar — "prazer, lena" já está nesse tom</td></tr>
+<tr><td class="mk">oakley</td><td>"New colors. Same athletic intelligence." · "One pair, all day"</td><td>técnico + direto</td><td>estrutura <strong>frase-curta + ponto final</strong>. funciona pra produto com benefício claro (novas cores bestseller pode usar)</td></tr>
+<tr><td class="mk">fuel</td><td>"Óculos tão únicos quanto você" · "Acenda seu Estilo" · "Ousamos criar o impossível"</td><td>aspiracional urbano</td><td><strong>coleções com nome</strong> (Street Flow, Born In Rio, Four Winds) — mesma mecânica da grau 26, em território oposto. vale olhar quando desenhar a collab Simple Gyn</td></tr>
+<tr><td class="mk">chilli beans</td><td>"Seja um Franqueado" · "Oportunidade de repasse"</td><td>B2B comercial</td><td>não serve como referência — fora do território da zerezes</td></tr>
+<tr><td class="mk">livo</td><td>"LIVO ACTIVE" · "Cupom ABRIL10" · "A primeira eyetech do Brasil"</td><td>fragmentada — 5 vozes</td><td>anti-exemplo: zerezes já aprendeu a não fazer isso. 1 campanha = 1 voz</td></tr>
+<tr><td class="mk">óticas carol</td><td>"Lentes pra você ver o mundo" · "MaxClear com AR"</td><td>funcional + preço</td><td>headline com <strong>verbo-desejo</strong> ("ver o mundo") é pegável. zerezes pode usar algo como "ver de novo" ligando à big idea</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pq">a zerezes tem <strong>voz</strong>, mas está economizando ela no feed pago. "de volta à realidade" performou 3× melhor que "volte à rotina" — é o dado dizendo onde a voz quer morar.</div>
+
+<h3 style="margin-top:48px">boas práticas meta ads :: aplicadas ao contexto</h3>
+<div class="pr"><p class="w">a partir da <a href="https://www.facebook.com/business/ads-guide/update" style="color:var(--laranja);text-decoration:underline">ads-guide da meta</a> + aprendizados do mercado observado, 7 pontos concretos para o studio considerar:</p></div>
+
+<div class="bp-grid">
+<div class="bp"><div class="bpn">01</div><div class="bpb"><strong>hook nos primeiros 3 segundos</strong><span>a meta documenta que 65% da decisão de ver ou scrollar acontece nos 3 primeiros segundos. no vídeo de coleção genérico da zerezes, o primeiro frame é produto estático — vale entrar com rosto de creator ou movimento antes do catálogo.</span></div></div>
+<div class="bp"><div class="bpn">02</div><div class="bpb"><strong>proporção 4:5 para feed, 9:16 para stories/reels</strong><span>4:5 ocupa mais real estate no feed que 1:1. warby, ace&tate e oakley rodam 4:5 como padrão. zerezes ainda tem ads 1:1 no feed — migrar para 4:5 é ganho de atenção sem custo criativo novo.</span></div></div>
+<div class="bp"><div class="bpn">03</div><div class="bpb'"><strong>headline com no máximo 40 caracteres</strong><span>headline corta além de 40 caracteres no mobile. "Zerezes Grau 2026 | de volta à realidade. conheça 16 novos modelos." tem 66 caracteres — o ";" corta em "de volta à realidade" que felizmente é o gancho.</span></div></div>
+<div class="bp"><div class="bpn">04</div><div class="bpb"><strong>texto primário com frase-chave no início</strong><span>ordem importa. "nova coleção Zerezes ;;) | volte à rotina" coloca o chamariz ("nova coleção") primeiro — bom. evitar abrir com ";;)" ou emoji isolado.</span></div></div>
+<div class="bp"><div class="bpn">05</div><div class="bpb"><strong>diversidade criativa genuína (Andrómeda)</strong><span>o algoritmo da meta distribui melhor com diversidade real de criativos, não variações micro. os 11 ads grau26 têm <em>5 variações visuais</em>, mas apenas <em>2 copies</em>. produzir 3–4 copies novas em maio dá à IA da meta mais ângulos para explorar.</span></div></div>
+<div class="bp"><div class="bpn">06</div><div class="bpb"><strong>CTA coerente com a etapa do funil</strong><span>"Saiba mais" para topo, "Comprar agora" para fundo. hoje todos os ads grau26 rodam "Saiba mais" (pelo landing zerezes.com.br/pages/colecao-grau-2026). no fundo de funil vale testar "Comprar agora" direto.</span></div></div>
+<div class="bp"><div class="bpn">07</div><div class="bpb"><strong>legibilidade mobile-first</strong><span>texto sobre imagem precisa aguentar tela de 5″. o banner óticas carol ("LENTE MAIS FINA E RESISTENTE") funciona. o padrão zerezes é ter texto só na copy — ok, mas vale testar 1 headline editorial sobre o próprio KV ("de volta à realidade").</span></div></div>
+</div>
+</section>
+
+<!-- 07 ANATOMIA DE UM AD -->
+<section id="anatomia">
+<div class="sh"><div><div class="sk">manual para o studio</div><h2>anatomia de um ad grau 26 <span class="tema">referência visual para criação de variações</span></h2></div><div class="sn">07 ::</div></div>
+
+<div class="pr"><p class="ld">esta seção funciona como um <strong>guia rápido para o studio</strong>. cada ad da grau 26 pode seguir essa estrutura — e qualquer variação (modelo individual, persona, cluster) se encaixa nessa anatomia.</p></div>
+
+<div class="wireframe" aria-label="wireframe das zonas do ad">
+<div class="wf-canvas" role="img" aria-label="canvas 4:5 com 5 zonas demarcadas">
+<div class="wf-zone z1">01 · hook visual</div>
+<div class="wf-zone z2">02 · zona de produto</div>
+<div class="wf-zone z3">03 · copy editorial</div>
+<div class="wf-zone z4">04 · preço/CTA</div>
+<div class="wf-zone z5">05 · assinatura</div>
+</div>
+<div class="wf-legend">
+<div class="wfl"><div class="wfl-n">01</div><div class="wfl-b"><strong>hook visual — topo do frame</strong><span>nos 3 primeiros segundos (vídeo) ou faixa superior (estática). rosto de creator, abertura de coleção ou headline editorial em movimento.</span></div></div>
+<div class="wfl"><div class="wfl-n">02</div><div class="wfl-b"><strong>zona de produto — centro</strong><span>óculos em ângulo 3/4, fundo creme ou escritório garcia, sem texto sobreposto. ocupa ~35% do frame.</span></div></div>
+<div class="wfl"><div class="wfl-n">03</div><div class="wfl-b'"><strong>copy editorial — terço inferior</strong><span>headline em DM Sans + nome do modelo em DM Serif Display itálico laranja. "prazer, lena" ou "de volta à vida real".</span></div></div>
+<div class="wfl"><div class="wfl-n">04</div><div class="wfl-b"><strong>preço/CTA — canto esquerdo inferior</strong><span>"a partir de R$595" + CTA funcional curto. nunca protagonista.</span></div></div>
+<div class="wfl"><div class="wfl-n">05</div><div class="wfl-b"><strong>assinatura — canto direito inferior</strong><span>;;) discreto. em vídeo, últimos 2 segundos.</span></div></div>
+</div>
+</div>
+
+<div class="anatomy">
+<h3 style="font-size:22px">zonas de um ad grau 26</h3>
+<div class="zone"><div class="zn">01 :: hook visual</div><div class="zd"><strong>os primeiros 3 segundos do vídeo ou a zona dominante da imagem.</strong> no topo de funil, o hook é rosto real + produto (creators). no meio, é vitrine de coleção. no fundo, é produto individual com preço. a warby ensina: "meet your new favorite frame" em 5 segundos — hook falado direto ao ponto. a ace & tate: "get in bed with glasses" — humor como hook editorial.</div></div>
+<div class="zone"><div class="zn">02 :: zona de produto</div><div class="zd"><strong>o óculos precisa aparecer com clareza, nitidez e respiro.</strong> fundo bege/creme (#EDE9E1) ou fundo de cenário (escritório garcia). produto photographado em ângulo frontal 3/4, com luz natural. nunca sobrepor texto sobre o produto.</div></div>
+<div class="zone"><div class="zn">03 :: zona de copy editorial</div><div class="zd"><strong>headline em DM Sans bold, minúsculas, preto.</strong> nome do modelo em DM Serif Display, itálica, cor laranja (#D65B2F). padrão: "prazer, <em>lena</em>" ou "de volta à vida real". copy de suporte em uma linha: o autor literário ("helena — machado de assis") ou a big idea.</div></div>
+<div class="zone"><div class="zn">04 :: zona de preço/CTA</div><div class="zd"><strong>preço em corpo discreto, nunca protagonista.</strong> a partir de R$595. CTA funcional sem excesso: "conheça" ou "veja mais". a assinatura <em>;;)</em> pode fechar a peça em ads de branding.</div></div>
+<div class="zone"><div class="zn">05 :: assinatura</div><div class="zd"><strong>logo zerezes discreto, sem competir com o produto.</strong> em vídeos, entrar nos últimos 2 segundos. em estáticas, canto inferior. nunca usar logo grande como protagonista — o produto é o protagonista.</div></div>
+<div class="zone"><div class="zn">06 :: tags obrigatórias por etapa</div><div class="zd"><strong>topo:</strong> formato vídeo, rosto de creator, modelo do óculos identificado, hook em 3s. <strong>meio:</strong> carrossel ou vídeo de coleção, headline editorial, pelo menos 3 modelos. <strong>fundo:</strong> catálogo dinâmico ou carrossel, preço visível, nome do modelo em serifa, CTA direto.</div></div>
+</div>
+</section>
+
+<!-- 07 APOSTAS -->
+<section id="apostas">
+<div class="sh"><div><div class="sk">olhando pra frente</div><h2>sete apostas para maio <span class="tema">todas executáveis com material que já existe</span></h2></div><div class="sn">08 ::</div></div>
+
+<div class="pr"><p class="ld">a segunda quinzena de abril e maio são o espaço de aprofundar a camada editorial da grau 26 sem perder força comercial — e de plugar nesse sistema duas ativações menores que entram logo: a collab <em>The Simple Gyn</em> (AON Sports) e as novas cores dos clássicos. sete apostas que aproveitam material já produzido:</p></div>
+
+<div class="el">
+<div class="it"><div class="itn">01</div><div class="itb"><h4>cortes individuais das 4 personas</h4><p>recortar o filme hero em 4 criativos de 10" — um por persona. <span class="pn">laura</span> em fashion girlie, <span class="pn">túlio</span> em minimal vintage, <span class="pn">letrux</span> em fashion chique, <span class="pn">philipp</span> em boy zerezes. material já existe no pacote de produção — é decisão de edição e segmentação.</p></div></div>
+<div class="it"><div class="itn">02</div><div class="itb"><h4>a série "prazer, —"</h4><p>transformar o KV finalizado em uma série de peças estáticas: <em>prazer, lena</em> · <em>prazer, keí</em> · <em>prazer, lusti</em> · <em>prazer, jig</em>. cada uma apresenta um óculos como personagem — nome em itálico laranja, livro em corpo pequeno, autor em linha fina. é o KV virando campanha.</p>
+
+<div class="prazer-mock" aria-label="mockup conceitual da série prazer">
+<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/lena.jpg" alt="Lena" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<br><em>lena</em></div><div class="pc-meta">helena · machado de assis</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
+<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/kei.jpg" alt="Keí" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<br><em>keí</em></div><div class="pc-meta">um defeito de cor · ana maria gonçalves</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
+<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/lusti.jpg" alt="Lusti" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<br><em>lusti</em></div><div class="pc-meta">torto arado · itamar vieira jr</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
+</div>
+<p style="font-size:12.5px;color:var(--cinza);font-style:italic;margin-top:8px">mockup conceitual montado com CSS sobre os assets existentes — serve como referência visual para o studio. produção final fica com direção de arte.</p>
+</div></div>
+<div class="it"><div class="itn">03</div><div class="itb"><h4>catálogo dinâmico editorial</h4><p>manter o catálogo atual rodando (cavalo de batalha). rodar em paralelo um catálogo editorial com o template adaptado: nome do modelo em serifa itálica, autor literário em pequeno, preço, link. mesma mecânica, nova pele. teste A/B natural.</p></div></div>
+<div class="it"><div class="itn">04</div><div class="itb"><h4>funil completo com Rafaela</h4><p>escolher Rafaela Amorim (maior spend topo + cluster fashion girlie = conversa com laura lufesi). construir: vídeo de alcance (já existe) → carrossel com rafaela usando <span class="pn">lena</span> → catálogo dinâmico para quem viu o vídeo. teste controlado com um creator antes de escalar.</p></div></div>
+<div class="it"><div class="itn">05</div><div class="itb"><h4>diferenciar criativos por cluster de RTG</h4><p>hoje ClustieHPB, ClustieLTV e variantes seed rodam o mesmo carrossel. criar pelo menos 2 variações: uma com SKUs A do cluster (LENA/JIG/QUIN para boy zerezes + minimal vintage) e outra com os modelos mais fashion (LUSTI/KEÍ/LORI). cluster diferente, criativo diferente.</p></div></div>
+<div class="it"><div class="itn">06</div><div class="itb"><h4>ativação do dia do livro (maio/junho)</h4><p>grau 26 é batizada pela literatura brasileira — o gancho é atemporal. parceria travessa: carrossel "lena + helena", "jig + macunaíma", "keí + um defeito de cor". cada peça apresenta o óculos ao lado do livro. ativa dois territórios com um conteúdo só.</p></div></div>
+<div class="it"><div class="itn">07</div><div class="itb"><h4>cobrir os clusters Statement e Oversized</h4><p>o heatmap mostrou que LUSTI (Statement) e LORI/CAP (Oversized/Vanguarda) não têm presença criativa individual em nenhuma etapa do funil. são os modelos mais fashion-forward da coleção — os que mais precisam de um "prazer, lusti" para comunicar seu diferencial.</p></div></div>
+</div>
+</section>
+
+<!-- 08 CHECKLIST -->
+<section id="checklist">
+<div class="sh"><div><div class="sk">anexo :: studio</div><h2>checklist executável <span class="tema">o que produzir em maio</span></h2></div><div class="sn">09 ::</div></div>
+
+<div class="pr"><p class="ld">lista concreta para o studio — cada item com formato, responsável sugerido e prioridade. pode ser impressa ou copiada como briefing.</p></div>
+
+<div class="checklist">
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">4× cortes de 10" do filme hero (uma por persona)</div><div class="ck-desc">Recortar Laura/Túlio/Letrux/Philipp do filme existente. Entregar em 9:16 e 1:1. Cada corte com packshot final do óculos + nome em serifa.</div><div class="ck-who">edição de vídeo · prioridade alta</div></div></div>
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">5× estáticas "prazer, —" (SKUs A da coleção)</div><div class="ck-desc">Template: fundo creme, óculos fotografado, "prazer, lena" em DM Serif Display itálica laranja, livro e autor em corpo pequeno, preço em linha fina. 5 peças: lena, jig, lusti, keí, quin.</div><div class="ck-who">design estático · prioridade alta</div></div></div>
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">1× template de catálogo dinâmico editorial</div><div class="ck-desc">Template para Meta: nome do modelo em serifa itálica, autor em corpo 10px, preço, fundo creme, assinatura ;;). Aplicar no catálogo de produto do feed.</div><div class="ck-who">design + mídia · prioridade alta</div></div></div>
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">1× carrossel Rafaela + Lena (meio de funil)</div><div class="ck-desc">3-5 cards: Rafaela usando LENA em contextos diferentes (escritório, rua, café). Card final com preço + link. Serve como "ponte" entre o vídeo dela no topo e o catálogo no fundo.</div><div class="ck-who">design + foto (se existir no banco de imagens) · prioridade média</div></div></div>
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">2× carrosséis segmentados por cluster RTG</div><div class="ck-desc">Variação 1: SKUs A boy zerezes + minimal vintage (LENA/JIG/QUIN/CID). Variação 2: SKUs fashion-forward (LUSTI/KEÍ/LORI). Mesmo template, seleção de produto diferente.</div><div class="ck-who">design · prioridade média</div></div></div>
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">3× peças "óculos + livro" para parceria Travessa</div><div class="ck-desc">Layout: foto do óculos ao lado da capa do livro correspondente. "lena + helena (machado de assis)". Formato carrossel para social + mídia paga.</div><div class="ck-who">design + direção de arte · prioridade média-baixa (timing: dia do livro)</div></div></div>
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">coleta das copies reais dos ads Grau26 (entrada de dados)</div><div class="ck-desc">Extrair do Motion/Meta Ads Library as copies e headlines vigentes dos ads Grau26 em abril — hoje o report cita copy dos concorrentes mas não dos próprios ads. Base para próxima leitura criativa comparar voz zerezes × voz mercado de forma simétrica.</div><div class="ck-who">mídia · prioridade alta (input para v5)</div></div></div>
+<div class="ck-item"><div class="ck-box"></div><div><div class="ck-title">2× estáticas LUSTI e LORI (cobertura dos clusters descobertos)</div><div class="ck-desc">Os dois modelos mais statement da coleção não têm peça individual. Criar no template "prazer, —". LUSTI = Torto Arado, Itamar Vieira Jr. LORI = Uma Aprendizagem, Clarice Lispector.</div><div class="ck-who">design · prioridade alta (fechar buraco do heatmap)</div></div></div>
+</div>
+</section>
+
+<!-- 09 OUTRAS FRENTES -->
+<section id="outras-frentes">
+<div class="sh"><div><div class="sk">fora do recorte principal</div><h2>outras frentes da conta em abril <span class="tema">o que roda em paralelo à grau 26</span></h2></div><div class="sn">10 ::</div></div>
+
+<div class="pr"><p class="ld">grau 26 concentra o foco desta leitura — mas <strong>não é a conta inteira</strong>. em abril a zerezes também teve no ar AON Solar, AON Sports, clássicos e as collabs MASP e FARM. e entram no fim do mês duas ativações novas (<strong>entrantes</strong>, marcadas abaixo): collab <em>The Simple Gyn</em> e <em>clássicos em novas cores</em>. este bloco é um registro curto: o que existe, onde aparece oportunidade, e o que merece ser aprofundado numa próxima rodada.</p></div>
+
+<div class="rg">
+<div class="rc"><div class="rl">solar</div><h4>AON Solar</h4><p>a linha solar roda em paralelo com presença menor no spend. oportunidade: posicionar o solar como <em>extensão da mesma autoria</em> da grau 26 (nomes, personas, escritório garcia) em vez de linha à parte. evita fragmentar a narrativa.</p></div>
+<div class="rc"><div class="rl">esporte</div><h4>AON Sports</h4><p>terreno onde oakley e livo brigam com força. vantagem zerezes: ninguém no BR está fazendo esporte com olhar editorial. território aberto — mas exige produção própria e decisão de quanto investir versus grau 26 como prioridade.</p></div>
+<div class="rc"><div class="rl">catálogo base</div><h4>clássicos</h4><p>sustentam volume de venda sem exigir produção nova. rodam bem em catálogo dinâmico e retargeting. risco: se clássicos canibalizam atenção de grau 26 no mesmo público, vale separar públicos ou alternar janelas.</p></div>
+<div class="rc ent"><div class="rl">próxima ativação · sports <span class="ent-tag">entrante</span></div><h4>collab The Simple Gyn</h4><p>collab pequena no virar do mês (fim abr → início mai) dentro da família <strong>AON Sports</strong>. recomendação editorial: emprestar o raciocínio grau 26 — tratar a collab como <em>capítulo nomeado</em>, não como "edição especial". mesmo vocabulário (personagem, autoria), outro território (movimento, corpo). usar os aprendizados de creators da grau 26 como base: rosto real + produto em contexto.</p></div>
+<div class="rc ent"><div class="rl">próxima ativação · clássicos <span class="ent-tag">entrante</span></div><h4>clássicos :: novas cores</h4><p>pequena campanha virando o mês para as novas cores dos clássicos. aprendizado do mercado que se aplica direto: <em>warby parker</em> trata "novo colorway" como <strong>micro-evento</strong> (ad dedicado, headline "a new way to wear [modelo]"). template limpo: mesmo modelo já conhecido + card de cor nova + nome. reusa goodwill do clássico sem diluir grau 26.</p></div>
+<div class="rc hl"><div class="rl">collabs</div><h4>MASP & FARM</h4><p>os dois territórios mais ricos editorialmente depois da grau 26 — cultura (MASP) e moda brasileira (FARM). subutilizados na mídia paga. cada um merece seu próprio recorte de leitura criativa. potencial alto para topo de funil.</p></div>
+</div>
+
+<div class="sn-box"><span class="slb">próxima rodada</span><p>recomendação: fazer uma leitura criativa dedicada a <strong>collabs (MASP + FARM)</strong> antes da próxima ativação grande, e uma separada para <strong>AON Sports</strong> se houver decisão de investir mais no vertical. Solar e clássicos podem ser cobertos em seções menores dentro da leitura mensal.</p></div>
+</section>
+
+<!-- FECHO -->
+<div class="closing">
+<div class="pr"><p class="ld">grau 26 chegou ao feed como coleção — e está funcionando bem como coleção. o mercado está aberto, o material está produzido, os personagens estão prontos. maio é a chance de colocar no ar não só uma coleção, mas o romance inteiro — com nome, rosto e autor.</p></div>
+<div class="sig">;;)</div>
+</div>
+</div>
+
+<div class="footer-meta">
+<span>zerezes · marketing · mídia</span>
+<span>leitura criativa :: abril 2026 (1–15) · v4</span>
+<span>time de criação & comunicação + studio</span>
+</div>
+<script>
+(function(){
+var CDN='https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/';
+var ZRZ='zerezes-imgs/';
+var map={
+// Zerezes product shots (fornecidos pelo usuário em /zerezes-imgs/)
+'imgs/lena.jpg':ZRZ+'lena.jpg',
+'imgs/jig.jpg':ZRZ+'jig.jpg',
+'imgs/quin.jpg':ZRZ+'quin.jpg',
+'imgs/cid.jpg':ZRZ+'cid.jpg',
+'imgs/lusti.jpg':ZRZ+'lusti.jpg',
+'imgs/raf.jpg':ZRZ+'raf.jpg',
+'imgs/bizza.jpg':ZRZ+'bizza.jpg',
+'imgs/dora.jpg':ZRZ+'dora.jpg',
+'imgs/lira.jpg':ZRZ+'lira.jpg',
+'imgs/lori.jpg':ZRZ+'lori.jpg',
+'imgs/kei.jpg':ZRZ+'kei.jpg',
+'imgs/nisi.jpg':ZRZ+'nisi.jpg',
+'imgs/dina.jpg':ZRZ+'dina.jpg',
+'imgs/viv.jpg':ZRZ+'viv.jpg',
+'imgs/fullbanner.jpg':ZRZ+'banner-kv-desk.jpg',
+'imgs/banner_coleção.jpg':ZRZ+'banner-colecao.jpg',
+'imgs/banner_grau.jpg':ZRZ+'banner-grau.jpg',
+'imgs/wp_spring.jpg':CDN+'1469767781466853/69daab6185c4679ee1c68638/9c3c8c24-6efb-4532-a125-8f31d44e04fe.jpg',
+'imgs/wp_beale.jpg':CDN+'2183848749069786/69daab6285c4679ee1c68680/07813344-6a5e-469a-9307-11b3aceaf1d2.jpg',
+'imgs/wp_brady.jpg':CDN+'2142600313193266/69daab6385c4679ee1c686be/58b98ed5-6e45-4d6e-a9dd-b7702409affc.jpg',
+'imgs/wp_franny.jpg':CDN+'1240515098065267/69daab6285c4679ee1c68679/55c02fc9-c8a7-443f-ab64-ea4c98f116f3.jpg',
+'imgs/wp_video_franny.mp4':CDN+'1625757671997484/69daab6185c4679ee1c68641/1b563f11-6721-440c-815f-3ed47961e40a.mp4',
+'imgs/wp_video_franny_thumb.jpg':CDN+'1625757671997484/69daab6185c4679ee1c68641/1833027e-0ac5-4138-a0cf-ab3e1d23fa46.jpg',
+'imgs/wp_world_video.mp4':CDN+'2372775659907592/69daab6185c4679ee1c6864c/d98b86c4-047d-4e81-8e37-2427afdba3c0.mp4',
+'imgs/wp_world_video_thumb.jpg':CDN+'2372775659907592/69daab6185c4679ee1c6864c/5ebd1378-d3fa-4344-9126-74e1deb8a129.jpg',
+'imgs/wp_tint.jpg':CDN+'1515678836794399/69daab6385c4679ee1c686b7/d37f56da-8971-44ca-a1a3-740ce2809890.jpg',
+'imgs/wp_quiz.jpg':CDN+'1490623429373722/69daab6285c4679ee1c68674/fb377357-4082-4fb6-a97e-43b45cf8f7f7.jpg',
+'imgs/oakley_meta_vanguard1.jpg':CDN+'4492988780944509/69d19b5e4dbfa8a40b51b229/0cf14beb-d9ff-46f8-892e-10443a511275.jpg',
+'imgs/oakley_meta_vanguard2.jpg':CDN+'962156339596554/69d19b5e4dbfa8a40b51b228/689c7f0f-44de-470d-b2e8-8f0e8801736b.jpg',
+'imgs/oakley_meta_hstn.mp4':CDN+'2098776604386716/69d19b5e4dbfa8a40b51b226/aef1dfa5-5394-4e61-8cf5-f41a36905e5d.mp4',
+'imgs/oakley_meta_hstn_thumb.jpg':CDN+'2098776604386716/69d19b5e4dbfa8a40b51b226/4bc20414-d6b2-4818-aac6-bc7e04b60315.jpg',
+'imgs/oakley_transitions.mp4':CDN+'2144240079644092/69da0000ca829b117eac803d/4481357c-6f83-411b-9bef-9a74de8ab6fc.mp4',
+'imgs/oakley_transitions_thumb.jpg':CDN+'2144240079644092/69da0000ca829b117eac803d/fc2dff8c-9843-4fd8-bb9c-2fc61703f12a.jpg',
+'imgs/oakley_custom.mp4':CDN+'1271284217760051/69cff6c84dbfa8a40b5c33c9/5378f508-bb01-4115-a508-485220ba55f9.mp4',
+'imgs/oakley_custom_thumb.jpg':CDN+'1271284217760051/69cff6c84dbfa8a40b5c33c9/47a1ca5c-92fa-4923-931a-24d8d263d4e6.jpg',
+'imgs/oakley_golf.jpg':CDN+'877391028648518/69cff6c84dbfa8a40b5c33c8/c1c1125e-ec26-4fa7-bd97-28724ff13de8.jpg',
+'imgs/aceandtate_bed.mp4':CDN+'1794450158194370/69daadc1836a8f46e3eb8e2f/4ddc7d05-ead7-40f2-991f-786f656159fe.mp4',
+'imgs/aceandtate_bed_thumb.jpg':CDN+'1794450158194370/69daadc1836a8f46e3eb8e2f/4d502de6-6a78-4321-820e-a77901075573.jpg',
+'imgs/aceandtate_bed_static.jpg':CDN+'759573167092923/69daadc1836a8f46e3eb8e2c/a0262e5a-541c-4b1e-9021-488da3ca47ff.jpg',
+'imgs/aceandtate_bed_uk.jpg':CDN+'1898619400787784/69daadc1836a8f46e3eb8e27/bc67eba9-b52f-417c-bf95-83bc3d2819b0.jpg',
+'imgs/aceandtate_unwind.mp4':CDN+'4311478625785824/69daadc1836a8f46e3eb8e36/13de321d-53b2-4976-8f9d-aa898dbb4b9c.mp4',
+'imgs/aceandtate_unwind_thumb.jpg':CDN+'4311478625785824/69daadc1836a8f46e3eb8e36/c899a7a9-983c-4ba0-8dbc-f5198616172f.jpg',
+'imgs/aceandtate_eye_brussels.mp4':CDN+'1279984934099258/69daadc15f662ed7aa2d933d/a2acf3f6-8b5a-4792-86f4-1dd9d48ca1b5.mp4',
+'imgs/aceandtate_eye_brussels_thumb.jpg':CDN+'1279984934099258/69daadc15f662ed7aa2d933d/5e585806-d2cf-4a8b-a81b-8d11da5a0994.jpg',
+'imgs/chilli_franquia1.jpg':CDN+'1317687840172764/69db62f1d6540a3067ae3123/ddde52e2-1b51-41a2-b55c-267c508fe99e.jpg',
+'imgs/chilli_repasse.jpg':CDN+'777323441898612/69db62f1d6540a3067ae311f/238d25ed-671b-4956-b7b7-9344f38df034.jpg',
+'imgs/livo_active.jpg':CDN+'1852209142132559/69de6517c949388fa9b89006/50471085-4b59-4c78-8a0b-3e3705520488.jpg',
+'imgs/livo_whatsapp.jpg':CDN+'2007536650201516/69de6517c949388fa9b89024/cc74fe23-64fd-4c13-bc20-8d494b0e57e3.jpg',
+'imgs/livo_cupom.jpg':CDN+'4235745169974790/69de6517c949388fa9b88ff3/25013c46-8b29-4a73-af0f-ed64856cc9f9.jpg',
+'imgs/livo_franquia_video.mp4':CDN+'1278738463645282/69de6517c949388fa9b89014/46257458-5441-4743-8bf7-864aee307f8c.mp4',
+'imgs/livo_franquia_thumb.jpg':CDN+'1278738463645282/69de6517c949388fa9b89014/4da7e46c-a6d6-4956-9889-d9e8d6946c29.jpg',
+'imgs/oticas_lentes_kv.jpg':CDN+'832764833185862/69d9f59ef31a6d0835f8327f/e0fad4cf-11b6-488b-a341-8ad6d4bc4052.jpg',
+'imgs/oticas_filtroazul.jpg':CDN+'1288586116541544/69d9f59ef31a6d0835f8327c/6cc5a76f-7b1d-4cf9-9b9e-daa03270ac14.jpg',
+'imgs/oticas_parcelamento.jpg':CDN+'2653792471688357/69d9f59ef31a6d0835f83272/4afc2aa6-fd13-4cab-8609-52a04d454266.jpg',
+'imgs/oticas_video.mp4':CDN+'1942827576338400/69d9f59ef31a6d0835f83273/23cbcfbf-1827-423b-868a-084ba0c083bc.mp4',
+'imgs/oticas_video_thumb.jpg':CDN+'1942827576338400/69d9f59ef31a6d0835f83273/6aeb98e3-5791-4d5d-bbd4-06ae1f04e0d8.jpg',
+// Zerezes — thumbnails reais dos ads Grau26 (Motion, 1–15 abril 2026). Apenas funil/hero — NÃO usar nos cards individuais da coleção (são product shots, não ad thumbs).
+'imgs/banner_coleção.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c08/thumbnail/32805bd5-4016-43e9-9fd3-b7423367aa65.jpg',
+'imgs/banner_grau.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c02/thumbnail/6386cb88-1ed1-4c09-870f-56b886e2681f.jpg',
+'imgs/fullbanner.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c15/thumbnail/8c06f694-fee2-4f43-9bf2-8df963991d75.jpg',
+'imgs/carrossel_160325.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c15/thumbnail/8c06f694-fee2-4f43-9bf2-8df963991d75.jpg',
+'imgs/imagem_160325.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c10/thumbnail/983dfc22-e7c4-43cd-bc5f-50979b0ff669.jpg',
+'imgs/video_260326.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c09/thumbnail/8b5a9d0a-b02e-46f9-a298-6e969bf07048.jpg',
+'imgs/video_090426.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c29/thumbnail/d5461eac-4fc3-4305-93a9-551af1ddabce.jpg',
+'imgs/video_090426_copy.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c34/thumbnail/53e3c885-2e42-4d8a-97b7-b7e28d58db5c.jpg',
+'imgs/rodrigobez.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c02/thumbnail/6386cb88-1ed1-4c09-870f-56b886e2681f.jpg',
+'imgs/rafaela.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c08/thumbnail/32805bd5-4016-43e9-9fd3-b7423367aa65.jpg',
+'imgs/rtg_catalogo.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c15/thumbnail/8c06f694-fee2-4f43-9bf2-8df963991d75.jpg',
+'imgs/rtg_hpb.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c15/thumbnail/8c06f694-fee2-4f43-9bf2-8df963991d75.jpg',
+'imgs/rtg_ltv.jpg':'https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/adunit/69e184c9e23fb80927b21c10/thumbnail/983dfc22-e7c4-43cd-bc5f-50979b0ff669.jpg'
+};
+document.querySelectorAll('img, video, source').forEach(function(el){
+  ['src','poster'].forEach(function(a){
+    var v=el.getAttribute(a);
+    if(v && map[v]) el.setAttribute(a, map[v]);
+  });
+});
+// Graceful fallback for images that still 404 (ex.: Grau26 product shots not distributed here)
+function makeFallback(alt){
+  var d=document.createElement('div');
+  d.className='img-fallback';
+  d.textContent=(alt||'—').toLowerCase();
+  d.style.cssText='width:100%;height:100%;min-height:120px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#E5E0D5,#DDD7C9);color:#8a8478;font-family:\'DM Serif Display\',serif;font-style:italic;font-size:20px;letter-spacing:.02em;padding:20px;text-align:center;box-sizing:border-box';
+  return d;
+}
+function swapToFallback(img){
+  if(img.dataset.fallbackDone) return;
+  img.dataset.fallbackDone='1';
+  var fb=makeFallback(img.getAttribute('alt'));
+  if(img.parentNode) img.parentNode.replaceChild(fb, img);
+}
+document.querySelectorAll('img').forEach(function(img){
+  // image already failed before listener attached
+  if(img.complete && img.naturalWidth===0){ swapToFallback(img); return; }
+  img.addEventListener('error', function(){ swapToFallback(img); }, {once:true});
+  img.addEventListener('load', function(){
+    if(img.naturalWidth===0) swapToFallback(img);
+  }, {once:true});
+});
+document.querySelectorAll('video').forEach(function(v){
+  v.addEventListener('error', function(){
+    if(v.dataset.fallbackDone) return;
+    v.dataset.fallbackDone='1';
+    var fb=makeFallback('vídeo: '+(v.getAttribute('aria-label')||'indisponível'));
+    if(v.parentNode) v.parentNode.replaceChild(fb, v);
+  }, {once:true});
+});
+})();
+</script>
+</body></html>

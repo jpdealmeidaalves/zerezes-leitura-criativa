@@ -1,0 +1,21 @@
+# OS / IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# Node / Vercel
+node_modules/
+.vercel/
+.env
+.env.local
+
+# Temp
+*.tmp
+*.log
+_*.py
+
+# Claude Code local
+.claude/settings.local.json
