@@ -191,9 +191,20 @@ section{padding:56px 0}
 }
 
 /* PDF BUTTON */
-.pdf-btn{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--preto);color:var(--creme);border:none;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:lowercase;border-radius:100px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:all .2s;display:flex;align-items:center;gap:8px}
+.pdf-btn{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--preto);color:var(--creme);border:none;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:lowercase;border-radius:100px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:all .2s;display:flex;align-items:center;gap:8px;text-decoration:none}
 .pdf-btn:hover{background:var(--laranja);transform:translateY(-2px);box-shadow:0 6px 20px rgba(214,91,47,.3)}
 .pdf-btn::before{content:"↓";font-size:14px}
+.capa-btn{bottom:80px;background:var(--laranja-dark)}
+.capa-btn::before{content:"↓";font-size:14px}
+
+/* CAPA */
+.capa{max-width:1080px;margin:0 auto;padding:40px 56px 20px}
+.capa a{display:block;line-height:0}
+.capa img{width:100%;display:block;box-shadow:0 8px 32px rgba(0,0,0,.12);transition:transform .3s ease,box-shadow .3s ease}
+.capa a:hover img{transform:translateY(-4px);box-shadow:0 14px 44px rgba(0,0,0,.18)}
+.capa .capa-cap{padding:14px 0 0;font-size:12px;color:var(--cinza);font-style:italic;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.capa .capa-cap a{display:inline;color:var(--laranja-dark);font-style:normal;font-weight:600;letter-spacing:.04em}
+@media(max-width:900px){.capa{padding:20px 20px 10px}}
 
 /* PRINT STYLES (for PDF export) */
 @media print{
@@ -293,7 +304,8 @@ section{padding:56px 0}
 </style>
 </head>
 <body>
-<button class="pdf-btn" onclick="window.print()" aria-label="baixar em PDF">baixar PDF</button>
+<a class="pdf-btn capa-btn" href="zerezes-imgs/capa-abril26.pdf" target="_blank" rel="noopener" aria-label="baixar capa em PDF">capa PDF</a>
+<button class="pdf-btn" onclick="window.print()" aria-label="imprimir/baixar leitura completa em PDF">leitura PDF</button>
 <div class="top-bar"><div>marketing | mídia</div><div class="center">leitura criativa :: abril 26 · v4</div><div>zerezes</div></div>
 <nav class="toc-nav" aria-label="índice">
 <a href="#resumo"><span class="n">00</span>resumo</a>
@@ -308,6 +320,14 @@ section{padding:56px 0}
 <a href="#checklist"><span class="n">09</span>checklist</a>
 <a href="#outras-frentes"><span class="n">10</span>outras frentes</a>
 </nav>
+<!-- CAPA -->
+<div class="capa">
+<a href="zerezes-imgs/capa-abril26.pdf" target="_blank" rel="noopener" aria-label="abrir capa em PDF">
+<img src="zerezes-imgs/capa-abril26.png" alt="Capa :: leitura criativa — Zerezes abril 2026">
+</a>
+<div class="capa-cap"><span>capa editorial :: gerada via Canva MCP + editada no pipeline</span><a href="zerezes-imgs/capa-abril26.pdf" target="_blank" rel="noopener">baixar capa (PDF A4) ↓</a></div>
+</div>
+
 <div class="pg">
 
 <!-- HERO -->
