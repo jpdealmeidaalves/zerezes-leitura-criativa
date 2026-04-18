@@ -1,0 +1,4 @@
+# plataforma multi-cliente — nao precisa ir pro deploy (so o index.html na raiz + assets sao servidos)
+system/
+files/
+README.md
