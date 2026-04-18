@@ -214,6 +214,24 @@ section{padding:56px 0}
 .rc.ent{border-left:3px solid var(--laranja);background:#FDFAF2;position:relative}
 .ent-tag{display:inline-block;background:var(--laranja);color:var(--creme);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:100px;margin-left:8px;font-weight:700;vertical-align:middle}
 
+/* CATEGORIA COMPETITIVA — chip ao lado do nome do concorrente */
+.cat-chip{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:lowercase;padding:4px 10px;border-radius:100px;margin-left:12px;font-weight:700;vertical-align:middle}
+.cat-chip.direto{background:var(--laranja-dark);color:#fff}
+.cat-chip.indireto{background:var(--creme3);color:var(--preto)}
+.cat-chip.referencia{background:var(--preto);color:var(--creme)}
+.cat-chip.fora{background:transparent;border:1px dashed var(--cinza);color:var(--cinza)}
+
+/* TAXONOMY TABLE — mapa do landscape no abre da secao 05 */
+.taxo{margin:32px 0 44px;border:1px solid var(--linha2);background:var(--creme2)}
+.taxo-hd{padding:16px 24px;border-bottom:1px solid var(--linha2);font-size:11px;letter-spacing:.1em;text-transform:lowercase;font-weight:700;color:var(--laranja-dark)}
+.taxo-body{padding:24px}
+.taxo-row{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:10px 0;border-top:1px solid var(--linha);align-items:baseline}
+.taxo-row:first-of-type{border-top:none}
+.taxo-row .taxo-lb{font-size:11px;letter-spacing:.05em;text-transform:lowercase;font-weight:700;color:var(--preto)}
+.taxo-row .taxo-lb span{display:block;font-size:10px;font-weight:500;color:var(--cinza);text-transform:none;letter-spacing:0;margin-top:2px}
+.taxo-row .taxo-marcas{font-size:13.5px;line-height:1.55;color:var(--preto2)}
+.taxo-row .taxo-marcas strong{color:var(--preto);font-weight:600}
+
 /* COPY TABLE */
 .copy-tbl{margin:32px 0;overflow-x:auto}
 .copy-tbl table{width:100%;border-collapse:collapse;font-size:13.5px}
@@ -450,7 +468,7 @@ section{padding:56px 0}
 
 <!-- 04 COLEÇÃO COMPLETA -->
 <section id="colecao">
-<div class="sh"><div><div class="sk">a coleção</div><h2>16 modelos, 16 personagens <span class="tema">cada óculos é batizado pela literatura brasileira</span></h2></div><div class="sn">04 ::</div></div>
+<div class="sh"><div><div class="sk">a coleção</div><h2>15 modelos, 15 personagens <span class="tema">cada óculos é batizado pela literatura brasileira</span></h2></div><div class="sn">04 ::</div></div>
 
 <div class="pr"><p class="w">esse é o <strong>gancho criativo mais original da campanha</strong> — e o que ainda não virou criativo em mídia paga. cada óculos carrega um personagem literário, um autor, uma obra. em maio, eles podem virar headlines de ad: <em>"prazer, lena"</em>, <em>"prazer, keí"</em>, <em>"prazer, lusti"</em>.</p></div>
 
@@ -469,9 +487,9 @@ section{padding:56px 0}
 <div class="prodc"><img src="zerezes-imgs/nisi.jpg" alt="Nisi"><div class="nm">NISI</div><div class="lv">Torto Arado</div><div class="au">Itamar Vieira Jr</div></div>
 <div class="prodc"><img src="zerezes-imgs/dina.jpg" alt="Dina"><div class="nm">DINA</div><div class="lv">Capitães de Areia</div><div class="au">Jorge Amado</div></div>
 <div class="prodc"><img src="zerezes-imgs/viv.jpg" alt="Viv"><div class="nm">VIV</div><div class="lv">Viva o Povo Brasileiro</div><div class="au">João Ubaldo Ribeiro</div></div>
-<div class="prodc"><img src="zerezes-imgs/cap.png" alt="Cap"><div class="nm">CAP</div><div class="lv">referência literária</div><div class="au">a confirmar com criação</div></div>
+<div class="prodc"><img src="zerezes-imgs/cap.png" alt="Cap"><div class="nm">CAP</div><div class="lv">Capitu / Dom Casmurro</div><div class="au">Machado de Assis</div></div>
 </div>
-<div class="sn-box" style="margin-top:24px"><span class="slb">nota de consistência</span><p>a copy da estática de melhor performance ("Zerezes Grau 2026 | de volta à realidade. <strong>conheça 16 novos modelos</strong>.") confirma <strong>16 modelos</strong> na coleção. 14 estão mapeados acima com referência literária; <strong>CAP</strong> aparece no heatmap (cluster Oversized/Vanguarda ao lado de LORI) sem autor amarrado; e há <strong>1 modelo ainda não identificado</strong> neste documento — vale alinhar com o time de criação para fechar os 16 antes de virar criativo individual de mídia.</p></div>
+<div class="sn-box" style="margin-top:24px"><span class="slb">nota de consistência</span><p>a coleção tem <strong>15 modelos</strong> — todos batizados por personagens ou obras da literatura brasileira. <strong>CAP</strong> remete à Capitu (Dom Casmurro, Machado de Assis) e aparece também no heatmap no cluster Oversized/Vanguarda ao lado de LORI. <strong>atenção editorial:</strong> a copy da estática de melhor performance diz <em>"conheça 16 novos modelos"</em> — inconsistência com o número real. vale revisar a copy antes de ampliar a mídia para não propagar o erro.</p></div>
 
 <!-- PERSONAS -->
 <h3 style="margin-top:48px">as quatro personas do filme</h3>
@@ -488,12 +506,22 @@ section{padding:56px 0}
 
 <!-- 05 MERCADO EXPANDIDO -->
 <section id="mercado">
-<div class="sh"><div><div class="sk">mercado :: 7 marcas</div><h2>o que cada um está dizendo <span class="tema">2 internacionais + 5 brasil</span></h2></div><div class="sn">05 ::</div></div>
-<div class="pr"><p class="ld">sete marcas de óculos, sete apostas diferentes na primeira quinzena de abril. organizamos por postura criativa: quem está fazendo editorial, quem está vendendo franquia, quem está focado em tech, quem está competindo por preço, quem está fazendo moda urbana. ver todas juntas revela onde está o espaço.</p></div>
+<div class="sh"><div><div class="sk">mercado :: landscape + marcas detectadas</div><h2>o que cada um está dizendo <span class="tema">diretos · indiretos · referências</span></h2></div><div class="sn">05 ::</div></div>
+<div class="pr"><p class="ld">nesta leitura, organizamos o mercado em <strong>três camadas</strong> — de acordo com o landscape competitivo oficial da zerezes — e, dentro de cada camada, analisamos só quem rodou mídia paga detectável em abril. <strong>o landscape inteiro tem 18 marcas mapeadas</strong>; este recorte mostra as 7 que apareceram no feed pago na primeira quinzena.</p></div>
+
+<div class="taxo" aria-label="landscape competitivo — mapa geral">
+<div class="taxo-hd">landscape zerezes — mapa oficial</div>
+<div class="taxo-body">
+<div class="taxo-row"><div class="taxo-lb">diretos<span>D2C autoral · mesmo território</span></div><div class="taxo-marcas"><strong>Livo</strong> (D2C, preço competitivo) · <strong>Fuel</strong> (coleções nomeadas, não roda meta ads — ref de posicionamento) · <strong>Lapima</strong> (D2C luxo editorial)</div></div>
+<div class="taxo-row"><div class="taxo-lb">indiretos<span>redes mainstream e regionais</span></div><div class="taxo-marcas"><strong>Óticas Carol</strong> · <strong>Óticas Diniz</strong> · <strong>Mercadão dos Óculos</strong> · <strong>Chilli Beans</strong> · <strong>Super Ótica São José</strong> · <strong>New Ótica</strong> · <strong>Óticas do Povo</strong> · <strong>QÓculos</strong> · <strong>Ponto de Visão</strong></div></div>
+<div class="taxo-row"><div class="taxo-lb">referências<span>benchmark de tom, varejo, propósito</span></div><div class="taxo-marcas"><strong>Warby Parker</strong> (eyewear D2C global) · <strong>Dengo</strong> (retail sensorial + impacto) · <strong>Allbirds</strong> (sustentabilidade escala) · <strong>Patagonia</strong> (ativismo ambiental) · <strong>Farm</strong> (lifestyle brasil) · <strong>Reserva</strong> (comunidade + tom de voz)</div></div>
+<div class="taxo-row"><div class="taxo-lb">fora do mapa<span>apareceram no feed, não estão no landscape oficial</span></div><div class="taxo-marcas"><strong>Oakley</strong> e <strong>Ace & Tate</strong> — detectadas em mídia paga na primeira quinzena; mantidas aqui pelo valor didático (tech/inovação e tom editorial europeu), mas não são referência estratégica do briefing.</div></div>
+</div>
+</div>
 
 <!-- WARBY PARKER -->
 <div class="cb-block">
-<div class="cbh"><div class="cbn">i.</div><div><h3>warby parker <span class="mu">:: editorial por modelo individual</span></h3></div></div>
+<div class="cbh"><div class="cbn">i.</div><div><h3>warby parker <span class="cat-chip referencia">referência</span> <span class="mu">:: editorial por modelo individual</span></h3></div></div>
 <div class="pr"><p class="w">cada armação é um personagem: <em>brady</em>, <em>franny</em>, <em>beale</em> — todos ganham seu próprio ad, headline e landing. copy editorial sofisticado ("your glasses can change the way you see the world"). <strong>é, estruturalmente, o que o briefing da grau 26 promete</strong> — tratam cada óculos como protagonista, não como item de catálogo.</p></div>
 
 <div class="cg">
@@ -512,7 +540,7 @@ section{padding:56px 0}
 
 <!-- OAKLEY -->
 <div class="cb-block">
-<div class="cbh"><div class="cbn">ii.</div><div><h3>oakley <span class="mu">:: tecnologia como narrativa principal</span></h3></div></div>
+<div class="cbh"><div class="cbn">ii.</div><div><h3>oakley <span class="cat-chip fora">fora do mapa</span> <span class="mu">:: tecnologia como narrativa principal</span></h3></div></div>
 <div class="pr"><p class="w">a oakley em abril está apostando pesado nos <strong>Oakley Meta smart glasses</strong> — óculos com IA, novos colorways. é uma marca que decidiu competir por inovação de produto, não por estética editorial. ao lado disso, linha de golf, Transitions, e customização. <em>é o anti-editorial: pura funcionalidade e tech</em>.</p></div>
 
 <div class="cg">
@@ -529,7 +557,7 @@ section{padding:56px 0}
 
 <!-- ACE & TATE -->
 <div class="cb-block">
-<div class="cbh"><div class="cbn">iii.</div><div><h3>ace & tate <span class="mu">:: irreverência editorial europeia</span></h3></div></div>
+<div class="cbh"><div class="cbn">iii.</div><div><h3>ace & tate <span class="cat-chip fora">fora do mapa</span> <span class="mu">:: irreverência editorial europeia</span></h3></div></div>
 <div class="pr"><p class="w">a ace & tate é a marca que mais se parece com a zerezes em tom — <strong>irreverente, editorial, jovem, quirky</strong>. em abril, lançou a campanha "90s edit" com headline <em>"get in bed with glasses — glasses so nice you'll take them to bed"</em>. também roda booking de exame de vista com vídeos nativos. é a marca que mais "conversa" com o público da grau 26.</p></div>
 
 <div class="cg">
@@ -545,7 +573,7 @@ section{padding:56px 0}
 
 <!-- FUEL -->
 <div class="cb-block">
-<div class="cbh"><div class="cbn">iv.</div><div><h3>fuel <span class="mu">:: referência de posicionamento, não de mídia</span></h3></div></div>
+<div class="cbh"><div class="cbn">iv.</div><div><h3>fuel <span class="cat-chip direto">direto</span> <span class="mu">:: referência de posicionamento, não de mídia</span></h3></div></div>
 <div class="pr"><p class="w">a fuel (usefuel.com.br) se posiciona como marca de <strong>óculos personalizado e jovem</strong>, tagline <em>"óculos tão únicos quanto você"</em>. opera por <strong>coleções temáticas com nome</strong> (Street Flow, Burn My Fashion, Retro Wave, Classic Wings, Kinesis, ColorFuel, Born In Rio) e <strong>collabs com clubes/universos</strong> (Flamengo, Four Winds). tom aspiracional urbano: <em>"Acenda seu Estilo"</em>, <em>"Ousamos criar o impossível"</em>.</p>
 <p class="w"><strong>nota importante:</strong> a fuel <strong>não roda mídia paga no Meta</strong> — não tem ads ativos e nunca teve. entra aqui como <em>referência de posicionamento e brand</em>, não como concorrente de mídia. toda a leitura abaixo é sobre o site, não sobre o que ela está dizendo no feed pago.</p></div>
 
@@ -555,15 +583,15 @@ section{padding:56px 0}
 <!-- CHILLI, LIVO, OTICAS CAROL -->
 <div class="cb-block">
 <div class="cbh"><div class="cbn">v.</div><div><h3>o cenário brasileiro <span class="mu">:: chilli · livo · óticas carol</span></h3></div></div>
-<div class="pr"><p class="w">as três grandes do mercado BR de óculos em abril mostram uma paisagem surpreendente: <strong>nenhuma delas está falando de design, autoexpressão ou cultura</strong>. chilli está vendendo franquia. livo está fragmentada entre lentes, esportivo, cupom e franquia. óticas carol compete por lente e preço.</p></div>
+<div class="pr"><p class="w">as três marcas BR que apareceram em mídia paga mostram uma paisagem surpreendente: <strong>nenhuma delas está falando de design, autoexpressão ou cultura</strong>. chilli está vendendo franquia. livo está fragmentada entre lentes, esportivo, cupom e franquia. óticas carol compete por lente e preço. <em>as três são <strong>concorrentes indiretas</strong> (redes mainstream) exceto <strong>livo — que é direta</strong> (D2C autoral).</em></p></div>
 
-<h4 style="margin-top:32px">chilli beans :: 100% franquia</h4>
+<h4 style="margin-top:32px">chilli beans <span class="cat-chip indireto">indireto</span> :: 100% franquia</h4>
 <div class="cg">
 <div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1317687840172764/69db62f1d6540a3067ae3123/ddde52e2-1b51-41a2-b55c-267c508fe99e.jpg" alt="Chilli franquia"></div><div class="cm"><div class="cb">chilli beans</div><div class="ct">Seja um Franqueado</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: B2B franquia</span></div></div></div>
 <div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/777323441898612/69db62f1d6540a3067ae311f/238d25ed-671b-4956-b7b7-9344f38df034.jpg" alt="Chilli repasse"></div><div class="cm"><div class="cb">chilli beans</div><div class="ct">Oportunidade de repasse</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: investimento</span></div></div></div>
 </div>
 
-<h4 style="margin-top:32px">livo :: fragmentada em 5 mensagens</h4>
+<h4 style="margin-top:32px">livo <span class="cat-chip direto">direto</span> :: fragmentada em 5 mensagens</h4>
 <div class="cg">
 <div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1852209142132559/69de6517c949388fa9b89006/50471085-4b59-4c78-8a0b-3e3705520488.jpg" alt="Livo Active"></div><div class="cm"><div class="cb">livo</div><div class="ct">LIVO ACTIVE</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: esportivo</span></div></div></div>
 <div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/2007536650201516/69de6517c949388fa9b89024/cc74fe23-64fd-4c13-bc20-8d494b0e57e3.jpg" alt="Livo WhatsApp"></div><div class="cm"><div class="cb">livo</div><div class="ct">Exame visual gratuito via WhatsApp</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: serviço + whatsapp</span></div></div></div>
@@ -571,7 +599,7 @@ section{padding:56px 0}
 <div class="cc"><div class="ciw vid"><video src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1278738463645282/69de6517c949388fa9b89014/46257458-5441-4743-8bf7-864aee307f8c.mp4" poster="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1278738463645282/69de6517c949388fa9b89014/4da7e46c-a6d6-4956-9889-d9e8d6946c29.jpg" muted loop playsinline preload="metadata" controls></video></div><div class="cm"><div class="cb">livo · vídeo</div><div class="ct">Franquia: "a primeira eyetech do brasil"</div><div class="tags"><span class="tag fmt">vídeo</span><span class="tag angle">ângulo: B2B franquia</span></div></div></div>
 </div>
 
-<h4 style="margin-top:32px">óticas carol :: lentes e parcelamento</h4>
+<h4 style="margin-top:32px">óticas carol <span class="cat-chip indireto">indireto</span> :: lentes e parcelamento</h4>
 <div class="cg">
 <div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/832764833185862/69d9f59ef31a6d0835f8327f/e0fad4cf-11b6-488b-a341-8ad6d4bc4052.jpg" alt="Óticas Carol lentes"></div><div class="cm"><div class="cb">óticas carol</div><div class="ct">MaxClear com Transitions Gen S</div><div class="ccp">"lentes pra você ver o mundo"</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: tecnologia de lente</span></div></div></div>
 <div class="cc"><div class="ciw"><img src="https://motionswipefile.blob.core.windows.net/swipe-file-cached-links/swipe-file-source-link/1288586116541544/69d9f59ef31a6d0835f8327c/6cc5a76f-7b1d-4cf9-9b9e-daa03270ac14.jpg" alt="Óticas Carol filtro azul"></div><div class="cm"><div class="cb">óticas carol</div><div class="ct">MaxClear com AR — filtro azul</div><div class="tags"><span class="tag fmt">imagem</span><span class="tag angle">ângulo: funcional + preço</span></div></div></div>
@@ -598,7 +626,7 @@ section{padding:56px 0}
 <thead><tr><th>copy rodando</th><th>em quantos ads</th><th>spend (R$)</th><th>CTR médio</th><th>leitura</th></tr></thead>
 <tbody>
 <tr><td class="cp">"nova coleção Zerezes ;;) | volte à rotina com nossos modelos de grau ::)"</td><td>5 ads</td><td>~21.850</td><td>0,4%</td><td>copy "rotina" — genérica, serve de guarda-chuva, não diz nada sobre a coleção em si</td></tr>
-<tr><td class="cp hl">"Zerezes Grau 2026 | de volta à realidade. conheça 16 novos modelos."</td><td>1 ad (estática)</td><td>~2.620</td><td><strong>1,23%</strong></td><td>3× o CTR da anterior — <strong>"de volta à realidade" + número concreto</strong> vende melhor que "volte à rotina"</td></tr>
+<tr><td class="cp hl">"Zerezes Grau 2026 | de volta à realidade. conheça 16 novos modelos."<br><span style="font-size:11px;color:var(--vermelho);font-style:normal">⚠ copy rodando com número errado — são 15 modelos. corrigir em maio.</span></td><td>1 ad (estática)</td><td>~2.620</td><td><strong>1,23%</strong></td><td>3× o CTR da anterior — <strong>"de volta à realidade" + número concreto</strong> vende melhor que "volte à rotina"</td></tr>
 <tr><td class="cp">(sem copy — effectivePost dos creators)</td><td>5 ads</td><td>~2.170</td><td>0,05–0,08%</td><td>topo de funil objetivo alcance — CTR baixo esperado, mas vale testar boost com copy própria</td></tr>
 </tbody>
 </table>
