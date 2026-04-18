@@ -1,0 +1,90 @@
+{
+  "$schema": "../../config.schema.json",
+  "slug": "zerezes",
+  "name": "Zerezes",
+  "tagline": "óculos com autoria editorial",
+  "brand": {
+    "palette": {
+      "creme": "#EDE9E1",
+      "creme2": "#E5E0D5",
+      "creme3": "#DDD7C9",
+      "preto": "#111111",
+      "preto2": "#2a2a2a",
+      "laranja": "#D65B2F",
+      "laranja2": "#E87A4F",
+      "laranja_dark": "#A0421F",
+      "linha2": "#1a1a1a",
+      "cinza": "#8a8478",
+      "cinza2": "#b8b2a4",
+      "verde": "#3A7D44",
+      "vermelho": "#C0392B",
+      "amarelo": "#D4A017"
+    },
+    "fonts": {
+      "sans": "DM Sans",
+      "serif": "DM Serif Display"
+    },
+    "accent_usage": {
+      "large_text_only_below_ratio": 3.0,
+      "dark_variant": "#A0421F"
+    }
+  },
+  "sources": {
+    "motion": {
+      "workspace_id": "zerezes",
+      "brand_domain": "zerezes.com.br"
+    },
+    "drive": {
+      "root_folder_id": "TBD",
+      "monthly_folder_pattern": "{MES_UPPER} {ANO}",
+      "asset_naming_convention": "midia_{produto}_{tipo}_{etapa}_{formato}"
+    },
+    "vercel": {
+      "project_id": "zerezes-leitura-criativa",
+      "production_domain": "zerezes-leitura-criativa.vercel.app"
+    },
+    "github": {
+      "repo": "jpdealmeidaalves/zerezes-leitura-criativa",
+      "branch": "main"
+    },
+    "canva": {
+      "brand_kit_id": "TBD",
+      "folder_id": "TBD"
+    }
+  },
+  "competitors": [
+    { "slug": "warby", "name": "Warby Parker", "thesis": "editorial por modelo, biblioteca infinita", "channels": ["meta", "tiktok", "youtube"] },
+    { "slug": "oakley", "name": "Oakley", "thesis": "tech/esporte, hero products", "channels": ["meta", "youtube"] },
+    { "slug": "acetate", "name": "Ace & Tate", "thesis": "irreverência, copy-first", "channels": ["meta", "tiktok"] },
+    { "slug": "fuel", "name": "Fuel", "thesis": "urbano, coleções nomeadas — REF só de site (não roda meta ads)", "channels": [] },
+    { "slug": "chilli", "name": "Chilli Beans", "thesis": "volume e novidade, saiu do produto", "channels": ["meta"] },
+    { "slug": "livo", "name": "Livo", "thesis": "fragmentada, ainda não consolidou tese", "channels": ["meta"] },
+    { "slug": "carol", "name": "Óticas Carol", "thesis": "lente e preço, varejo tradicional", "channels": ["meta", "google_ads"] }
+  ],
+  "voice": {
+    "tone": "editorial, menos número mais abstrato, autoral, lowercase em labels e seções, tom de conversa respeitosa com criação/comunicação/studio",
+    "signature": ";;)",
+    "vocabulary": {
+      "clássicos": ["bestsellers"],
+      "entrantes": ["novos lançamentos", "novos produtos"],
+      "coleção": ["lançamento", "drop"]
+    },
+    "forbenhead_dia": [],
+    "forbidden": ["bestseller", "best-seller", "drop", "hype"]
+  },
+  "collections": [
+    { "slug": "grau26", "name": "Grau 26", "status": "central", "notes": "collab/coleção central em abril/2026 — 16 modelos com nomes literários. 4 personas do filme: laura lufesi, túlio linare, letrux, philipp lavra." },
+    { "slug": "aon-solar", "name": "AON Solar", "status": "secundaria" },
+    { "slug": "aon-sports", "name": "AON Sports", "status": "secundaria", "notes": "collab The Simple Gyn no fim de abril → início de maio" },
+    { "slug": "classicos", "name": "Clássicos (bestsellers)", "status": "historica", "notes": "novas cores entrando em maio" },
+    { "slug": "masp", "name": "Collab MASP", "status": "entrante" },
+    { "slug": "farm", "name": "Collab FARM", "status": "entrante" },
+    { "slug": "the-simple-gyn", "name": "Collab The Simple Gyn (Sports)", "status": "entrante" }
+  ],
+  "personas": [
+    { "name": "Laura Lufesi", "role": "persona 1 — grau26", "model": "lena" },
+    { "name": "Túlio Linare", "role": "persona 2 — grau26", "model": "jig" },
+    { "name": "Letrux", "role": "persona 3 — grau26", "model": "lusti" },
+    { "name": "Philipp Lavra", "role": "persona 4 — grau26", "model": "keí" }
+  ]
+}

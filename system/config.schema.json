@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://leitura-criativa/system/config.schema.json",
+  "title": "Leitura Criativa — Client Config",
+  "description": "Configuração de um cliente (tenant) da plataforma de leitura criativa. Um arquivo por cliente em clients/<slug>/config.json.",
+  "type": "object",
+  "required": ["slug", "name", "brand", "sources", "competitors", "voice"],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Identificador url-safe do cliente. Ex: 'zerezes', 'aon-sports'."
+    },
+    "name": {
+      "type": "string",
+      "description": "Nome do cliente como aparece na UI. Ex: 'Zerezes'."
+    },
+    "tagline": {
+      "type": "string",
+      "description": "Posicionamento curto usado em headers. Ex: 'óculos com autoria editorial'."
+    },
+    "brand": {
+      "type": "object",
+      "required": ["palette", "fonts"],
+      "properties": {
+        "palette": {
+          "type": "object",
+          "description": "Tokens de cor. Nomes livres, mas recomenda-se seguir o padrão zerezes (creme, laranja, preto, etc).",
+          "additionalProperties": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+        },
+        "fonts": {
+          "type": "object",
+          "properties": {
+            "sans": { "type": "string", "description": "Google Fonts family name, e.g. 'DM Sans'." },
+            "serif": { "type": "string", "description": "Google Fonts family name, e.g. 'DM Serif Display'." }
+          },
+          "required": ["sans", "serif"]
+        },
+        "accent_usage": {
+          "type": "object",
+          "description": "Regras de uso do accent color para passar contraste AA.",
+          "properties": {
+            "large_text_only_below_ratio": {
+              "type": "number",
+              "description": "Se o ratio de contraste do accent no bg principal for menor que isto, o accent só pode ser usado em textos >= 24px."
+            },
+            "dark_variant": {
+              "type": "string",
+              "pattern": "^#[0-9A-Fa-f]{6}$",
+              "description": "Variação escura do accent para uso em labels pequenos."
+            }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "description": "IDs e endpoints para os MCPs que o cliente usa.",
+      "properties": {
+        "motion": {
+          "type": "object",
+          "properties": {
+            "workspace_id": { "type": "string" },
+            "brand_domain": { "type": "string", "description": "Domínio para get_brand_by_domain. Ex: 'zerezes.com.br'." }
+          }
+        },
+        "drive": {
+          "type": "object",
+          "properties": {
+            "root_folder_id": { "type": "string", "description": "ID da pasta raiz do cliente no Google Drive." },
+            "monthly_folder_pattern": { "type": "string", "description": "Template do nome das pastas mensais. Ex: '{MES_UPPER} {ANO}' → 'ABRIL 2026'." },
+            "asset_naming_convention": { "type": "string", "description": "Convenção de nomes de arquivo. Ex: 'midia_{produto}_{tipo}_{etapa}_{formato}'." }
+          }
+        },
+        "vercel": {
+          "type": "object",
+          "properties": {
+            "project_id": { "type": "string" },
+            "production_domain": { "type": "string" }
+          }
+        },
+        "github": {
+          "type": "object",
+          "properties": {
+            "repo": { "type": "string", "description": "owner/name" },
+            "branch": { "type": "string", "default": "main" }
+          }
+        },
+        "canva": {
+          "type": "object",
+          "properties": {
+            "brand_kit_id": { "type": "string" },
+            "folder_id": { "type": "string" }
+          }
+        }
+      }
+    },
+    "competitors": {
+      "type": "array",
+      "description": "Lista de concorrentes analisados na seção de mercado. Ordem importa (aparece nessa ordem na leitura).",
+      "items": {
+        "type": "object",
+        "required": ["slug", "name", "thesis"],
+        "properties": {
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "domain": { "type": "string" },
+          "thesis": { "type": "string", "description": "Uma frase resumindo a tese do concorrente em mídia paga." },
+          "channels": {
+            "type": "array",
+            "items": { "enum": ["meta", "tiktok", "youtube", "google_ads", "linkedin"] }
+          }
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "description": "Regras de voz editorial para geração de conteúdo. Consumido pelo brand-voice skill.",
+      "properties": {
+        "tone": { "type": "string", "description": "Ex: 'editorial, menos número mais abstrato, autoral, lowercase para labels'." },
+        "signature": { "type": "string", "description": "Assinatura de fechamento. Ex: ';;)'." },
+        "vocabulary": {
+          "type": "object",
+          "description": "Termos preferidos. Chave = preferido, valor = alternativas a evitar.",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "forbidden": {
+          "type": "array",
+          "description": "Palavras/expressões a evitar.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "collections": {
+      "type": "array",
+      "description": "Coleções/ativações conhecidas do cliente, para referência cruzada na leitura.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "status": { "enum": ["central", "secundaria", "entrante", "historica"] },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "personas": {
+      "type": "array",
+      "description": "Personas/personagens da marca relevantes para leitura (aplicável a zerezes com os 4 do filme grau26).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": "string" },
+          "model": { "type": "string" }
+        }
+      }
+    }
+  }
+}

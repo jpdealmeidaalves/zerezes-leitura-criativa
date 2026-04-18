@@ -1,0 +1,158 @@
+{
+  "name": "leitura-criativa :: ciclo mensal",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 1 * *"
+            }
+          ]
+        }
+      },
+      "id": "trigger-mensal",
+      "name": "1º dia útil do mês 08h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [-400, 0]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            { "name": "client", "value": "zerezes" },
+            { "name": "edition", "value": "={{ $now.minus({months:1}).toFormat('yyyy-MM') }}" }
+          ]
+        }
+      },
+      "id": "set-context",
+      "name": "contexto (client + edition)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [-200, 0]
+    },
+    {
+      "parameters": {
+        "command": "cd /app && node system/scripts/pull-motion.mjs --client {{$json.client}} --edition {{$json.edition}}"
+      },
+      "id": "pull-motion",
+      "name": "pull motion insights",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [0, -100]
+    },
+    {
+      "parameters": {
+        "command": "cd /app && node system/scripts/pull-drive.mjs --client {{$json.client}} --edition {{$json.edition}}"
+      },
+      "id": "pull-drive",
+      "name": "pull drive assets",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [0, 100]
+    },
+    {
+      "parameters": {
+        "command": "cd /app && node system/scripts/draft-content.mjs --client {{$json.client}} --edition {{$json.edition}}"
+      },
+      "id": "draft-content",
+      "name": "draft content (evidencia auto + TODOs editoriais)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [200, 0]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "operation": "create",
+        "owner": "jpdealmeidaalves",
+        "repository": "zerezes-leitura-criativa",
+        "title": "=leitura {{$json.client}} / {{$json.edition}} — revisão editorial pendente",
+        "body": "Draft gerado automaticamente.\n\nSecoes com evidencia (00, 02, 03, 04) estao preenchidas.\nSecoes editoriais (01, 05-10) estao marcadas com TODO e precisam de revisao humana.\n\nApos merge, o build+deploy acontece automaticamente."
+      },
+      "id": "create-pr",
+      "name": "abre PR para revisão humana",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [400, 0]
+    },
+    {
+      "parameters": {
+        "event": "pull_request.closed",
+        "filters": { "merged": true }
+      },
+      "id": "wait-merge",
+      "name": "aguarda merge do PR",
+      "type": "n8n-nodes-base.githubTrigger",
+      "typeVersion": 1,
+      "position": [600, 0]
+    },
+    {
+      "parameters": {
+        "command": "cd /app && node system/scripts/build.mjs --client {{$json.client}} --edition {{$json.edition}} --as-root && git add -A && git commit -m 'build: {{$json.client}}/{{$json.edition}}' && git push origin main"
+      },
+      "id": "build-push",
+      "name": "build + push (vercel deploya)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [800, -100]
+    },
+    {
+      "parameters": {
+        "command": "cd /app && node system/scripts/generate-canva.mjs --client {{$json.client}} --edition {{$json.edition}} --kind capa-pdf,deck"
+      },
+      "id": "canva",
+      "name": "gera capa pdf + deck canva",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [800, 100]
+    },
+    {
+      "parameters": {
+        "command": "cd /app && sleep 60 && node system/scripts/deploy-check.mjs --client {{$json.client}}"
+      },
+      "id": "deploy-check",
+      "name": "valida deploy vercel",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1000, 0]
+    },
+    {
+      "parameters": {
+        "channel": "#zerezes-leituras",
+        "text": "=Leitura criativa {{$json.client}} / {{$json.edition}} no ar ✅\nhttps://zerezes-leitura-criativa.vercel.app"
+      },
+      "id": "notify-slack",
+      "name": "notifica slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2,
+      "position": [1200, 0]
+    }
+  ],
+  "connections": {
+    "1º dia útil do mês 08h": { "main": [[{ "node": "contexto (client + edition)", "type": "main", "index": 0 }]] },
+    "contexto (client + edition)": {
+      "main": [[
+        { "node": "pull motion insights", "type": "main", "index": 0 },
+        { "node": "pull drive assets", "type": "main", "index": 0 }
+      ]]
+    },
+    "pull motion insights": { "main": [[{ "node": "draft content (evidencia auto + TODOs editoriais)", "type": "main", "index": 0 }]] },
+    "pull drive assets": { "main": [[{ "node": "draft content (evidencia auto + TODOs editoriais)", "type": "main", "index": 0 }]] },
+    "draft content (evidencia auto + TODOs editoriais)": { "main": [[{ "node": "abre PR para revisão humana", "type": "main", "index": 0 }]] },
+    "abre PR para revisão humana": { "main": [[{ "node": "aguarda merge do PR", "type": "main", "index": 0 }]] },
+    "aguarda merge do PR": {
+      "main": [[
+        { "node": "build + push (vercel deploya)", "type": "main", "index": 0 },
+        { "node": "gera capa pdf + deck canva", "type": "main", "index": 0 }
+      ]]
+    },
+    "build + push (vercel deploya)": { "main": [[{ "node": "valida deploy vercel", "type": "main", "index": 0 }]] },
+    "valida deploy vercel": { "main": [[{ "node": "notifica slack", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "1"
+}

@@ -1,0 +1,9 @@
+# assets baixados do drive — nao versionar (muito pesado, regenerar via pull-drive)
+clients/*/assets/
+
+# snapshots do motion sao versionados (reprodutibilidade) — nao ignorar
+# excecao: runs de teste locais
+clients/*/content/*.local.json
+
+# node
+node_modules/

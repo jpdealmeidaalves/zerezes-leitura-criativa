@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{fonts_url}}" rel="stylesheet">
+<link rel="stylesheet" href="lib/leitura.css">
+<style>
+:root {
+{{css_vars}}
+}
+</style>
+</head>
+<body>
+<button class="pdf-btn" onclick="window.print()" aria-label="baixar em PDF">baixar PDF</button>
+<div class="top-bar">
+  <div>marketing | mídia</div>
+  <div class="center">{{title}}</div>
+  <div>{{client.name}}</div>
+</div>
+<nav class="toc-nav" aria-label="índice">
+<a href="#resumo"><span class="n">00</span>resumo</a>
+<a href="#tese"><span class="n">01</span>tese</a>
+<a href="#funil"><span class="n">02</span>funil</a>
+<a href="#heatmap"><span class="n">03</span>mapa</a>
+<a href="#colecao"><span class="n">04</span>coleção</a>
+<a href="#mercado"><span class="n">05</span>mercado</a>
+<a href="#palavras"><span class="n">06</span>palavras</a>
+<a href="#anatomia"><span class="n">07</span>anatomia</a>
+<a href="#apostas"><span class="n">08</span>apostas</a>
+<a href="#checklist"><span class="n">09</span>checklist</a>
+<a href="#outras-frentes"><span class="n">10</span>outras frentes</a>
+</nav>
+<div class="pg">
+
+<header class="hero">
+<div class="hero-label">{{hero_subhead}}</div>
+<h1>{{hero_headline}}</h1>
+</header>
+
+<!--
+  ESTE TEMPLATE ESTA MINIMO DE PROPOSITO.
+  A migracao das secoes 00-10 para blocos renderizaveis a partir de content.sections.*
+  acontece na primeira edicao que passar pelo build (ex: maio 2026).
+  Ate la, /index.html na raiz do repo permanece como fonte da edicao abril/2026 (inline).
+
+  Quando migrar: expandir este template com os helpers de secao em lib/leitura.js
+  (ex: renderResumoSection(content.sections.resumo), etc).
+-->
+
+</div>
+<script src="lib/leitura.js"></script>
+</body></html>

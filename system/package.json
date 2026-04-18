@@ -1,0 +1,20 @@
+{
+  "name": "leitura-criativa-platform",
+  "version": "0.1.0",
+  "description": "Plataforma multi-cliente de leituras criativas editoriais sobre midia paga",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "pull:motion": "node scripts/pull-motion.mjs",
+    "pull:drive": "node scripts/pull-drive.mjs",
+    "draft": "node scripts/draft-content.mjs",
+    "canva": "node scripts/generate-canva.mjs",
+    "deploy:check": "node scripts/deploy-check.mjs",
+    "validate": "node scripts/validate-config.mjs",
+    "cycle": "npm run pull:motion && npm run pull:drive && npm run draft && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
