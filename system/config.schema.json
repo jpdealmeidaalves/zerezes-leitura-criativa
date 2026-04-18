@@ -97,18 +97,34 @@
     },
     "competitors": {
       "type": "array",
-      "description": "Lista de concorrentes analisados na seção de mercado. Ordem importa (aparece nessa ordem na leitura).",
+      "description": "Landscape competitivo completo: diretos, indiretos e referências. Ordem importa (aparece nessa ordem na leitura, agrupada por category).",
       "items": {
         "type": "object",
-        "required": ["slug", "name", "thesis"],
+        "required": ["slug", "name", "category"],
         "properties": {
           "slug": { "type": "string" },
           "name": { "type": "string" },
-          "domain": { "type": "string" },
-          "thesis": { "type": "string", "description": "Uma frase resumindo a tese do concorrente em mídia paga." },
+          "category": {
+            "enum": ["direto", "indireto", "referencia"],
+            "description": "direto = disputa o mesmo consumidor e posicionamento; indireto = disputa o consumidor mas com tese diferente (ex: rede mainstream vs D2C autoral); referencia = benchmark de tom/varejo/sustentabilidade, pode ser de outra categoria"
+          },
+          "sub_category": { "type": "string", "description": "Ex: 'Oculos autorais D2C', 'Rede de oticas mainstream', 'Lifestyle sustentavel', 'Eyewear D2C'." },
+          "scope": {
+            "enum": ["nacional", "internacional"],
+            "description": "Cobertura geográfica relevante para a análise."
+          },
+          "country": { "type": "string", "description": "Ex: 'Brasil', 'Global'." },
+          "thesis": { "type": "string", "description": "Uma frase sobre posicionamento ou tese em mídia paga / varejo." },
+          "domain": { "type": "string", "description": "URL principal." },
+          "instagram": { "type": "string" },
           "channels": {
             "type": "array",
-            "items": { "enum": ["meta", "tiktok", "youtube", "google_ads", "linkedin"] }
+            "description": "Canais de mídia paga onde a marca foi detectada.",
+            "items": { "enum": ["meta", "tiktok", "youtube", "google_ads", "linkedin", "nao_roda_midia"] }
+          },
+          "status": {
+            "enum": ["confirmado", "a_validar", "ref_so_site"],
+            "description": "confirmado = dados verificados; a_validar = precisa confirmar url/instagram; ref_so_site = usado só como referência de posicionamento (não roda ads)"
           }
         }
       }
