@@ -190,14 +190,10 @@ section{padding:56px 0}
 .anatomy .zone{grid-template-columns:1fr;gap:8px}
 }
 
-/* PDF BUTTON */
-.pdf-btn{position:fixed;bottom:24px;right:24px;z-index:200;background:var(--preto);color:var(--creme);border:none;padding:14px 22px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:lowercase;border-radius:100px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:all .2s;display:flex;align-items:center;gap:8px}
-.pdf-btn:hover{background:var(--laranja);transform:translateY(-2px);box-shadow:0 6px 20px rgba(214,91,47,.3)}
-.pdf-btn::before{content:"↓";font-size:14px}
 
 /* PRINT STYLES (for PDF export) */
 @media print{
-  .pdf-btn,.toc-nav,.top-bar{display:none!important}
+  .toc-nav,.top-bar{display:none!important}
   body{background:#fff}
   section{padding:40px 0;page-break-inside:avoid}
   .cb-block{page-break-inside:avoid}
@@ -293,7 +289,6 @@ section{padding:56px 0}
 </style>
 </head>
 <body>
-<button class="pdf-btn" onclick="window.print()" aria-label="baixar em PDF">baixar PDF</button>
 <div class="top-bar"><div>marketing | mídia</div><div class="center">leitura criativa :: abril 26 · v4</div><div>zerezes</div></div>
 <nav class="toc-nav" aria-label="índice">
 <a href="#resumo"><span class="n">00</span>resumo</a>
