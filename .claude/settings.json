@@ -1,0 +1,67 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node system/scripts/build.mjs:*)",
+      "Bash(node system/scripts/validate-config.mjs:*)",
+      "Bash(node system/scripts/deploy-check.mjs:*)",
+      "Bash(node system/scripts/draft-content.mjs:*)",
+      "Bash(node system/scripts/pull-motion.mjs:*)",
+      "Bash(node system/scripts/pull-drive.mjs:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git fetch:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(ls:*)",
+      "Bash(pwd)",
+      "Bash(cat :*)",
+      "Bash(head :*)",
+      "Bash(tail :*)",
+      "Bash(wc :*)",
+      "Bash(jq :*)"
+    ],
+    "deny": [
+      "Write(files/**)",
+      "Edit(files/**)",
+      "MultiEdit(files/**)",
+      "Bash(rm -rf files/**)",
+      "Bash(rm -rf .claude-memory/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/post-edit-guard.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/pre-bash-guard.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
