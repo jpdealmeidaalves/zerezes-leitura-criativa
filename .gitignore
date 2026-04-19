@@ -19,3 +19,6 @@ _*.py
 
 # Claude Code local
 .claude/settings.local.json
+
+# Build outputs (index.html da raiz é o alvo do Vercel e é commitado de propósito)
+dist/

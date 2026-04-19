@@ -52,6 +52,14 @@
       "folder_id": "TBD"
     }
   },
+  "social": {
+    "base_url": "https://zerezes-leitura-criativa.vercel.app",
+    "og_site_name": "zerezes :: leitura criativa",
+    "og_type": "article",
+    "og_image_path": "zerezes-imgs/banner-kv-desk.jpg",
+    "og_image_alt": "KV da campanha grau 26 — \"de volta à vida real\"",
+    "default_description": "um olhar editorial sobre a vida criativa da zerezes — grau 26 no ar, 7 concorrentes Meta, e as apostas para maio."
+  },
   "competitors": [
     { "slug": "livo", "name": "Livo", "category": "direto", "sub_category": "Oculos autorais D2C", "scope": "nacional", "country": "Brasil", "thesis": "D2C eyewear com foco em preco competitivo e origem digital forte", "domain": "https://www.livo.com.br/", "instagram": "https://www.instagram.com/livoeyewear/", "channels": ["meta"], "status": "confirmado" },
     { "slug": "fuel", "name": "Fuel Eyewear", "category": "direto", "sub_category": "Oculos autorais D2C", "scope": "nacional", "country": "Brasil", "thesis": "Marca jovem de oculos, expansao fisica e apelo lifestyle/comercial — nao roda meta ads, usar como referencia de posicionamento", "domain": "http://www.usefuel.com.br", "instagram": "https://www.instagram.com/fueloculos/", "channels": ["nao_roda_midia"], "status": "ref_so_site" },
@@ -68,6 +76,7 @@
     { "slug": "ponto-visao", "name": "Ponto de Visao", "category": "indireto", "sub_category": "Rede de oticas regional", "scope": "nacional", "country": "Brasil", "thesis": "Rede com decadas de atuacao e estrutura de laboratorio", "domain": "https://www.pontodevisao.com.br/", "channels": ["meta"], "status": "a_validar" },
 
     { "slug": "warby", "name": "Warby Parker", "category": "referencia", "sub_category": "Eyewear D2C", "scope": "internacional", "country": "Global", "thesis": "Benchmark internacional de eyewear D2C com proposito e varejo omnichannel", "domain": "https://www.warbyparker.com/", "instagram": "https://www.instagram.com/warbyparker/", "channels": ["meta", "tiktok", "youtube"], "status": "confirmado" },
+    { "slug": "ace-tate", "name": "Ace & Tate", "category": "referencia", "sub_category": "Eyewear editorial europeia", "scope": "internacional", "country": "Europa", "thesis": "Eyewear D2C europeia com tom irreverente, copy editorial curta e humor (ex: 'get in bed with glasses') — referência de tom proximo ao briefing grau 26", "domain": "https://www.aceandtate.com/", "instagram": "https://www.instagram.com/aceandtate/", "channels": ["meta", "tiktok"], "status": "confirmado" },
     { "slug": "dengo", "name": "Dengo", "category": "referencia", "sub_category": "Lifestyle / impacto / varejo sensorial", "scope": "nacional", "country": "Brasil", "thesis": "Referencia em impacto, retail sensorial e narrativa de cadeia produtiva", "domain": "https://dengo.com/", "instagram": "https://www.instagram.com/dengochocolates/", "channels": ["meta"], "status": "confirmado" },
     { "slug": "allbirds", "name": "Allbirds", "category": "referencia", "sub_category": "Calcados/lifestyle sustentavel", "scope": "internacional", "country": "Global", "thesis": "Referencia em materiais, sustentabilidade e design simples com escala global", "domain": "https://www.allbirds.com", "instagram": "https://www.instagram.com/allbirds/", "channels": ["meta", "youtube"], "status": "confirmado" },
     { "slug": "patagonia", "name": "Patagonia", "category": "referencia", "sub_category": "Outdoor / sustentabilidade", "scope": "internacional", "country": "Global", "thesis": "Marca icone de ativismo ambiental e vestuario outdoor", "domain": "https://www.patagonia.com/", "channels": ["meta", "youtube"], "status": "a_validar" },
