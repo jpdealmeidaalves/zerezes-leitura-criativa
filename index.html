@@ -260,20 +260,21 @@ section{padding:56px 0}
 .toc-nav a.active .n{color:var(--laranja2)}
 .toc-nav a .n{color:var(--laranja-dark);font-variant-numeric:tabular-nums;font-weight:600;margin-right:6px}
 
-/* PRAZER MOCKUP */
-.prazer-mock{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin:44px 0 24px}
-.prazer-card{background:linear-gradient(180deg,var(--creme2) 0%,var(--creme3) 100%);aspect-ratio:3/4;padding:44px 36px 36px;display:flex;flex-direction:column;justify-content:space-between;position:relative;border:1px solid var(--linha);box-shadow:0 1px 2px rgba(17,17,17,.04),0 12px 32px -12px rgba(17,17,17,.1);overflow:hidden}
-.prazer-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--laranja) 50%,transparent);opacity:.35}
-.prazer-card .pc-head{font-size:10px;letter-spacing:.14em;color:var(--cinza);text-transform:uppercase;font-weight:600}
-.prazer-card .pc-middle{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
-.prazer-card .pc-glass{width:82%;max-width:220px;height:auto;margin:8px auto 4px;display:block;object-fit:contain;filter:drop-shadow(0 14px 28px rgba(17,17,17,.14)) drop-shadow(0 2px 4px rgba(17,17,17,.08))}
-.prazer-card .pc-glass-fallback{width:100%;height:80px;background:linear-gradient(90deg,transparent 0,transparent 12%,var(--preto) 12%,var(--preto) 44%,transparent 44%,transparent 56%,var(--preto) 56%,var(--preto) 88%,transparent 88%);border-radius:12px;opacity:.85}
-.prazer-card .pc-hl{font-family:'DM Sans',sans-serif;font-size:22px;font-weight:400;line-height:1.05;color:var(--preto);letter-spacing:-.015em}
-.prazer-card .pc-hl em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja);font-weight:400;font-size:38px;letter-spacing:-.02em;display:inline-block;margin-top:2px}
-.prazer-card .pc-meta{font-size:12px;color:var(--cinza);line-height:1.5;letter-spacing:.01em}
-.prazer-card .pc-foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:11px;color:var(--cinza);padding-top:18px;border-top:1px solid var(--linha);gap:16px}
-.prazer-card .pc-foot .price{color:var(--preto);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.01em}
-.prazer-card .pc-sig{font-family:'DM Serif Display',serif;color:var(--laranja);font-style:italic;font-size:18px;line-height:1}
+/* PRAZER MOCKUP — warby-inspired: fundo branco puro, produto dominante, tipografia em hierarquia extrema */
+.prazer-mock{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin:44px 0 20px}
+.prazer-card{background:#ffffff;aspect-ratio:4/5;padding:40px 34px 32px;display:flex;flex-direction:column;position:relative;border:1px solid rgba(17,17,17,.08);box-shadow:0 1px 2px rgba(17,17,17,.03),0 24px 48px -24px rgba(17,17,17,.09);overflow:hidden}
+.prazer-card .pc-head{font-size:10px;letter-spacing:.16em;color:var(--cinza);text-transform:uppercase;font-weight:600}
+.prazer-card .pc-middle{display:flex;flex-direction:column;flex:1;justify-content:center;gap:0}
+.prazer-card .pc-glass{width:92%;max-width:260px;height:auto;margin:4px auto 18px;display:block;object-fit:contain}
+.prazer-card .pc-glass-fallback{width:100%;height:84px;background:linear-gradient(90deg,transparent 0,transparent 12%,var(--preto) 12%,var(--preto) 44%,transparent 44%,transparent 56%,var(--preto) 56%,var(--preto) 88%,transparent 88%);border-radius:12px;opacity:.85;margin:4px auto 18px}
+/* hero hook: "prazer," quieto, nome dominante em serifa itálica */
+.prazer-card .pc-hl{font-family:'DM Sans',sans-serif;font-size:16px;font-weight:400;line-height:1;color:var(--preto);letter-spacing:.01em;margin:0}
+.prazer-card .pc-hl em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--laranja);font-weight:400;font-size:58px;letter-spacing:-.028em;display:block;margin-top:2px;line-height:.94}
+.prazer-card .pc-meta{font-size:12.5px;color:var(--cinza);line-height:1.45;letter-spacing:.01em;margin-top:10px}
+.prazer-card .pc-meta .pc-book{font-style:italic;color:var(--preto2)}
+.prazer-card .pc-foot{display:flex;justify-content:space-between;align-items:flex-end;font-size:11px;color:var(--cinza);padding-top:16px;border-top:1px solid rgba(17,17,17,.1);gap:16px;margin-top:18px;letter-spacing:.02em;text-transform:uppercase}
+.prazer-card .pc-foot .price{color:var(--preto);font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:.02em;text-transform:none}
+.prazer-card .pc-sig{font-family:'DM Serif Display',serif;color:var(--laranja);font-style:italic;font-size:20px;line-height:1;text-transform:none;letter-spacing:0}
 
 /* WIREFRAME */
 .wireframe{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:36px 0;align-items:start}
@@ -713,9 +714,9 @@ section{padding:56px 0}
 <div class="it"><div class="itn">02</div><div class="itb"><h4>a série "prazer, —"</h4><p>transformar o KV finalizado em uma série de peças estáticas: <em>prazer, lena</em> · <em>prazer, keí</em> · <em>prazer, lusti</em> · <em>prazer, jig</em>. cada uma apresenta um óculos como personagem — nome em itálico laranja, livro em corpo pequeno, autor em linha fina. é o KV virando campanha.</p>
 
 <div class="prazer-mock" aria-label="mockup conceitual da série prazer">
-<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/lena.jpg" alt="Lena" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<br><em>lena</em></div><div class="pc-meta">helena · machado de assis</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
-<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/kei.jpg" alt="Keí" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<br><em>keí</em></div><div class="pc-meta">um defeito de cor · ana maria gonçalves</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
-<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/lusti.jpg" alt="Lusti" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<br><em>lusti</em></div><div class="pc-meta">torto arado · itamar vieira jr</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
+<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/lena.jpg" alt="Lena" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<em>lena</em></div><div class="pc-meta"><span class="pc-book">helena</span> · machado de assis</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
+<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/kei.jpg" alt="Keí" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<em>keí</em></div><div class="pc-meta"><span class="pc-book">um defeito de cor</span> · ana maria gonçalves</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
+<div class="prazer-card"><div class="pc-head">zerezes :: grau 26</div><div class="pc-middle"><img class="pc-glass" src="zerezes-imgs/lusti.jpg" alt="Lusti" onerror="this.outerHTML='&lt;div class=pc-glass-fallback&gt;&lt;/div&gt;'"><div class="pc-hl">prazer,<em>lusti</em></div><div class="pc-meta"><span class="pc-book">torto arado</span> · itamar vieira jr</div></div><div class="pc-foot"><span class="price">a partir de R$595</span><span class="pc-sig">;;)</span></div></div>
 </div>
 <p style="font-size:12.5px;color:var(--cinza);font-style:italic;margin-top:8px">mockup conceitual montado com CSS sobre os assets existentes — serve como referência visual para o studio. produção final fica com direção de arte.</p>
 </div></div>
