@@ -1,0 +1,109 @@
+{
+  "client": "zerezes",
+  "edition": "2026-05",
+  "draft_status": "preview-pre-mes",
+  "draft_note": "preview gerado em 29/04 — dados Motion ainda nao existem para maio. conteudo editorial baseado no plano confirmado: Grau/Solar/Sports 01-31 (conversao) + Classicos novas cores 14-31 (consideracao).",
+  "title": "leitura criativa :: maio 2026 (preview)",
+  "period": "01 — 31 maio 2026 (preview)",
+  "hero": {
+    "label": "edição preview · maio 2026",
+    "headline_html": "o mês das <span class=\"or\">três linhas</span><br>e a entrada da <span class=\"thin\">consideração</span>",
+    "subhead": "preview da leitura criativa de maio :: meta ads zerezes :: 7 marcas de referência"
+  },
+  "og": {
+    "image_alt": "preview maio 2026 — Grau, Solar, Sports + clássicos novas cores",
+    "description": "preview da leitura criativa de maio :: três linhas em conversão (Grau, Solar, Sports) e uma camada de consideração (clássicos novas cores) entrando na 2ª metade do mês."
+  },
+  "sections": {
+    "resumo": {
+      "kicker": "resumo executivo",
+      "title": "o mês em uma página",
+      "lead_html": "maio de 2026 é o primeiro mês desde o estreio da Grau26 em que <strong>três linhas convivem em conversão</strong> — Grau, Solar e Sports — com uma quarta camada de consideração entrando no dia 14: clássicos novas cores. é também a primeira edição que passa pelo <em>system build</em> ponta-a-ponta. esse documento é um <strong>preview pré-mês</strong>: a estrutura, as apostas e o split de funil estão definidos; os números chegam quando os ads começarem a rodar.",
+      "cards": [
+        { "kind": "default", "label": "linha de conversão", "title": "Grau/Solar/Sports — 01 a 31", "body": "as três linhas dividem o orçamento de conversão ao longo de todo o mês. Grau segue como protagonista (continuidade do que abril provou); Solar volta ao foco depois de abril ter sido praticamente todo Grau; Sports leva a leitura do CTR 1,79% que apareceu em abril como sinal." },
+        { "kind": "default", "label": "linha de consideração", "title": "clássicos novas cores — 14 a 31", "body": "a partir do dia 14, novas cores dos clássicos entram como camada complementar de consideração. é micro-evento (não relançamento) — referência Warby \"a new way to wear\". formato curto, headline editorial." },
+        { "kind": "highlight", "label": "tese do mês", "title": "primeiro mês com 4 conversas em paralelo", "body": "abril foi quase mono-grau (R$162K, 80%+ no Grau). maio testa se a conta sustenta narrativas paralelas sem diluir. o risco é spread thin; a oportunidade é mostrar autoria editorial em mais de uma frente." },
+        { "kind": "default", "label": "mercado", "title": "espaço segue largo", "body": "warby continua editorial e funcional; oakley investe em smart glasses e Transitions; ace&tate mantém o tom irreverente curto. ninguém disputa o lugar cultural — o que muda em maio é a chance de a zerezes ocupar Solar e Sports com a mesma autoria que ocupou Grau." }
+      ],
+      "pullquote_html": "três linhas em conversão e uma quarta entrando no meio do mês — <span class=\"pn\">grau</span>, <span class=\"pn\">solar</span>, <span class=\"pn\">sports</span> e <span class=\"pn\">clássicos novas cores</span> — desenham a primeira leitura em que a conta deixa de ser mono-coleção."
+    },
+    "tese": {
+      "kicker": "tese",
+      "title": "quatro frentes, uma autoria",
+      "editorial_html": "maio é o teste de coerência. depois de abril ter mostrado que o lugar editorial da Grau26 funciona em mídia paga, a pergunta agora é se a mesma autoria viaja para Solar e Sports — e se uma camada de consideração (clássicos novas cores) entra sem dispersar.",
+      "body_html": "<p class=\"ld\">a hipótese central é que <strong>o tom da Grau26</strong> — nomes literários, escritório na garcia, personagens — <strong>é portátil</strong>. AON Solar pode usar o mesmo registro com outro repertório (sol, paisagem, brasilidade). AON Sports já mostrou em abril (CTR 1,79%) que o público responde a um olhar editorial mesmo no esporte.</p><p class=\"w\">clássicos novas cores entra como <strong>micro-evento</strong> — não como linha pesada. mecânica Warby: \"a new way to wear [modelo]\". headline curta, foco no colorway, conversão como objetivo secundário (consideração tem peso maior).</p>"
+    },
+    "funil": {
+      "kicker": "linhas em conversão",
+      "title": "três conversas em paralelo · 01 a 31",
+      "lead_html": "<p class=\"ld\">a alocação principal do mês roda em três frentes simultâneas. cada uma com seu próprio repertório criativo, mas usando a mesma gramática editorial.</p>",
+      "blocks": [
+        {
+          "label": "i.",
+          "title": "Grau26",
+          "subtitle": ":: continuidade do protagonismo",
+          "body_html": "<p class=\"w\">protagonista herdada de abril. o carrossel 160325 e o vídeo 090426 seguem como âncoras de meio de funil; Rodrigo Bez segue dominando o topo. <strong>o que muda em maio:</strong> a expectativa de ver os 15 nomes literários virarem criativos individuais (lena, jig, keí, lusti) — material já existe, falta passar para o feed pago.</p><p class=\"w\"><em>aposta editorial:</em> testar pela primeira vez a costura completa creator → carrossel-com-creator → catálogo dinâmico (Rodrigo Bez como cobaia, pelo volume).</p>",
+          "tags": ["conversão", "ancora-do-mes", "creators", "nomes literários"]
+        },
+        {
+          "label": "ii.",
+          "title": "AON Solar",
+          "subtitle": ":: volta ao foco depois do abril mono-grau",
+          "body_html": "<p class=\"w\">abril rodou Solar em paralelo mas com volume menor. maio recoloca Solar como linha de conversão de peso. <strong>oportunidade:</strong> tratar como <em>extensão da mesma autoria editorial</em> da Grau26 — não como linha funcional separada. o repertório natural é sol, paisagem, brasilidade — mas com o tom de escrita das personas, não com copy de promoção.</p><p class=\"w\"><em>referências para o studio:</em> warby summer 2026 (lookbook editorial); allbirds (materialidade + lifestyle simples).</p>",
+          "tags": ["conversão", "volta-ao-foco", "autoria editorial"]
+        },
+        {
+          "label": "iii.",
+          "title": "AON Sports",
+          "subtitle": ":: capitalizar o sinal de abril",
+          "body_html": "<p class=\"w\">o carrossel de sports (020326) entregou <strong>CTR 1,79% em abril</strong> — acima de qualquer ad de Grau26. território aberto: ninguém no BR está fazendo esporte com olhar editorial.</p><p class=\"w\"><em>aposta editorial:</em> ativar o conceito de \"capítulo nomeado\" (mesma mecânica de personas da Grau26) para a collab The Simple Gym — alavanca já indicada em abril. headlines curtas, foco em produto+contexto esportivo.</p>",
+          "tags": ["conversão", "alta-performance", "capítulo nomeado"]
+        }
+      ],
+      "sidenote": "<span class=\"slb\">oportunidade mãe do mês</span><p>nas três linhas de conversão, repetir o aprendizado mais forte de abril: a copy <strong>\"de volta à realidade\"</strong> sustentou CTR 1,23–1,33% pelo mês todo. é a única frase da conta que mantém performance através de formatos. estendê-la — mantendo a estrutura mas com variações por linha (\"de volta à realidade · grau\", \"... · solar\", \"... · sports\") — é o teste editorial mais barato de maio.</p>"
+    },
+    "consideracao": {
+      "kicker": "linha de consideração",
+      "title": "clássicos novas cores · 14 a 31",
+      "lead_html": "<p class=\"ld\">a partir do dia 14, clássicos novas cores entra <strong>como camada complementar de consideração</strong> — não como conversão. peso menor de orçamento, vida curta (17 dias), foco em apresentar o colorway.</p>",
+      "body_html": "<p class=\"w\">é a primeira ativação 100% pensada como <em>micro-evento</em> na conta. a mecânica de referência é Warby (\"a new way to wear [modelo]\") — headline editorial curta, foco no colorway, sem fazer relançamento. é também a primeira chance de testar a tag \"entrante\" (laranja sobre creme) como elemento gráfico no feed.</p><p class=\"w\"><strong>recomendação para o studio:</strong> 1 KV editorial por colorway novo (não por modelo) + uma versão vertical para reels. evitar tabela de preço; o objetivo é cultural, não promocional.</p>",
+      "tags": ["consideração", "micro-evento", "14-31 maio", "colorway"]
+    },
+    "mercado": {
+      "kicker": "mercado",
+      "title": "leitura rápida das 7 referências",
+      "lead_html": "<p class=\"ld\">o mercado em maio segue com espaço para a zerezes ocupar o lugar cultural. um sumário do que esperar de cada concorrente — base para validar com Motion quando os dados de maio chegarem.</p>",
+      "competitors": [
+        { "name": "Warby Parker", "thesis": "Summer 2026 deve seguir editorial+funcional. referência mãe para Solar (lookbook) e para clássicos novas cores (\"a new way to wear\")." },
+        { "name": "Oakley", "thesis": "tech/esporte com clareza de feature (Transitions, smart glasses). referência para Sports — produto em detalhe + copy funcional curta." },
+        { "name": "Ace & Tate", "thesis": "irreverente, copy editorial curta, humor próximo. referência mais próxima do tom Grau26 — manter no radar para palavras." },
+        { "name": "Chilli Beans", "thesis": "saiu do produto em mídia paga, foco em franquia/marca. baixa leitura útil este mês — só monitorar." },
+        { "name": "LIVO", "thesis": "abril pivotou para lentes/franquia. ver em maio se volta para óculos ou consolida pivô." },
+        { "name": "Óticas Carol", "thesis": "leitura funcional/preço — manter como contraste do que NÃO fazer no copy editorial." },
+        { "name": "Lapima", "thesis": "luxo handcrafted. baixo volume de mídia paga, mas referência editorial forte. manter como benchmark de tom." }
+      ]
+    },
+    "apostas": {
+      "kicker": "apostas para maio",
+      "title": "o que vale arriscar",
+      "lead_html": "<p class=\"ld\">cinco apostas concretas para a leitura criativa do mês. cada uma é testável e tem critério de leitura claro.</p>",
+      "items": [
+        { "n": "01", "title": "estender \"de volta à realidade\" para as 3 linhas", "body": "manter a estrutura, criar variações por linha (\"... · grau\", \"... · solar\", \"... · sports\"). teste editorial mais barato do mês. sucesso = manter CTR ≥ 1,2% em pelo menos 2 das 3 linhas." },
+        { "n": "02", "title": "primeiros criativos individuais com nomes literários", "body": "\"prazer, lena\" / \"prazer, keí\" — material já existe. testar como peças isoladas em meio de funil Grau26. sucesso = qualquer um dos 4 nomes superando o carrossel 160325 em CTR por 7+ dias." },
+        { "n": "03", "title": "costura completa creator → carrossel → catálogo (Rodrigo Bez)", "body": "primeira vez que a conta testa a jornada narrativa completa com um único creator como fio condutor. sucesso = CPA do cluster que viu o vídeo do Rodrigo < CPA do cluster controle." },
+        { "n": "04", "title": "Solar com tom Grau26 (não com tom funcional)", "body": "primeiro lookbook Solar tratado como capítulo editorial. referência: warby summer. sucesso = CTR Solar ≥ média da Grau26 em meio de funil." },
+        { "n": "05", "title": "clássicos novas cores como micro-evento (não relançamento)", "body": "headline editorial curta, foco em colorway, sem promoção. sucesso = consideração (saved/share/comment) acima da média de meio Grau26 — não conversão." }
+      ]
+    },
+    "outras_frentes": {
+      "kicker": "outras frentes",
+      "title": "o que vive em paralelo",
+      "lead_html": "<p class=\"w\">três frentes secundárias para acompanhar sem briefar dedicado este mês — entram em rodadas futuras se mostrarem volume.</p>",
+      "items": [
+        { "label": "collab MASP", "body": "abril rodou em scaling (R$6K). manter rodando, observar se ganha tração orgânica." },
+        { "label": "collab FARM", "body": "abril em scaling (R$3,6K). mesmo raciocínio." },
+        { "label": "The Simple Gym", "body": "alavanca dentro de AON Sports — não tem material próprio, funciona como associação. observar se ganha frequência de menção." }
+      ]
+    }
+  }
+}

@@ -10,6 +10,7 @@
 import { parseArgs, loadClientConfig, requireArg, readJson, log, SYSTEM_ROOT, REPO_ROOT, contrastRatio } from './_shared.mjs';
 import { validateConfig } from './validate-config.mjs';
 import { lintContent } from './lint-content.mjs';
+import { renderAllSections } from './_render.mjs';
 import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 
@@ -114,6 +115,8 @@ const ogImageUrl = /^https?:\/\//.test(ogImagePath)
     ? `${baseUrl}/${ogImagePath.replace(/^\/+/, '')}`
     : ogImagePath;
 
+const sections = renderAllSections(content);
+
 const ctx = {
   client: cfg,
   edition,
@@ -125,14 +128,18 @@ const ctx = {
     return `https://fonts.googleapis.com/css2?family=${sans}:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=${serif}:ital@0;1&display=swap`;
   })(),
   title: content.title || `${cfg.name} — leitura criativa ${edition}`,
-  hero_headline: content.hero?.headline || '',
+  hero_label: content.hero?.label || '',
+  hero_headline: content.hero?.headline_html || content.hero?.headline || '',
   hero_subhead: content.hero?.subhead || '',
+  closing_html: content.closing?.html || `<em>${cfg.tagline || ''}</em>`,
+  voice_signature: cfg.voice?.signature || '',
   og_type: social.og_type || 'article',
   og_site_name: social.og_site_name || cfg.name || '',
   og_url: content.og?.url || baseUrl || '',
   og_description: content.og?.description || social.default_description || content.hero?.subhead || '',
   og_image: ogImageUrl,
   og_image_alt: content.og?.image_alt || social.og_image_alt || cfg.name || '',
+  ...sections,
 };
 
 const html = render(template, ctx);
