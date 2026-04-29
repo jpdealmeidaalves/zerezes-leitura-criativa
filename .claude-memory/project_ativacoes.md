@@ -22,6 +22,20 @@ Frentes ativas ou previstas na conta Zerezes (contexto abril/2026):
 - Inativos 28/04: campanha de reconhecimento lançada em 28/04 (trio de imagens estáticas). Fundo de funil apenas purchase, não rodou reach suficiente — aguardando indexação Motion.
 - Grau26: foco principal, ~80%+ do budget total (R$162K em abril de 2026).
 
+**Plano confirmado para maio de 2026 (definido pelo usuário em 29/04):**
+
+| período | linhas | objetivo | observação |
+|---|---|---|---|
+| 01–31 maio | **Grau26**, **AON Solar**, **AON Sports** | conversão | alocação principal de verba; os três sustentam a base do mês |
+| 14–31 maio | **Clássicos (novas cores)** | consideração | entra na 2ª metade do mês como camada complementar; mantém label "consideração", não conversão |
+
+Distribuição de orçamento prioriza as três linhas de conversão ao longo de todo o mês; clássicos novas cores incorpora-se a partir do dia 14 de forma complementar.
+
+**Implicação para a leitura criativa de maio:**
+- A divisão por funil deve refletir esse split: Grau/Solar/Sports no eixo conversão, clássicos novas cores no eixo consideração (não misturar nas mesmas tabelas de funil).
+- Recortar análise por janela 01–13 (3 linhas) vs 14–31 (4 linhas) ajuda a isolar o efeito da entrada de clássicos novas cores.
+- AON Solar volta ao foco depois de abril ter sido praticamente todo Grau26 — preparar leitura específica de Solar (referências Warby/Oakley já mapeadas).
+
 **Why:** o briefing original listou Grau, Solar, Sports, clássicos, collab MASP, collab FARM. As duas ativações menores (Simple Gym + novas cores clássicos) entraram no input do usuário no meio da v4. Manter mapeado para não repetir a pergunta "o que mais está rodando?".
 
 **How to apply:** em toda leitura criativa, reservar seção "outras frentes" curta cobrindo essas frentes, mesmo quando o foco principal é Grau26. Flagar collabs como candidatos a leitura dedicada em rodada futura.

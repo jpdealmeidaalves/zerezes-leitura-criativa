@@ -37,6 +37,19 @@ Integrações disponíveis para puxar dados de Meta Ads da conta Zerezes:
 
 **Inspo creatives dos concorrentes** vêm de `motionswipefile.blob.core.windows.net`. Para puxar ativos do último mês: `get_inspo_creatives(brandIds=[...], launchDate="LAST_30_DAYS", status="ACTIVE")`.
 
-**Windsor.ai** — conector para dados complementares de ad set/criativo (Facebook/Meta). Use quando precisar de métricas que o Motion não expõe. Nota: campos `roas` e `purchases` não são válidos no `get_data` do Windsor com source=facebook — usar `spend`, `ctr`, `impressions` etc.
+**Windsor.ai** — conector para dados complementares de ad set/criativo (Facebook/Meta). Use quando precisar de métricas que o Motion não expõe.
+
+**Escopo definido (decisão usuário, abril/2026):** este projeto é leitura **criativa**, não de mídia. **Não puxar** dados de orçamento/financeiro: `spend`, `cpc`, `cpm`, `roas`, `purchases`, `cost_per_*`. **Puxar** apenas métricas que indicam interação criativa:
+- `ctr` (click-through rate)
+- `frequency` (frequência média por usuário)
+- `video_p25/p50/p75/p100_watched_actions` (retenção de vídeo)
+- `thruplay_actions`
+- `inline_link_clicks`, `outbound_clicks`
+- `impressions` e `reach` (denominadores, não foco)
+- breakdowns: `placement`, `age`, `gender` quando relevante para leitura criativa
+
+**Dimensões:** `ad_id`, `ad_name`, `adset_name`, `campaign_name`, `creative_id`, `date`.
+
+Nota antiga (mantida): campos `roas`/`purchases` não são válidos no `get_data` do Windsor com source=facebook de qualquer forma.
 
 **n8n** — já disponível no stack do usuário para fluxos de dados (ex.: exportar Motion → processar → enviar). Usuário descartou Motion.app puro por custo; considerou MagicBrief mas não tem MCP nativo.
