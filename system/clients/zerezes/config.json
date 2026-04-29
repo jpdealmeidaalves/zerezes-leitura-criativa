@@ -98,11 +98,11 @@
   "collections": [
     { "slug": "grau26", "name": "Grau 26", "status": "central", "notes": "collab/coleção central em abril/2026 — 16 modelos com nomes literários. 4 personas do filme: laura lufesi, túlio linare, letrux, philipp lavra." },
     { "slug": "aon-solar", "name": "AON Solar", "status": "secundaria" },
-    { "slug": "aon-sports", "name": "AON Sports", "status": "secundaria", "notes": "collab The Simple Gyn no fim de abril → início de maio" },
+    { "slug": "aon-sports", "name": "AON Sports", "status": "secundaria", "notes": "collab The Simple Gym no fim de abril → início de maio" },
     { "slug": "classicos", "name": "Clássicos (bestsellers)", "status": "historica", "notes": "novas cores entrando em maio" },
     { "slug": "masp", "name": "Collab MASP", "status": "entrante" },
     { "slug": "farm", "name": "Collab FARM", "status": "entrante" },
-    { "slug": "the-simple-gyn", "name": "Collab The Simple Gyn (Sports)", "status": "entrante" }
+    { "slug": "the-simple-gyn", "name": "Collab The Simple Gym (Sports)", "status": "entrante" }
   ],
   "personas": [
     { "name": "Laura Lufesi", "role": "persona 1 — grau26", "model": "lena" },
