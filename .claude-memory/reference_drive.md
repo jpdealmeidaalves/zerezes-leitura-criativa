@@ -10,7 +10,7 @@ originSessionId: 8b9dedd7-288a-4aff-aa99-b49105cdff31
 
 **Pasta ABRIL 2026:** `168SMrJcE784VO1vCLXEMrFG-0368Pmml` — criada/mantida por `gabriela.martins@zerezes.com.br`, compartilhada com o usuário. Subpasta dentro do root acima.
 
-**Brandbook Zerezes (no Drive, não no Canva):** o usuário criou pasta "brandbook zerezes" no Drive em vez de usar Canva nativo. ID ainda pendente — quando capturado vai em `sources.drive.brandbook_folder_id`. `sources.canva.brand_kit_id` está como `"VIA_DRIVE"` para sinalizar que Canva nativo não é a fonte. Implicação: `generate-canva.mjs` precisa adaptar para ler assets de uma pasta Drive em vez de um brand kit Canva, OU o usuário cria um brand kit Canva no futuro.
+**Brandbook Zerezes (no Drive, não no Canva):** o usuário criou pasta "brandbook zerezes" no Drive em vez de usar Canva nativo. ID: `19D6L2GgHsq5QDVMl0tTjycERqDnRg-Tq` — registrado em `sources.drive.brandbook_folder_id`. `sources.canva.brand_kit_id` está como `"VIA_DRIVE"` para sinalizar que Canva nativo não é a fonte. Implicação: `generate-canva.mjs` precisa adaptar para ler assets de uma pasta Drive em vez de um brand kit Canva, OU o usuário cria um brand kit Canva no futuro.
 
 **Convenção de nomenclatura dos estáticos:**
 `midia_{produto}_{tipo}_{etapa}_{formato}_{variante}.jpg`

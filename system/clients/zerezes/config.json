@@ -38,7 +38,7 @@
       "root_folder_id": "1lFADkpEqaCRT_PnAFD4hA-MfocKssjT3",
       "monthly_folder_pattern": "{MES_UPPER} {ANO}",
       "asset_naming_convention": "midia_{produto}_{tipo}_{etapa}_{formato}",
-      "brandbook_folder_id": "TBD"
+      "brandbook_folder_id": "19D6L2GgHsq5QDVMl0tTjycERqDnRg-Tq"
     },
     "vercel": {
       "project_id": "zerezes-leitura-criativa",
