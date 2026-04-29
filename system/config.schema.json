@@ -69,7 +69,8 @@
           "properties": {
             "root_folder_id": { "type": "string", "description": "ID da pasta raiz do cliente no Google Drive." },
             "monthly_folder_pattern": { "type": "string", "description": "Template do nome das pastas mensais. Ex: '{MES_UPPER} {ANO}' → 'ABRIL 2026'." },
-            "asset_naming_convention": { "type": "string", "description": "Convenção de nomes de arquivo. Ex: 'midia_{produto}_{tipo}_{etapa}_{formato}'." }
+            "asset_naming_convention": { "type": "string", "description": "Convenção de nomes de arquivo. Ex: 'midia_{produto}_{tipo}_{etapa}_{formato}'." },
+            "brandbook_folder_id": { "type": "string", "description": "ID da pasta com o brandbook do cliente (paleta, tipografia, mockups). Substitui canva.brand_kit_id quando o brandbook vive no Drive." }
           }
         },
         "vercel": {

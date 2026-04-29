@@ -35,9 +35,10 @@
       "brand_domain": "zerezes.com.br"
     },
     "drive": {
-      "root_folder_id": "TBD",
+      "root_folder_id": "1lFADkpEqaCRT_PnAFD4hA-MfocKssjT3",
       "monthly_folder_pattern": "{MES_UPPER} {ANO}",
-      "asset_naming_convention": "midia_{produto}_{tipo}_{etapa}_{formato}"
+      "asset_naming_convention": "midia_{produto}_{tipo}_{etapa}_{formato}",
+      "brandbook_folder_id": "TBD"
     },
     "vercel": {
       "project_id": "zerezes-leitura-criativa",
@@ -48,8 +49,9 @@
       "branch": "main"
     },
     "canva": {
-      "brand_kit_id": "TBD",
-      "folder_id": "TBD"
+      "brand_kit_id": "VIA_DRIVE",
+      "folder_id": "VIA_DRIVE",
+      "_note": "brandbook vive em sources.drive.brandbook_folder_id; canva nativo nao configurado"
     }
   },
   "social": {

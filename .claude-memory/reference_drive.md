@@ -6,7 +6,11 @@ originSessionId: 8b9dedd7-288a-4aff-aa99-b49105cdff31
 ---
 **Drive do usuário acessível via MCP** (`mcp__f45f2440-...`). Busca por `title contains` funciona; `parents in` NÃO é suportado pelo search.
 
-**Pasta mãe ABRIL 2026:** `168SMrJcE784VO1vCLXEMrFG-0368Pmml` — criada/mantida por `gabriela.martins@zerezes.com.br`, compartilhada com o usuário.
+**Pasta-pai mensal Zerezes (root_folder_id):** `1lFADkpEqaCRT_PnAFD4hA-MfocKssjT3` — contém as subpastas mensais (ABRIL 2026, MAIO 2026, etc). Configurada em `system/clients/zerezes/config.json#sources.drive.root_folder_id`. Em 29/04/2026 a pasta de maio ainda não tinha sido criada.
+
+**Pasta ABRIL 2026:** `168SMrJcE784VO1vCLXEMrFG-0368Pmml` — criada/mantida por `gabriela.martins@zerezes.com.br`, compartilhada com o usuário. Subpasta dentro do root acima.
+
+**Brandbook Zerezes (no Drive, não no Canva):** o usuário criou pasta "brandbook zerezes" no Drive em vez de usar Canva nativo. ID ainda pendente — quando capturado vai em `sources.drive.brandbook_folder_id`. `sources.canva.brand_kit_id` está como `"VIA_DRIVE"` para sinalizar que Canva nativo não é a fonte. Implicação: `generate-canva.mjs` precisa adaptar para ler assets de uma pasta Drive em vez de um brand kit Canva, OU o usuário cria um brand kit Canva no futuro.
 
 **Convenção de nomenclatura dos estáticos:**
 `midia_{produto}_{tipo}_{etapa}_{formato}_{variante}.jpg`
