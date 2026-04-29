@@ -9,3 +9,5 @@
 - [Collabs/ativações conhecidas](project_ativacoes.md) — Grau26 (central), AON Solar, AON Sports, clássicos, collab MASP (R$6K scaling), collab FARM (R$3,6K scaling), collab The Simple Gym (Sports, alavanca sem asset próprio, fim abr→início mai), novas cores clássicos (previsão maio).
 - [Vocabulário Zerezes](project_vocabulario.md) — *clássicos* (não "bestsellers"), "entrantes" para ativações novas, "alavanca" para collabs sem asset próprio, "previsão maio" para previstas; MouraJo removida dos creators ativos; The Simple Gym (NÃO "Gyn").
 - [Fuel — referência só de site](project_fuel_pending.md) — Fuel nunca rodou Meta Ads; usar apenas como referência de posicionamento (coleções nomeadas, tom urbano), não como concorrente de mídia paga.
+- [How-to: jq em payloads Motion](howto_motion_jq.md) — receitas para parsear `tool-results/*.txt` quando Motion estoura token limit; extração de URLs `motionaccountassets` para fallback de thumbnail.
+- [How-to: workflow n8n mensal](howto_n8n_monthly.md) — passos do workflow, env vars, troubleshooting comum e equivalente CLI manual quando o n8n está fora.

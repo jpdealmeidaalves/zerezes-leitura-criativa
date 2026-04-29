@@ -9,6 +9,7 @@
 
 import { parseArgs, loadClientConfig, requireArg, readJson, log, SYSTEM_ROOT, REPO_ROOT, contrastRatio } from './_shared.mjs';
 import { validateConfig } from './validate-config.mjs';
+import { lintContent } from './lint-content.mjs';
 import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 
@@ -31,6 +32,22 @@ if (!existsSync(contentPath)) {
   process.exit(1);
 }
 const content = readJson(contentPath);
+
+// -- editorial lint (voice.forbidden + known typos) --
+const lint = lintContent(slug, edition, { cfg, contentPath });
+if (!lint.skipped) {
+  for (const i of lint.issues) {
+    const tag = i.severity === 'error' ? 'ERROR' : 'warn';
+    const sug = i.suggest ? ` -> "${i.suggest}"` : '';
+    const note = i.note ? ` [${i.note}]` : '';
+    log('lint', `${tag} ${i.jsonPath}: "${i.match}"${sug}${note}`);
+  }
+  if (lint.errors > 0) {
+    console.error(`build aborted: ${lint.errors} editorial lint error(s).`);
+    process.exit(1);
+  }
+}
+
 const templatePath = join(SYSTEM_ROOT, 'template', 'index.template.html');
 const template = readFileSync(templatePath, 'utf8');
 
@@ -137,3 +154,21 @@ if (asRoot) {
   writeFileSync(rootIdx, html, 'utf8');
   log('build', `--as-root: wrote ${rootIdx} (vercel deploy target)`);
 }
+
+// -- archive: persist content.json + motion snapshot por edicao --
+// permite serie temporal mes-a-mes sem repuxar Motion. veja frente 8 do plano.
+const archiveDir = join(SYSTEM_ROOT, 'clients', slug, 'content', '_archive', edition);
+mkdirSync(archiveDir, { recursive: true });
+cpSync(contentPath, join(archiveDir, `${edition}.json`));
+const snapshotPath = contentPath.replace(/\.json$/, '.motion-snapshot.json');
+if (existsSync(snapshotPath)) {
+  cpSync(snapshotPath, join(archiveDir, `${edition}.motion-snapshot.json`));
+  log('build', `archived snapshot -> ${archiveDir}`);
+} else {
+  log('build', `archived content only -> ${archiveDir} (no motion snapshot found)`);
+}
+writeFileSync(
+  join(archiveDir, 'meta.json'),
+  JSON.stringify({ archived_at: new Date().toISOString(), edition, slug }, null, 2) + '\n',
+  'utf8'
+);
