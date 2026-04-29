@@ -6,6 +6,6 @@
 - [Workflow de assets por leitura](project_workflow_assets.md) — Motion cobre 95% (qualitativo + concorrentes HD); pedir 2–5 high-res dos ads próprios no turno 1; product shots Grau26 já em `zerezes-imgs/`.
 - [Ferramentas de dados](reference_tools.md)
 - [Google Drive do Zerezes](reference_drive.md) — pasta "ABRIL 2026" (`168SMrJcE784VO1vCLXEMrFG-0368Pmml`) com estáticos Grau26 e AON Sports; convenção `midia_{produto}_{tipo}_{etapa}_{formato}`. Creators estão fora desta pasta. — Motion.app MCP (creatives + insights), Windsor.ai, n8n; workspace Zerezes já autenticado.
-- [Collabs/ativações conhecidas](project_ativacoes.md) — Grau26 (central), AON Solar, AON Sports, bestsellers, collab MASP, collab FARM, collab The Simple Gyn (Sports, fim abr→início mai), novas cores bestsellers.
-- [Vocabulário Zerezes](project_vocabulario.md) — *clássicos* (não "bestsellers"), "entrantes" para ativações novas, nomes próprios das coleções e clusters.
+- [Collabs/ativações conhecidas](project_ativacoes.md) — Grau26 (central), AON Solar, AON Sports, clássicos, collab MASP (R$6K scaling), collab FARM (R$3,6K scaling), collab The Simple Gym (Sports, alavanca sem asset próprio, fim abr→início mai), novas cores clássicos (previsão maio).
+- [Vocabulário Zerezes](project_vocabulario.md) — *clássicos* (não "bestsellers"), "entrantes" para ativações novas, "alavanca" para collabs sem asset próprio, "previsão maio" para previstas; MouraJo removida dos creators ativos; The Simple Gym (NÃO "Gyn").
 - [Fuel — referência só de site](project_fuel_pending.md) — Fuel nunca rodou Meta Ads; usar apenas como referência de posicionamento (coleções nomeadas, tom urbano), não como concorrente de mídia paga.

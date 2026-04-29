@@ -11,11 +11,21 @@ Integrações disponíveis para puxar dados de Meta Ads da conta Zerezes:
 - Org: `69e17acb2a78fe07044808f0` (Zerezes beta teste)
 - GoalMetric configurado: **CTR** | spendThreshold: R$2.496,95
 - Tools úteis: `get_creative_insights` (ads próprios + thumbnails), `get_inspo_creatives` (ad library concorrentes), `get_workspace_competitors`, `search_brands`, `get_creative_transcript`, `get_glossary_values`.
-- Creative insights volta payload grande — se exceder limite do token, o arquivo é salvo em `tool-results/` e pode ser parseado com Python/jq.
-- Thumbnails Zerezes vêm de `motionaccountassets.blob.core.windows.net` (CDN interno, acessível publicamente via URL completa).
-- Inspo creatives dos concorrentes vêm de `motionswipefile.blob.core.windows.net`.
+- Creative insights volta payload grande — se exceder limite do token, o arquivo é salvo em `tool-results/` e pode ser parseado com jq.
+- **Protocolo obrigatório:** sempre chamar `get_creative_insights` com `insightType=SPEND` primeiro — retorna `goalMetric` e `spendThreshold` necessários para interpretar chamadas seguintes (SCALING, HOOK etc.).
 
-**Brand IDs resolvidos no Motion:**
+**Thumbnails dos ads próprios Zerezes — dois caminhos:**
+
+1. **`motionswipefile` via `get_inspo_creatives`** (preferencial para ads confirmados) — brand ID público da Zerezes: `66f6b95baa0d5e90982cfbf9`. Retorna todos os ads ativos em alta resolução. CDN: `motionswipefile.blob.core.windows.net`.
+
+2. **`motionaccountassets` (CDN interno Motion)** — aparece quando o swipe file não tem o ad. URL base:
+   `https://motionaccountassets.blob.core.windows.net/69e184bfc1fcf964d6f96da9/creativeassetfacebook/{SUB_ASSET_ID}/{TIPO}`
+   - Imagem: `{SUB_ASSET_ID}/image.jpg` — sub-asset ID é tipicamente o ID seguinte ao do creative asset principal (ex: asset=`692b56`, imagem em `692b57/image.jpg`)
+   - Vídeo cover: `{VIDEO_ASSET_ID}/cover.jpg`
+   - Carrossel 1ª card: ID seguinte ao creative asset ID, `/image.jpg`
+   - **Atenção:** ads muito novos (< ~48h) retornam `ads: []` no `get_creative_insights` — nenhum thumbnail disponível. Usar placeholder e aguardar indexação.
+
+**Brand IDs resolvidos no Motion (workspace competitors):**
 - Warby Parker: `66c37cf3b822dc1089922786`
 - Oakley: `66cf7809da161d103f983731`
 - Chilli Beans: `67377e5d7850d1eb297e49ac`
@@ -23,6 +33,9 @@ Integrações disponíveis para puxar dados de Meta Ads da conta Zerezes:
 - LIVO: `691479bf9d1e7c01b7d4b7ec`
 - Óticas Carol: `67fe63a754b74a69321331fd`
 - Ray-Ban Meta: `67059881f21f9b4f9ef4f89c`
+- Zerezes (própria): `66f6b95baa0d5e90982cfbf9`
+
+**Inspo creatives dos concorrentes** vêm de `motionswipefile.blob.core.windows.net`. Para puxar ativos do último mês: `get_inspo_creatives(brandIds=[...], launchDate="LAST_30_DAYS", status="ACTIVE")`.
 
 **Windsor.ai** — conector para dados complementares de ad set/criativo (Facebook/Meta). Use quando precisar de métricas que o Motion não expõe. Nota: campos `roas` e `purchases` não são válidos no `get_data` do Windsor com source=facebook — usar `spend`, `ctr`, `impressions` etc.
 

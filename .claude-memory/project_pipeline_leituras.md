@@ -10,6 +10,14 @@ Entregável recorrente: **"leitura criativa"** — HTML editorial de análise qu
 
 **Concorrentes monitorados (6):** Warby Parker (referência editorial), Oakley (tech/esporte), Ace & Tate (irreverente, mais próxima em tom à Zerezes), Chilli Beans (BR, foco franquia), LIVO (BR, fragmentada), Óticas Carol (BR, funcional/preço). Rayban e Lapima foram pedidos mas ficaram de fora no v3/v4 — próxima rodada pode incluir. Brand IDs resolvidos via Motion MCP estão no workspace competitors + buscas adicionais.
 
+**Protocolo Motion MCP (obrigatório em toda rodada):**
+1. `get_creative_insights(insightType=SPEND, datePreset=CUSTOM, startDate=..., endDate=...)` — **sempre primeiro**. Retorna `goalMetric` (CTR) e `spendThreshold` necessários para interpretar as outras chamadas.
+2. Depois: SCALING e HOOK na mesma sessão para cross-reference.
+3. Para thumbnails de ads próprios recentes (< ~48h): `pubUrl`/`thumbnailUrl` podem ser `null` — grepar o payload bruto em `tool-results/` por `motionaccountassets` e reconstruir URL via sub-asset ID (ver `reference_tools.md`).
+4. Ads muito novos retornam `ads: []` — sem thumbnail possível; usar placeholder creme+itálica laranja e aguardar 48h.
+
+**Formato confirmado:** mensal (não quinzenal). Recorte 01–último dia útil do mês. Próxima edição: maio de 2026.
+
 **Why:** o briefing original listou estes 4 (+ Warby/Lapima como referências). Cada marca ancora uma "postura criativa" e o report compara a voz delas com o que a Zerezes está dizendo.
 
 **How to apply:**
