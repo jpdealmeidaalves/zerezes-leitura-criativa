@@ -18,6 +18,14 @@ LENA (Helena/Machado), JIG (Macunaíma/Mário de Andrade), QUIN (Quincas Borba/M
 **5 clusters de produto:**
 Clássico Refinado · Transição · Releitura · Statement · Oversized/Vanguarda.
 
+**Performance Grau26 — abril de 2026 (1–28), dados Motion:**
+- Total investido Zerezes: **R$162 mil**, 23,5M impressões, CTR médio 0,88%.
+- Creator dominante: **Rodrigo Bez** — maior volume de spend no período; topo de funil com 6,6M impressões (CTR 0,07% — holding de alcance).
+- Creator Alice Fleury — ad novo (fim de abril), thumbnails disponíveis via `motionaccountassets`.
+- Carrossel 160325 (~R$27,7K) e vídeo 090426 (~R$19,8K) — âncoras de meio de funil.
+- Copy de melhor CTR confirmada: **"de volta à realidade"** — manteve 1,23–1,33% ao longo de todo o mês (2ª quinzena confirmada também).
+- Campanha "inativos 28/04" (trio estáticas, fundo de funil, purchase only) lançada no último dia — sem dados disponíveis em abril.
+
 **Why:** esse vocabulário é o DNA da coleção — qualquer leitura criativa ou recomendação de ad precisa respeitar esses nomes (não inventar sinônimos). "Prazer, lena / prazer, keí" é a hipótese editorial central para a próxima fase de criativos individuais.
 
-**How to apply:** ao recomendar peças, usar nome+referência literária como chamariz; em tabelas de cobertura, manter os 5 clusters como eixos fixos; na collab The Simple Gyn (AON Sports, fim abr→início mai), recomendar mesma mecânica ("capítulo nomeado" em vez de "edição especial").
+**How to apply:** ao recomendar peças, usar nome+referência literária como chamariz; em tabelas de cobertura, manter os 5 clusters como eixos fixos; na collab The Simple Gym (AON Sports, fim abr→início mai), recomendar mesma mecânica ("capítulo nomeado" em vez de "edição especial").

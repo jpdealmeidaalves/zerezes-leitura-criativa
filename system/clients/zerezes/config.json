@@ -35,9 +35,10 @@
       "brand_domain": "zerezes.com.br"
     },
     "drive": {
-      "root_folder_id": "TBD",
+      "root_folder_id": "1lFADkpEqaCRT_PnAFD4hA-MfocKssjT3",
       "monthly_folder_pattern": "{MES_UPPER} {ANO}",
-      "asset_naming_convention": "midia_{produto}_{tipo}_{etapa}_{formato}"
+      "asset_naming_convention": "midia_{produto}_{tipo}_{etapa}_{formato}",
+      "brandbook_folder_id": "19D6L2GgHsq5QDVMl0tTjycERqDnRg-Tq"
     },
     "vercel": {
       "project_id": "zerezes-leitura-criativa",
@@ -48,9 +49,27 @@
       "branch": "main"
     },
     "canva": {
-      "brand_kit_id": "TBD",
-      "folder_id": "TBD"
+      "brand_kit_id": "VIA_DRIVE",
+      "folder_id": "VIA_DRIVE",
+      "_note": "brandbook vive em sources.drive.brandbook_folder_id; canva nativo nao configurado"
     }
+  },
+  "presentation": {
+    "palette": {
+      "verde": "#80AA9D",
+      "azul": "#5F8DB5",
+      "cinza": "#C1C6BF",
+      "branco": "#FFFFFF",
+      "preto": "#000000",
+      "preto2": "#1a1a1a",
+      "linha": "#E5E5E5",
+      "linha2": "#D4D4D4"
+    },
+    "fonts": {
+      "sans": "Plus Jakarta Sans",
+      "serif": "Plus Jakarta Sans"
+    },
+    "reference_pdf": "1_M2UHN0l5_hfgNCHuqxYMgJpQNjF4_ZN"
   },
   "social": {
     "base_url": "https://zerezes-leitura-criativa.vercel.app",
@@ -93,16 +112,16 @@
       "coleção": ["lançamento", "drop"]
     },
     "forbenhead_dia": [],
-    "forbidden": ["bestseller", "best-seller", "drop", "hype"]
+    "forbidden": ["bestseller", "best-seller", "drop", "hype", "espaço largo"]
   },
   "collections": [
     { "slug": "grau26", "name": "Grau 26", "status": "central", "notes": "collab/coleção central em abril/2026 — 16 modelos com nomes literários. 4 personas do filme: laura lufesi, túlio linare, letrux, philipp lavra." },
     { "slug": "aon-solar", "name": "AON Solar", "status": "secundaria" },
-    { "slug": "aon-sports", "name": "AON Sports", "status": "secundaria", "notes": "collab The Simple Gyn no fim de abril → início de maio" },
+    { "slug": "aon-sports", "name": "AON Sports", "status": "secundaria", "notes": "collab The Simple Gym no fim de abril → início de maio" },
     { "slug": "classicos", "name": "Clássicos (bestsellers)", "status": "historica", "notes": "novas cores entrando em maio" },
     { "slug": "masp", "name": "Collab MASP", "status": "entrante" },
     { "slug": "farm", "name": "Collab FARM", "status": "entrante" },
-    { "slug": "the-simple-gyn", "name": "Collab The Simple Gyn (Sports)", "status": "entrante" }
+    { "slug": "the-simple-gyn", "name": "Collab The Simple Gym (Sports)", "status": "entrante" }
   ],
   "personas": [
     { "name": "Laura Lufesi", "role": "persona 1 — grau26", "model": "lena" },

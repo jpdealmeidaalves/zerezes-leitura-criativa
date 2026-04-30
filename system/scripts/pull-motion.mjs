@@ -10,6 +10,7 @@
 // em dev standalone, se global.mcp estiver undefined, o script escreve snapshot stub.
 
 import { parseArgs, loadClientConfig, requireArg, writeJson, editionPath, log } from './_shared.mjs';
+import { resolveThumbnail } from './_thumbnails.mjs';
 
 const args = parseArgs(process.argv);
 const slug = requireArg(args, 'client');
@@ -41,15 +42,32 @@ if (adapter) {
     snapshot.reports = reports;
     // populates creatives list in batches; truncate fields to keep snapshot readable
     const creatives = await adapter.get_creative_insights({ edition });
-    snapshot.creatives = (creatives || []).map((c) => ({
-      id: c.id,
-      name: c.name,
-      format: c.format,
-      spend: c.spend,
-      ctr: c.ctr,
-      reach: c.reach,
-      placement: c.placement,
-      thumbnail: c.thumbnail,
+    const accountWorkspaceId = cfg.sources?.motion?.account_workspace_id;
+    snapshot.creatives = await Promise.all((creatives || []).map(async (c) => {
+      let thumbnail = c.thumbnail || c.pubUrl || c.thumbnailUrl || null;
+      let thumbnail_source = thumbnail ? 'motion' : null;
+      if (!thumbnail && accountWorkspaceId && c.creativeAssetId) {
+        const kind = (c.format || 'image').toLowerCase().includes('video') ? 'video' : 'image';
+        const { resolved, candidates } = await resolveThumbnail(accountWorkspaceId, c.creativeAssetId, { kind });
+        if (resolved) {
+          thumbnail = resolved.url;
+          thumbnail_source = 'motionaccountassets';
+        } else if (candidates.length) {
+          thumbnail = candidates[0].url;
+          thumbnail_source = 'motionaccountassets-unverified';
+        }
+      }
+      return {
+        id: c.id,
+        name: c.name,
+        format: c.format,
+        spend: c.spend,
+        ctr: c.ctr,
+        reach: c.reach,
+        placement: c.placement,
+        thumbnail,
+        thumbnail_source,
+      };
     }));
   } catch (e) {
     log('motion', `error: ${e?.message || e} — keeping previous snapshot`);

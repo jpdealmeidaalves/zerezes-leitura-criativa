@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zerezes — leitura criativa :: abril 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus%20Jakarta%20Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #80AA9D;
+  --azul: #5F8DB5;
+  --cinza: #C1C6BF;
+  --branco: #FFFFFF;
+  --preto: #000000;
+  --preto2: #1a1a1a;
+  --linha: #E5E5E5;
+  --linha2: #D4D4D4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:#D4D4D4;
+  font-family:'Plus Jakarta Sans','Plus Jakarta Sans',-apple-system,sans-serif;
+  color:var(--preto);
+  line-height:1.4;
+}
+body{padding:24px 0;display:flex;flex-direction:column;align-items:center;gap:24px}
+
+/* ===== BASE SLIDE ===== */
+.slide{
+  width:297mm;
+  height:210mm;
+  background:var(--branco);
+  display:flex;
+  position:relative;
+  page-break-after:always;
+  break-after:page;
+  overflow:hidden;
+  box-shadow:0 4px 28px rgba(0,0,0,.15);
+}
+.slide:last-child{page-break-after:auto}
+
+/* ===== LEFT SIDEBAR (gabarito Book Digital) ===== */
+.slide-bar{
+  width:20mm;
+  background:var(--preto);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  padding:10mm 0 10mm;
+  gap:6mm;
+  flex-shrink:0;
+}
+.bar-discipline{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:8.5pt;
+  font-weight:700;
+  letter-spacing:.22em;
+  color:var(--verde);
+  text-transform:uppercase;
+}
+.bar-year{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:7.5pt;
+  font-weight:500;
+  letter-spacing:.12em;
+  color:rgba(255,255,255,.45);
+}
+.bar-brand{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:7pt;
+  font-weight:400;
+  letter-spacing:.06em;
+  color:rgba(255,255,255,.22);
+  text-transform:lowercase;
+}
+
+/* ===== SLIDE BODY ===== */
+.slide-body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:14mm 20mm 11mm 16mm;
+  min-width:0;
+}
+
+/* Slide header: num · label · meta */
+.slide-hdr{
+  display:flex;
+  align-items:baseline;
+  gap:5mm;
+  margin-bottom:5mm;
+  padding-bottom:4mm;
+  border-bottom:1px solid var(--linha);
+}
+.sh-num{
+  font-size:8.5pt;
+  font-weight:700;
+  color:var(--verde);
+  letter-spacing:.18em;
+  font-variant-numeric:tabular-nums;
+}
+.sh-label{
+  font-size:7.5pt;
+  font-weight:600;
+  color:var(--cinza);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+}
+.sh-meta{
+  margin-left:auto;
+  font-size:7.5pt;
+  color:var(--cinza);
+  letter-spacing:.04em;
+}
+
+/* Kicker + Title */
+.slide-kicker{
+  font-size:8.5pt;
+  font-weight:600;
+  text-transform:lowercase;
+  letter-spacing:.08em;
+  color:var(--azul);
+  margin-bottom:3mm;
+}
+.slide-title{
+  font-size:18pt;
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  color:var(--preto);
+  margin-bottom:6mm;
+}
+.slide-title.lg{font-size:24pt}
+.slide-title em{font-style:italic;color:var(--verde)}
+.slide-lead{
+  font-size:10pt;
+  line-height:1.55;
+  color:var(--preto2);
+  margin-bottom:5mm;
+}
+.slide-lead strong{color:var(--preto);font-weight:600}
+
+/* ===== COVER ===== */
+.slide.cover{
+  background:var(--preto);
+}
+.slide.cover .slide-bar{
+  background:var(--verde);
+  justify-content:flex-end;
+}
+.slide.cover .slide-bar .bar-discipline{color:var(--preto)}
+.slide.cover .slide-bar .bar-year{color:rgba(0,0,0,.5)}
+.slide.cover .slide-bar .bar-brand{color:rgba(0,0,0,.3)}
+.slide.cover .slide-body{
+  padding:22mm 26mm 18mm 18mm;
+  justify-content:space-between;
+}
+.c-tag{
+  font-size:8.5pt;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:var(--verde);
+  margin-bottom:10mm;
+}
+.c-title{
+  font-size:34pt;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.025em;
+  color:var(--branco);
+  max-width:220mm;
+}
+.c-title em{font-style:italic;color:var(--verde)}
+.c-discipline{
+  display:inline-block;
+  margin-top:10mm;
+  font-size:9pt;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--branco);
+  border:1px solid rgba(255,255,255,.25);
+  padding:3mm 8mm;
+}
+.c-meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:8pt;
+  letter-spacing:.06em;
+  color:rgba(255,255,255,.45);
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:5mm;
+}
+
+/* ===== AGENDA ===== */
+.agenda-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:4mm;
+  margin-top:3mm;
+  flex:1;
+  align-content:start;
+}
+.agenda-item{
+  padding:5mm 6mm;
+  border-left:2px solid var(--verde);
+  background:#FAFAFA;
+}
+.agenda-item.alt{border-left-color:var(--azul)}
+.ai-letter{
+  font-size:8pt;
+  font-weight:700;
+  color:var(--verde);
+  letter-spacing:.1em;
+  margin-bottom:2mm;
+}
+.ai-letter.alt{color:var(--azul)}
+.ai-name{
+  font-size:10.5pt;
+  font-weight:700;
+  color:var(--preto);
+  margin-bottom:2mm;
+  line-height:1.25;
+}
+.ai-desc{
+  font-size:8.5pt;
+  color:var(--cinza);
+  line-height:1.4;
+}
+
+/* ===== KPIs ===== */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(44mm,1fr));gap:4mm;margin-top:2mm}
+.kpi-card{
+  padding:6mm 7mm;
+  border:1px solid var(--linha);
+  border-top:2px solid var(--verde);
+  background:#FAFAFA;
+}
+.kpi-label{font-size:7.5pt;letter-spacing:.08em;text-transform:lowercase;color:var(--azul);font-weight:600;margin-bottom:3mm}
+.kpi-value{font-size:20pt;font-weight:700;color:var(--preto);line-height:1;letter-spacing:-.01em;margin-bottom:2mm}
+.kpi-note{font-size:8.5pt;color:var(--cinza);line-height:1.4}
+
+/* ===== DESTAQUES +/- ===== */
+.grupo-kicker{
+  font-size:8pt;
+  color:var(--cinza);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:4mm;
+}
+.peca-list{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:2mm}
+.peca{
+  padding:5mm 6mm;
+  background:#FAFAFA;
+  border:1px solid var(--linha);
+  border-top:2px solid var(--verde);
+}
+.peca.neg{border-top-color:var(--azul)}
+.p-nome{font-size:9.5pt;font-weight:700;color:var(--preto);margin-bottom:2mm;word-break:break-word;line-height:1.3}
+.p-cap{font-size:8.5pt;color:var(--cinza);margin-bottom:3mm;font-style:italic}
+.p-pontos{font-size:8.5pt;color:var(--preto2);line-height:1.5}
+.p-pontos ul{list-style:none;padding:0}
+.p-pontos li{padding-left:10px;position:relative;margin-bottom:2px}
+.p-pontos li::before{content:'·';position:absolute;left:0;color:var(--verde)}
+.peca.neg .p-pontos li::before{color:var(--azul)}
+.p-pontos-label{font-size:7.5pt;font-weight:700;color:var(--verde);text-transform:lowercase;letter-spacing:.04em;margin-bottom:2mm;display:block}
+.peca.neg .p-pontos-label{color:var(--azul)}
+
+/* ===== BENCHMARKS ===== */
+.bench-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(58mm,1fr));gap:4mm;margin-top:2mm}
+.bench-card{
+  padding:6mm 7mm;
+  background:#FAFAFA;
+  border:1px solid var(--linha);
+  border-left:2px solid var(--azul);
+}
+.b-tag{font-size:8.5pt;font-weight:700;color:var(--azul);letter-spacing:.06em;margin-bottom:3mm;text-transform:uppercase}
+.b-tese{font-size:9pt;line-height:1.5;color:var(--preto2)}
+
+/* ===== OPORTUNIDADES ===== */
+.opo-list{display:flex;flex-direction:column;gap:3.5mm;margin-top:2mm}
+.opo-item{
+  display:grid;
+  grid-template-columns:26mm 1fr;
+  gap:5mm;
+  padding:4.5mm 6mm;
+  background:#FAFAFA;
+  border:1px solid var(--linha);
+  align-items:start;
+}
+.o-tag{font-size:8pt;font-weight:700;color:var(--verde);letter-spacing:.06em;line-height:1.4}
+.o-titulo{font-size:10.5pt;font-weight:700;color:var(--preto);margin-bottom:2mm;line-height:1.3}
+.o-descricao{font-size:8.5pt;line-height:1.5;color:var(--preto2)}
+
+/* ===== CLOSING ===== */
+.slide.closing{background:var(--preto)}
+.slide.closing .slide-bar{background:var(--verde)}
+.slide.closing .slide-bar .bar-discipline{color:var(--preto)}
+.slide.closing .slide-bar .bar-year{color:rgba(0,0,0,.45)}
+.slide.closing .slide-bar .bar-brand{color:rgba(0,0,0,.25)}
+.slide.closing .slide-body{justify-content:center;align-items:flex-start;padding:20mm 26mm}
+.cl-tag{font-size:8.5pt;letter-spacing:.22em;text-transform:uppercase;color:var(--verde);font-weight:700;margin-bottom:8mm}
+.cl-sign{font-size:56pt;font-weight:700;color:var(--branco);font-style:italic;letter-spacing:-.03em;line-height:1}
+.cl-note{margin-top:10mm;font-size:9.5pt;color:rgba(255,255,255,.4);letter-spacing:.06em}
+
+/* ===== PRINT ===== */
+@media print{
+  body{background:#fff;padding:0;gap:0}
+  .slide{box-shadow:none;margin:0}
+  @page{size:A4 landscape;margin:0}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="slide cover">
+  <div class="slide-bar">
+    <span class="bar-discipline">mídia</span>
+    <span class="bar-year">2026</span>
+    <span class="bar-brand">mkt growth</span>
+  </div>
+  <div class="slide-body">
+    <div>
+      <div class="c-tag">[ Book Digital ] · Fechamento mensal</div>
+      <div class="c-title">leitura criativa :: abril 2026</div>
+      <div class="c-discipline">mídia</div>
+    </div>
+    <div class="c-meta">
+      <span>Zerezes · mkt growth</span>
+      <span>01 — 28 abril 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- AGENDA (padrão Book Digital: "2 · MÍDIA · agenda") -->
+<div class="slide">
+  <div class="slide-bar">
+    <span class="bar-discipline">mídia</span>
+    <span class="bar-year">2026</span>
+    <span class="bar-brand">mkt growth</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+      <span class="sh-num">02</span>
+      <span class="sh-label">mídia</span>
+      <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+    </div>
+    <div class="slide-title lg">agenda</div>
+    <div class="agenda-grid">
+      <div class="agenda-item">
+        <div class="ai-letter">a.</div>
+        <div class="ai-name">KPIs</div>
+        <div class="ai-desc">números-chave do mês na disciplina</div>
+      </div>
+      <div class="agenda-item alt">
+        <div class="ai-letter alt">b.</div>
+        <div class="ai-name">Destaques Positivos</div>
+        <div class="ai-desc">peças que funcionaram, por linha</div>
+      </div>
+      <div class="agenda-item alt">
+        <div class="ai-letter alt">c.</div>
+        <div class="ai-name">Destaques Negativos</div>
+        <div class="ai-desc">o que não performou + buracos de cobertura</div>
+      </div>
+      <div class="agenda-item">
+        <div class="ai-letter">d.</div>
+        <div class="ai-name">Benchmarks</div>
+        <div class="ai-desc">leitura do mercado em 01 — 28 abril 2026</div>
+      </div>
+      <div class="agenda-item">
+        <div class="ai-letter">e.</div>
+        <div class="ai-name">Oportunidades &amp; Testes</div>
+        <div class="ai-desc">apostas para maio</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">01</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">kpis :: mídia abril 2026</div>
+    <h2 class="slide-title">os números do mês</h2>
+    <p class="slide-lead"><strong>abril de 2026 fechou com 23,5M impressões e CTR médio de 0,88%</strong> — o primeiro mês cheio de grau 26 no ar. o carrossel de coleção virou cavalo de batalha; o vídeo genérico de abril escalou; Rodrigo Bez fez 6,6M de impressões sozinho no alcance; e a 2ª quinzena trouxe Alice Fleury em vídeo, uma campanha de reativação de inativos, MASP e FARM escalando, e AON Sports surpreendendo com o maior CTR da conta.</p>
+    <div class="kpi-grid">
+<div class="kpi-card">
+  <div class="kpi-label">impressões totais</div>
+  <div class="kpi-value">23,5M</div>
+  <div class="kpi-note">mês todo (01–28)</div>
+</div>
+<div class="kpi-card">
+  <div class="kpi-label">CTR médio</div>
+  <div class="kpi-value">0,88%</div>
+  <div class="kpi-note">média ponderada da conta</div>
+</div>
+<div class="kpi-card">
+  <div class="kpi-label">topo de funil</div>
+  <div class="kpi-value">6,6M impressões</div>
+  <div class="kpi-note">Rodrigo Bez sozinho — dominante</div>
+</div>
+<div class="kpi-card">
+  <div class="kpi-label">maior CTR da conta</div>
+  <div class="kpi-value">1,79%</div>
+  <div class="kpi-note">AON Sports — carrossel 020326 em scaling</div>
+</div>
+<div class="kpi-card">
+  <div class="kpi-label">copy de melhor performance</div>
+  <div class="kpi-value">&quot;de volta à realidade&quot;</div>
+  <div class="kpi-note">CTR 1,23–1,33% sustentado pelo mês todo</div>
+</div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">01</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques positivos</div>
+    <h2 class="slide-title">Grau26 — meio de funil</h2>
+    <div class="peca-list">
+<div class="peca">
+  <div class="p-nome">carrossel_coleção_generico_160325</div>
+  <div class="p-cap">CTR 1,38% · holding · top asset da conta · múltiplos adsets</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>vitrine de produtos como hook</li><li>copy &quot;de volta à realidade&quot; sustentou performance</li><li>asset mais resistente da conta</li></ul>
+  </div>
+</div>
+<div class="peca">
+  <div class="p-nome">imagem_coleção_generico_160325</div>
+  <div class="p-cap">CTR 1,33% · declining mas com sinal forte</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>copy editorial &quot;16 modelos&quot;</li><li>ângulo produto still simples</li><li>replicar copy nas demais linhas</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">02</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques positivos</div>
+    <h2 class="slide-title">Grau26 — topo de funil (creators)</h2>
+    <div class="peca-list">
+<div class="peca">
+  <div class="p-nome">Rodrigo Bez — vídeo 090426</div>
+  <div class="p-cap">6,6M impressões no mês · holding · líder absoluto em alcance</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>rosto + movimento como hook</li><li>cluster boy zerezes</li><li>volume permite testar costura completa creator → carrossel → catálogo</li></ul>
+  </div>
+</div>
+<div class="peca">
+  <div class="p-nome">Alice Fleury — vídeo 160426</div>
+  <div class="p-cap">CTR 0,11% · novo · em fase de entrada</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>fashion girlie cluster</li><li>rosto + vídeo nativo</li><li>ainda em testing — observar 2ª semana de maio</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">03</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques positivos</div>
+    <h2 class="slide-title">AON Sports</h2>
+    <div class="peca-list">
+<div class="peca">
+  <div class="p-nome">carrossel sports 020326</div>
+  <div class="p-cap">CTR 1,79% · scaling · maior CTR da conta</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>território aberto no BR — ninguém faz esporte com olhar editorial</li><li>sinal forte para escalar produção em maio</li><li>collab The Simple Gym entra como alavanca fim-abril</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">04</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques positivos</div>
+    <h2 class="slide-title">Grau26 — fundo de funil</h2>
+    <div class="peca-list">
+<div class="peca">
+  <div class="p-nome">catálogo dinâmico LançamentoGrau26</div>
+  <div class="p-cap">maior alcance da conta · trabalho silencioso de fechamento</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>hook produto + preço</li><li>ângulo funcional sem narrativa</li><li>ancora de conversão estável</li></ul>
+  </div>
+</div>
+<div class="peca">
+  <div class="p-nome">trio inativos 280426</div>
+  <div class="p-cap">imagem + vídeo + carrossel · campanha reconhecimento/purchaseonly entrou 28/04</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>reativação de quem comprou e ficou inativo</li><li>mesma coleção em 3 formatos</li><li>sinal de maturidade da conta</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">05</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques positivos</div>
+    <h2 class="slide-title">Outras frentes (escalando)</h2>
+    <div class="peca-list">
+<div class="peca">
+  <div class="p-nome">Collab MASP</div>
+  <div class="p-cap">em scaling · território editorial rico</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>candidato a leitura dedicada</li><li>subutilizado em mídia paga até abril</li></ul>
+  </div>
+</div>
+<div class="peca">
+  <div class="p-nome">Collab FARM</div>
+  <div class="p-cap">em scaling</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de destaque:</span>
+    <ul><li>mesma tese editorial</li><li>volume baixo mas consistente</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">01</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques negativos</div>
+    <h2 class="slide-title">Grau26 — meio de funil</h2>
+    <div class="peca-list">
+<div class="peca neg">
+  <div class="p-nome">video_coleção_generico_090426</div>
+  <div class="p-cap">CTR 0,28% · hidden/declining · 2 adsets · maior vídeo da conta em volume</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de atenção:</span>
+    <ul><li>volume alto mas CTR fraco</li><li>abertura de coleção como hook não engajou</li><li>considerar nova edição com headline editorial</li></ul>
+  </div>
+</div>
+<div class="peca neg">
+  <div class="p-nome">video_coleção_generico_260326</div>
+  <div class="p-cap">CTR 0,21% · hidden · primeira rodada de vídeo prospec.</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de atenção:</span>
+    <ul><li>mesmo padrão do 090426 em escala menor</li><li>formato vídeo de coleção precisa repensar hook</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">02</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques negativos</div>
+    <h2 class="slide-title">Grau26 — topo de funil</h2>
+    <div class="peca-list">
+<div class="peca neg">
+  <div class="p-nome">Rafaela Amorim — vídeo coleção</div>
+  <div class="p-cap">CTR 0,06% · testing · volume baixo</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de atenção:</span>
+    <ul><li>rosto + produto</li><li>cluster fashion girlie</li><li>decidir em maio: aprofundar ou descartar</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">03</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques negativos</div>
+    <h2 class="slide-title">Cobertura criativa — buracos</h2>
+    <div class="peca-list">
+<div class="peca neg">
+  <div class="p-nome">cluster Statement</div>
+  <div class="p-cap">sem cobertura em meio e fundo de funil</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de atenção:</span>
+    <ul><li>oportunidade clara para o studio em maio</li></ul>
+  </div>
+</div>
+<div class="peca neg">
+  <div class="p-nome">cluster Oversized/Vanguarda</div>
+  <div class="p-cap">sem cobertura no funil completo</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de atenção:</span>
+    <ul><li>aposta natural depois dos primeiros nomes literários</li></ul>
+  </div>
+</div>
+<div class="peca neg">
+  <div class="p-nome">15 nomes literários como criativos individuais</div>
+  <div class="p-cap">material existe (briefing), ainda não foi pro feed pago</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de atenção:</span>
+    <ul><li>lena, jig, keí, lusti — primeiros candidatos</li><li>&quot;prazer, [nome]&quot; como mecânica testável em maio</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">04</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">destaques negativos</div>
+    <h2 class="slide-title">Retargeting — uso uniforme do criativo</h2>
+    <div class="peca-list">
+<div class="peca neg">
+  <div class="p-nome">4 clusters comportamentais (HPB, LTV, LTVSEED, SEED)</div>
+  <div class="p-cap">rodam o mesmo criativo — sem variação por cluster</div>
+  <div class="p-pontos">
+    <span class="p-pontos-label">pontos de atenção:</span>
+    <ul><li>cliente alto valor vê o mesmo que seed</li><li>oportunidade de variação por cluster em maio</li></ul>
+  </div>
+</div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">01</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">benchmarks</div>
+    <h2 class="slide-title">o que o mercado fez em abril</h2>
+    <div class="bench-grid">
+<div class="bench-card">
+  <div class="b-tag">[Warby Parker]</div>
+  <div class="b-tese">lançou Summer 2026 + linha Sport (&quot;prescription-ready, made for movement&quot;) + repechagem do frame Ketty. cada armação é personagem com headline e landing próprios. estrutura editorial do que a Grau26 promete.</div>
+</div>
+<div class="bench-card">
+  <div class="b-tag">[Oakley]</div>
+  <div class="b-tese">aposta dupla: Oakley Meta smart glasses (IA + colorways) e Transitions (lentes fotocromáticas, ad em 29/04). pura funcionalidade e tech — referência de template visual com produto em detalhe + copy funcional curta.</div>
+</div>
+<div class="bench-card">
+  <div class="b-tag">[Ace &amp; Tate]</div>
+  <div class="b-tese">campanha &quot;90s edit&quot; com headline &quot;get in bed with glasses&quot;. também roda booking de exame de vista com vídeos nativos. é a marca que mais conversa com o público da Grau26 em tom.</div>
+</div>
+<div class="bench-card">
+  <div class="b-tag">[Chilli Beans]</div>
+  <div class="b-tese">sustenta presença mas saiu do produto em mídia paga — foco em franquia/marca. baixa leitura útil este mês. monitorar.</div>
+</div>
+<div class="bench-card">
+  <div class="b-tag">[LIVO]</div>
+  <div class="b-tese">pivotou para lentes de contato e franquias. quase ausente no território de óculos de grau em abril. observar maio se volta ou consolida pivô.</div>
+</div>
+<div class="bench-card">
+  <div class="b-tag">[Óticas Carol]</div>
+  <div class="b-tese">leitura funcional/preço — mantém como contraste do que NÃO fazer no copy editorial. mass-market puro.</div>
+</div></div>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">01</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">oportunidades &amp; testes · parte 1/2</div>
+    <h2 class="slide-title">as apostas para maio</h2>
+    <div class="opo-list">
+<div class="opo-item">
+  <div class="o-tag">[Maio]</div>
+  <div>
+    <div class="o-titulo">estender &quot;de volta à realidade&quot; para Grau, Solar e Sports</div>
+    <div class="o-descricao">manter a estrutura, criar variações por linha. sucesso = CTR ≥ 1,2% em pelo menos 2 das 3 linhas.</div>
+  </div>
+</div>
+<div class="opo-item">
+  <div class="o-tag">[Maio]</div>
+  <div>
+    <div class="o-titulo">primeiros criativos individuais com nomes literários</div>
+    <div class="o-descricao">&quot;prazer, lena&quot; / &quot;prazer, keí&quot; como peças isoladas em meio de funil. sucesso = qualquer um dos 4 nomes superando o carrossel 160325 em CTR por 7+ dias.</div>
+  </div>
+</div>
+<div class="opo-item">
+  <div class="o-tag">[Maio]</div>
+  <div>
+    <div class="o-titulo">costura completa creator → carrossel → catálogo (Rodrigo Bez)</div>
+    <div class="o-descricao">primeira jornada narrativa com um único creator como fio condutor. sucesso = CPA do cluster que viu o vídeo do Rodrigo &lt; CPA do cluster controle.</div>
+  </div>
+</div>
+<div class="opo-item">
+  <div class="o-tag">[Maio]</div>
+  <div>
+    <div class="o-titulo">AON Solar com tom Grau26</div>
+    <div class="o-descricao">primeiro lookbook Solar como capítulo editorial. referência: Warby Summer 2026. sucesso = CTR Solar ≥ média Grau26 em meio de funil.</div>
+  </div>
+</div>
+<div class="opo-item">
+  <div class="o-tag">[Maio 14–31]</div>
+  <div>
+    <div class="o-titulo">clássicos novas cores como micro-evento</div>
+    <div class="o-descricao">headline curta, foco em colorway, sem promoção. sucesso = consideração (saved/share/comment) acima da média de meio Grau26.</div>
+  </div>
+</div></div>
+  </div>
+</div>
+<div class="slide">
+  <div class="slide-bar">
+  <span class="bar-discipline">mídia</span>
+  <span class="bar-year">2026</span>
+  <span class="bar-brand">mkt growth</span>
+</div>
+  <div class="slide-body">
+    <div class="slide-hdr">
+  <span class="sh-num">02</span>
+  <span class="sh-label">mídia</span>
+  <span class="sh-meta">Zerezes · mídia · 01 — 28 abril 2026</span>
+</div>
+    <div class="slide-kicker">oportunidades &amp; testes · parte 2/2</div>
+    <h2 class="slide-title">as apostas para maio</h2>
+    <div class="opo-list">
+<div class="opo-item">
+  <div class="o-tag">[Maio]</div>
+  <div>
+    <div class="o-titulo">variação de criativo por cluster comportamental</div>
+    <div class="o-descricao">criar variantes específicas para HPB / LTV / SEED em vez de rodar o mesmo asset em todos. sucesso = CTR diferenciado por cluster.</div>
+  </div>
+</div>
+<div class="opo-item">
+  <div class="o-tag">[Junho]</div>
+  <div>
+    <div class="o-titulo">cobertura dos clusters Statement e Oversized/Vanguarda</div>
+    <div class="o-descricao">fechar buracos do heatmap depois que Solar/Sports estiverem rodando. dependente do studio entregar peças.</div>
+  </div>
+</div></div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="slide closing">
+  <div class="slide-bar">
+    <span class="bar-discipline">mídia</span>
+    <span class="bar-year">2026</span>
+    <span class="bar-brand">mkt growth</span>
+  </div>
+  <div class="slide-body">
+    <div class="cl-tag">próximas leituras em maio</div>
+    <div class="cl-sign">;;)</div>
+    <div class="cl-note">Zerezes · mkt growth</div>
+  </div>
+</div>
+
+</body>
+</html>

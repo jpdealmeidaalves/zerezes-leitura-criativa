@@ -1,0 +1,162 @@
+// extract-april.mjs
+// one-shot: extrai os dados editoriais de `index.html` raiz (abril 2026) e
+// escreve `system/clients/zerezes/content/2026-04.json` no schema compatível
+// com a apresentação institucional (Book Digital).
+//
+// uso: node system/scripts/extract-april.mjs --client zerezes
+//
+// nota: este script NAO faz parsing real do HTML — ele contem os dados de
+// abril/2026 mapeados manualmente do index.html (autorado inline em ~900
+// linhas). e' um one-shot pra trazer o conteudo abril pro fluxo dos demais
+// meses. edicoes futuras passam pelo pipeline normal: pull-motion + draft-content.
+//
+// se o index.html for editado significativamente, regenerar manualmente.
+
+import { parseArgs, requireArg, writeJson, editionPath, log } from './_shared.mjs';
+
+const args = parseArgs(process.argv);
+const slug = requireArg(args, 'client');
+const edition = '2026-04';
+
+const data = {
+  client: slug,
+  edition,
+  draft_status: 'extracted-from-html',
+  draft_note: 'extraido de /index.html raiz (abril 2026, autorado inline). gerado por extract-april.mjs em 30/04/2026.',
+  title: 'leitura criativa :: abril 2026',
+  period: '01 — 28 abril 2026',
+  hero: {
+    label: 'edição abril · 2026',
+    headline_html: 'leitura criativa<span class="or">::</span><br><span class="thin">o que a conta disse em abril</span>',
+    subhead: 'meta ads zerezes · 6 marcas analisadas · período 01–28 abril 2026',
+  },
+  og: {
+    image_alt: 'KV da campanha grau 26 — "de volta à vida real"',
+    description: 'um olhar editorial sobre a vida criativa da zerezes — grau 26 no ar, 6 concorrentes Meta, e as apostas para maio.',
+  },
+  sections: {
+    // KPIs do mes (sem R$) — alimenta slide "KPIs" da apresentacao
+    kpis: {
+      kicker: 'kpis :: mídia abril 2026',
+      title: 'os números do mês',
+      metrics: [
+        { label: 'impressões totais', value: '23,5M', note: 'mês todo (01–28)' },
+        { label: 'CTR médio', value: '0,88%', note: 'média ponderada da conta' },
+        { label: 'topo de funil', value: '6,6M impressões', note: 'Rodrigo Bez sozinho — dominante' },
+        { label: 'maior CTR da conta', value: '1,79%', note: 'AON Sports — carrossel 020326 em scaling' },
+        { label: 'copy de melhor performance', value: '"de volta à realidade"', note: 'CTR 1,23–1,33% sustentado pelo mês todo' },
+      ],
+      lead_html: '<strong>abril de 2026 fechou com 23,5M impressões e CTR médio de 0,88%</strong> — o primeiro mês cheio de grau 26 no ar. o carrossel de coleção virou cavalo de batalha; o vídeo genérico de abril escalou; Rodrigo Bez fez 6,6M de impressões sozinho no alcance; e a 2ª quinzena trouxe Alice Fleury em vídeo, uma campanha de reativação de inativos, MASP e FARM escalando, e AON Sports surpreendendo com o maior CTR da conta.',
+    },
+
+    // Destaques POSITIVOS — peças em scaling/holding por etapa de funil
+    destaques_positivos: {
+      kicker: 'destaques positivos',
+      title: 'o que funcionou em abril',
+      grupos: [
+        {
+          linha: 'Grau26 — meio de funil',
+          pecas: [
+            { nome: 'carrossel_coleção_generico_160325', data: '160325', cap: 'CTR 1,38% · holding · top asset da conta · múltiplos adsets', pontos: ['vitrine de produtos como hook', 'copy "de volta à realidade" sustentou performance', 'asset mais resistente da conta'] },
+            { nome: 'imagem_coleção_generico_160325', data: '160325', cap: 'CTR 1,33% · declining mas com sinal forte', pontos: ['copy editorial "16 modelos"', 'ângulo produto still simples', 'replicar copy nas demais linhas'] },
+          ],
+        },
+        {
+          linha: 'Grau26 — topo de funil (creators)',
+          pecas: [
+            { nome: 'Rodrigo Bez — vídeo 090426', data: '090426', cap: '6,6M impressões no mês · holding · líder absoluto em alcance', pontos: ['rosto + movimento como hook', 'cluster boy zerezes', 'volume permite testar costura completa creator → carrossel → catálogo'] },
+            { nome: 'Alice Fleury — vídeo 160426', data: '160426', cap: 'CTR 0,11% · novo · em fase de entrada', pontos: ['fashion girlie cluster', 'rosto + vídeo nativo', 'ainda em testing — observar 2ª semana de maio'] },
+          ],
+        },
+        {
+          linha: 'AON Sports',
+          pecas: [
+            { nome: 'carrossel sports 020326', data: '020326', cap: 'CTR 1,79% · scaling · maior CTR da conta', pontos: ['território aberto no BR — ninguém faz esporte com olhar editorial', 'sinal forte para escalar produção em maio', 'collab The Simple Gym entra como alavanca fim-abril'] },
+          ],
+        },
+        {
+          linha: 'Grau26 — fundo de funil',
+          pecas: [
+            { nome: 'catálogo dinâmico LançamentoGrau26', data: 'contínuo', cap: 'maior alcance da conta · trabalho silencioso de fechamento', pontos: ['hook produto + preço', 'ângulo funcional sem narrativa', 'ancora de conversão estável'] },
+            { nome: 'trio inativos 280426', data: '280426', cap: 'imagem + vídeo + carrossel · campanha reconhecimento/purchaseonly entrou 28/04', pontos: ['reativação de quem comprou e ficou inativo', 'mesma coleção em 3 formatos', 'sinal de maturidade da conta'] },
+          ],
+        },
+        {
+          linha: 'Outras frentes (escalando)',
+          pecas: [
+            { nome: 'Collab MASP', data: 'contínuo', cap: 'em scaling · território editorial rico', pontos: ['candidato a leitura dedicada', 'subutilizado em mídia paga até abril'] },
+            { nome: 'Collab FARM', data: 'contínuo', cap: 'em scaling', pontos: ['mesma tese editorial', 'volume baixo mas consistente'] },
+          ],
+        },
+      ],
+    },
+
+    // Destaques NEGATIVOS — pecas em declining/hidden + buracos do heatmap
+    destaques_negativos: {
+      kicker: 'destaques negativos',
+      title: 'o que não funcionou (ou ficou de fora)',
+      grupos: [
+        {
+          linha: 'Grau26 — meio de funil',
+          pecas: [
+            { nome: 'video_coleção_generico_090426', data: '090426', cap: 'CTR 0,28% · hidden/declining · 2 adsets · maior vídeo da conta em volume', pontos: ['volume alto mas CTR fraco', 'abertura de coleção como hook não engajou', 'considerar nova edição com headline editorial'] },
+            { nome: 'video_coleção_generico_260326', data: '260326', cap: 'CTR 0,21% · hidden · primeira rodada de vídeo prospec.', pontos: ['mesmo padrão do 090426 em escala menor', 'formato vídeo de coleção precisa repensar hook'] },
+          ],
+        },
+        {
+          linha: 'Grau26 — topo de funil',
+          pecas: [
+            { nome: 'Rafaela Amorim — vídeo coleção', data: 'contínuo', cap: 'CTR 0,06% · testing · volume baixo', pontos: ['rosto + produto', 'cluster fashion girlie', 'decidir em maio: aprofundar ou descartar'] },
+          ],
+        },
+        {
+          linha: 'Cobertura criativa — buracos',
+          pecas: [
+            { nome: 'cluster Statement', data: '—', cap: 'sem cobertura em meio e fundo de funil', pontos: ['oportunidade clara para o studio em maio'] },
+            { nome: 'cluster Oversized/Vanguarda', data: '—', cap: 'sem cobertura no funil completo', pontos: ['aposta natural depois dos primeiros nomes literários'] },
+            { nome: '15 nomes literários como criativos individuais', data: '—', cap: 'material existe (briefing), ainda não foi pro feed pago', pontos: ['lena, jig, keí, lusti — primeiros candidatos', '"prazer, [nome]" como mecânica testável em maio'] },
+          ],
+        },
+        {
+          linha: 'Retargeting — uso uniforme do criativo',
+          pecas: [
+            { nome: '4 clusters comportamentais (HPB, LTV, LTVSEED, SEED)', data: 'contínuo', cap: 'rodam o mesmo criativo — sem variação por cluster', pontos: ['cliente alto valor vê o mesmo que seed', 'oportunidade de variação por cluster em maio'] },
+          ],
+        },
+      ],
+    },
+
+    // Benchmarks — concorrentes
+    benchmarks: {
+      kicker: 'benchmarks',
+      title: 'o que o mercado fez em abril',
+      items: [
+        { tag: 'Warby Parker', tese: 'lançou Summer 2026 + linha Sport ("prescription-ready, made for movement") + repechagem do frame Ketty. cada armação é personagem com headline e landing próprios. estrutura editorial do que a Grau26 promete.' },
+        { tag: 'Oakley', tese: 'aposta dupla: Oakley Meta smart glasses (IA + colorways) e Transitions (lentes fotocromáticas, ad em 29/04). pura funcionalidade e tech — referência de template visual com produto em detalhe + copy funcional curta.' },
+        { tag: 'Ace & Tate', tese: 'campanha "90s edit" com headline "get in bed with glasses". também roda booking de exame de vista com vídeos nativos. é a marca que mais conversa com o público da Grau26 em tom.' },
+        { tag: 'Chilli Beans', tese: 'sustenta presença mas saiu do produto em mídia paga — foco em franquia/marca. baixa leitura útil este mês. monitorar.' },
+        { tag: 'LIVO', tese: 'pivotou para lentes de contato e franquias. quase ausente no território de óculos de grau em abril. observar maio se volta ou consolida pivô.' },
+        { tag: 'Óticas Carol', tese: 'leitura funcional/preço — mantém como contraste do que NÃO fazer no copy editorial. mass-market puro.' },
+      ],
+    },
+
+    // Oportunidades & Testes — apostas para maio
+    oportunidades_testes: {
+      kicker: 'oportunidades & testes',
+      title: 'as apostas para maio',
+      hipoteses: [
+        { tag: '[Maio]', titulo: 'estender "de volta à realidade" para Grau, Solar e Sports', descricao: 'manter a estrutura, criar variações por linha. sucesso = CTR ≥ 1,2% em pelo menos 2 das 3 linhas.' },
+        { tag: '[Maio]', titulo: 'primeiros criativos individuais com nomes literários', descricao: '"prazer, lena" / "prazer, keí" como peças isoladas em meio de funil. sucesso = qualquer um dos 4 nomes superando o carrossel 160325 em CTR por 7+ dias.' },
+        { tag: '[Maio]', titulo: 'costura completa creator → carrossel → catálogo (Rodrigo Bez)', descricao: 'primeira jornada narrativa com um único creator como fio condutor. sucesso = CPA do cluster que viu o vídeo do Rodrigo < CPA do cluster controle.' },
+        { tag: '[Maio]', titulo: 'AON Solar com tom Grau26', descricao: 'primeiro lookbook Solar como capítulo editorial. referência: Warby Summer 2026. sucesso = CTR Solar ≥ média Grau26 em meio de funil.' },
+        { tag: '[Maio 14–31]', titulo: 'clássicos novas cores como micro-evento', descricao: 'headline curta, foco em colorway, sem promoção. sucesso = consideração (saved/share/comment) acima da média de meio Grau26.' },
+        { tag: '[Maio]', titulo: 'variação de criativo por cluster comportamental', descricao: 'criar variantes específicas para HPB / LTV / SEED em vez de rodar o mesmo asset em todos. sucesso = CTR diferenciado por cluster.' },
+        { tag: '[Junho]', titulo: 'cobertura dos clusters Statement e Oversized/Vanguarda', descricao: 'fechar buracos do heatmap depois que Solar/Sports estiverem rodando. dependente do studio entregar peças.' },
+      ],
+    },
+  },
+};
+
+writeJson(editionPath(slug, edition), data);
+log('extract', `wrote ${editionPath(slug, edition)}`);
+log('extract', 'edicao abril/2026 disponivel para apresentacao + builds futuros');

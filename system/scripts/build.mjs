@@ -9,6 +9,8 @@
 
 import { parseArgs, loadClientConfig, requireArg, readJson, log, SYSTEM_ROOT, REPO_ROOT, contrastRatio } from './_shared.mjs';
 import { validateConfig } from './validate-config.mjs';
+import { lintContent } from './lint-content.mjs';
+import { renderAllSections } from './_render.mjs';
 import { readFileSync, writeFileSync, mkdirSync, cpSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 
@@ -31,6 +33,22 @@ if (!existsSync(contentPath)) {
   process.exit(1);
 }
 const content = readJson(contentPath);
+
+// -- editorial lint (voice.forbidden + known typos) --
+const lint = lintContent(slug, edition, { cfg, contentPath });
+if (!lint.skipped) {
+  for (const i of lint.issues) {
+    const tag = i.severity === 'error' ? 'ERROR' : 'warn';
+    const sug = i.suggest ? ` -> "${i.suggest}"` : '';
+    const note = i.note ? ` [${i.note}]` : '';
+    log('lint', `${tag} ${i.jsonPath}: "${i.match}"${sug}${note}`);
+  }
+  if (lint.errors > 0) {
+    console.error(`build aborted: ${lint.errors} editorial lint error(s).`);
+    process.exit(1);
+  }
+}
+
 const templatePath = join(SYSTEM_ROOT, 'template', 'index.template.html');
 const template = readFileSync(templatePath, 'utf8');
 
@@ -97,6 +115,8 @@ const ogImageUrl = /^https?:\/\//.test(ogImagePath)
     ? `${baseUrl}/${ogImagePath.replace(/^\/+/, '')}`
     : ogImagePath;
 
+const sections = renderAllSections(content);
+
 const ctx = {
   client: cfg,
   edition,
@@ -108,14 +128,18 @@ const ctx = {
     return `https://fonts.googleapis.com/css2?family=${sans}:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=${serif}:ital@0;1&display=swap`;
   })(),
   title: content.title || `${cfg.name} — leitura criativa ${edition}`,
-  hero_headline: content.hero?.headline || '',
+  hero_label: content.hero?.label || '',
+  hero_headline: content.hero?.headline_html || content.hero?.headline || '',
   hero_subhead: content.hero?.subhead || '',
+  closing_html: content.closing?.html || `<em>${cfg.tagline || ''}</em>`,
+  voice_signature: cfg.voice?.signature || '',
   og_type: social.og_type || 'article',
   og_site_name: social.og_site_name || cfg.name || '',
   og_url: content.og?.url || baseUrl || '',
   og_description: content.og?.description || social.default_description || content.hero?.subhead || '',
   og_image: ogImageUrl,
   og_image_alt: content.og?.image_alt || social.og_image_alt || cfg.name || '',
+  ...sections,
 };
 
 const html = render(template, ctx);
@@ -137,3 +161,21 @@ if (asRoot) {
   writeFileSync(rootIdx, html, 'utf8');
   log('build', `--as-root: wrote ${rootIdx} (vercel deploy target)`);
 }
+
+// -- archive: persist content.json + motion snapshot por edicao --
+// permite serie temporal mes-a-mes sem repuxar Motion. veja frente 8 do plano.
+const archiveDir = join(SYSTEM_ROOT, 'clients', slug, 'content', '_archive', edition);
+mkdirSync(archiveDir, { recursive: true });
+cpSync(contentPath, join(archiveDir, `${edition}.json`));
+const snapshotPath = contentPath.replace(/\.json$/, '.motion-snapshot.json');
+if (existsSync(snapshotPath)) {
+  cpSync(snapshotPath, join(archiveDir, `${edition}.motion-snapshot.json`));
+  log('build', `archived snapshot -> ${archiveDir}`);
+} else {
+  log('build', `archived content only -> ${archiveDir} (no motion snapshot found)`);
+}
+writeFileSync(
+  join(archiveDir, 'meta.json'),
+  JSON.stringify({ archived_at: new Date().toISOString(), edition, slug }, null, 2) + '\n',
+  'utf8'
+);
