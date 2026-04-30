@@ -95,7 +95,7 @@
       "coleção": ["lançamento", "drop"]
     },
     "forbenhead_dia": [],
-    "forbidden": ["bestseller", "best-seller", "drop", "hype"]
+    "forbidden": ["bestseller", "best-seller", "drop", "hype", "espaço largo"]
   },
   "collections": [
     { "slug": "grau26", "name": "Grau 26", "status": "central", "notes": "collab/coleção central em abril/2026 — 16 modelos com nomes literários. 4 personas do filme: laura lufesi, túlio linare, letrux, philipp lavra." },

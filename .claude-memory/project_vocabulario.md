@@ -18,5 +18,6 @@ Termos a usar/evitar nos deliverables Zerezes:
 - **The Simple Gym** (NÃO "The Simple Gyn") — nome da collab de AON Sports. Typo "Gyn" foi corrigido em abril de 2026 em `index.html` e `config.json`.
 - **alavanca** — label para ativações sem material de mídia próprio que funcionam como impulsionadores do ad Zerezes (ex: collab The Simple Gym). NÃO usar "ativo" para esses casos.
 - **previsão maio** — label para ativações anunciadas mas não veiculadas no período do report (ex: clássicos novas cores). NÃO usar "entrante" quando ainda não está no ar.
+- **"espaço largo"** — expressão **proibida** (decisão usuário, 30/04/2026). É clichê genérico. Substitutos: "lugar editorial sem ocupante", "vaga em aberto", "ninguém ocupa o lugar editorial". Já registrado em `voice.forbidden`.
 
 **How to apply:** em cada nova leitura criativa, fazer um pass final de busca por "bestsellers", "The Simple Gyn", "MouraJo" e outros termos — substituir pelos termos Zerezes antes de entregar. Marcar ativações que entram no recorte com tag "entrante" (estilo laranja sobre creme, discreto). Usar "alavanca" para collabs sem asset próprio e "previsão maio" para previstas.
