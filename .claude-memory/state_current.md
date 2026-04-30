@@ -90,12 +90,18 @@ node system/scripts/deploy-check.mjs
 # extrair abril (one-shot — só re-rodar se editar o index.html raiz)
 node system/scripts/extract-april.mjs --client zerezes
 
-# gerar a apresentação de uma edição já com content/<edicao>.json
+# gerar HTML da apresentação (preview navegador + PDF via print)
 node system/scripts/build-apresentacao.mjs \
   --client zerezes --edition 2026-04 \
   --estilo fechamento-mensal --janela maio
 # saída: apresentacoes/2026-04/midia-fechamento-mensal.html
 # PDF: abrir no navegador → Print → Save as PDF (A4 landscape, sem margens)
+
+# gerar PPTX editável (PowerPoint/Google Slides)
+node system/scripts/build-apresentacao-pptx.mjs \
+  --client zerezes --edition 2026-04 --janela maio
+# saída: apresentacoes/2026-04/midia-fechamento-mensal.pptx
+# requer: npm install pptxgenjs (já instalado)
 ```
 
 ## regras-mãe (decisões duradouras)
