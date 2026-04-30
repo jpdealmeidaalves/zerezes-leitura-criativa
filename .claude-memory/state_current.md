@@ -13,10 +13,8 @@ last_updated: 2026-04-30
 
 **Abril de 2026 (01–28)** — `index.html` na raiz do repo. Autorada manualmente, hardcoded.
 
-- URL produção: `https://zerezes-leitura-criativa.vercel.app/` — **mas atenção:** produção segue o branch `main`, que está **defasado**. Última PR mergeada foi a #4 (final de março). Tudo de abril está no branch da PR #5.
-- URL preview do branch (sempre atualizada): `https://zerezes-leitura-cria-git-af01d2-jpdealmeidaalves-1986s-projects.vercel.app/`
-- Branch ativa: `claude/update-april-report-data-LTh64`
-- PR #5 — **aberta**, aguardando merge do usuário.
+- URL produção: `https://zerezes-leitura-criativa.vercel.app/` — **em deploy** (PR #5 mergeada em main em 30/04/2026).
+- PR #5 — **mergeada** (squash commit `cc21096`, branch `claude/update-april-report-data-LTh64` → `main`).
 
 ## próxima edicao
 
@@ -130,4 +128,4 @@ node system/scripts/build-apresentacao-pptx.mjs \
 3. Ler `howto_n8n_monthly.md` — sequência do pipeline.
 4. Rodar `pull-motion --edition 2026-05` quando dados existirem (semana 1 de maio).
 5. Editar `content/2026-05.json` à mão (humano + agente em conjunto).
-6. `build.mjs --as-root` quando estiver pronto. PR #5 deve ser mergeada antes (ou mantém-se em branch separado).
+6. `build.mjs --as-root` → nova PR → merge → Vercel deploy automático.
