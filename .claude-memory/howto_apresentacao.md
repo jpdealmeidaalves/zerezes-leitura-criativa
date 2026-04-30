@@ -2,13 +2,14 @@
 name: howto_apresentacao
 description: como gerar a apresentação institucional (formato Book Digital · Fechamento Mensal · Mídia) a partir de uma leitura criativa
 type: howto
+last_updated: 2026-04-30
 ---
 
-> **Resumo de uma linha:** rode `build-apresentacao.mjs --client zerezes --edition <YYYY-MM>` e o HTML/PDF sai em `apresentacoes/<edicao>/midia-fechamento-mensal.html`.
+> **Resumo de uma linha:** rode `build-apresentacao.mjs` para HTML/PDF ou `build-apresentacao-pptx.mjs` para PPTX editável. Ambos saem em `apresentacoes/<edicao>/`.
 
 ## quando usar
 
-Quando o usuário pedir "gera a apresentação de [mês]" ou "adapta a leitura criativa para o formato apresentação". Gabarito interno consolidado, espelha o **Book Digital · Fechamento Mensal** que o time já usa (referência: PDF de março 2026 no Drive, id `1_M2UHN0l5_hfgNCHuqxYMgJpQNjF4_ZN`).
+Quando o usuário pedir "gera a apresentação de [mês]", "manda em PPT" ou "adapta pra formato apresentação". O gabarito é o **[ Book Digital ] · Fechamento Mensal · Mídia** — referência: `[ Book Digital] Fechamento mensal Março 2026-final.pptx` no Drive (id `18v9b4jsRodEB87c8PK9lbklMKnVI9chE`, pasta `1lhysOVp6t_yGogOdMzTehLxOuTAxmEer`).
 
 ## o gabarito (5 sub-seções fixas)
 
@@ -20,42 +21,53 @@ Quando o usuário pedir "gera a apresentação de [mês]" ou "adapta a leitura c
 5. Oportunidades & Testes   ← hipóteses numeradas com janela [maio]/[junho]
 ```
 
-Visual: paleta brandbook clássico Zerezes (verde `#80AA9D`, azul `#5F8DB5`, cinza `#C1C6BF`, preto), tipografia Plus Jakarta Sans, A4 landscape.
+## layout visual (padrão Book Digital)
+
+- **Sidebar esquerda escura** (preto) em todos os slides — texto vertical `mídia · 2026 · mkt growth` em verde/cinza
+- **Capa dark** — fundo preto, sidebar verde, tag `[Book Digital]` em verde, título branco, badge `MÍDIA`
+- **Sem section-cover slides** — agenda vai direto para o conteúdo de cada seção
+- **Numeração local por seção** — cada seção começa em `01`, `02`…
+- **Paleta brandbook**: verde `#80AA9D`, azul `#5F8DB5`, cinza `#C1C6BF`, preto `#000000`
+- **Tipografia**: Plus Jakarta Sans (Regular + Bold)
+- **Formato**: A4 landscape (297mm × 210mm / 11.69" × 8.27")
 
 ## contrato de pedido
 
-Quando o usuário chamar pra gerar, responder com `AskUserQuestion` se faltar campo. O pedido completo é:
+Se faltar campo, usar `AskUserQuestion` antes de gerar:
 
 ```
 edição:    YYYY-MM            # mês-fonte (obrigatório)
-estilo:    fechamento-mensal  # default; outros: futuro
+formato:   html | pptx | ambos  # default: pptx quando usuário pede "me manda em ppt"
 janela:    maio               # nome da janela de "próximos testes"
 notas:     ...                # opcional
 ```
 
-## comando canônico
+## comandos canônicos
 
 ```bash
+# HTML + PDF (via print do navegador)
 node system/scripts/build-apresentacao.mjs \
-  --client zerezes \
-  --edition 2026-04 \
-  --estilo fechamento-mensal \
-  --janela maio
-```
+  --client zerezes --edition 2026-04 \
+  --estilo fechamento-mensal --janela maio
+# saída: apresentacoes/2026-04/midia-fechamento-mensal.html
+# PDF: navegador → Print → Save as PDF (A4 landscape, sem margens, background graphics ativado)
 
-Saída: `apresentacoes/2026-04/midia-fechamento-mensal.html`. Para PDF, abrir no navegador → Print → Save as PDF (A4 landscape, sem margens, ativar "background graphics").
+# PPTX editável (PowerPoint / Google Slides)
+node system/scripts/build-apresentacao-pptx.mjs \
+  --client zerezes --edition 2026-04 --janela maio
+# saída: apresentacoes/2026-04/midia-fechamento-mensal.pptx
+# requer: npm install pptxgenjs (package.json já na raiz, instalado)
+```
 
 ## pré-requisitos
 
-- `system/clients/<client>/content/<edicao>.json` precisa existir.
-  - **Abril 2026:** rodar `node system/scripts/extract-april.mjs --client zerezes` (one-shot, já feito; só re-rodar se editar `index.html`).
-  - **Edições novas (maio em diante):** vem do fluxo normal `pull-motion` → `draft-content`.
-- `cfg.presentation.palette` e `cfg.presentation.fonts` no `config.json` (já configurados pra Zerezes).
-- Lint passa (sem `voice.forbidden`, sem typos).
+- `system/clients/<client>/content/<edicao>.json` precisa existir com as 5 sub-seções de apresentação.
+  - **Abril 2026:** `node system/scripts/extract-april.mjs --client zerezes` (one-shot, já feito).
+  - **Edições novas (maio em diante):** fluxo normal `pull-motion` → `draft-content`.
+- `npm install pptxgenjs` — já instalado (`package.json` na raiz do repo).
+- Lint passa (sem `voice.forbidden`, sem R$ em corrido).
 
 ## anatomia do `content/<edicao>.json` para a apresentação
-
-A apresentação consome **5 sub-seções dentro de `sections.*`**:
 
 ```json
 {
@@ -69,37 +81,30 @@ A apresentação consome **5 sub-seções dentro de `sections.*`**:
 }
 ```
 
-Edições novas que ainda não trazem essas 5 sub-seções podem co-existir com as seções da leitura criativa longa (`resumo`, `tese`, `funil`, `mercado`, `apostas`, `outras_frentes`). Estratégia recomendada: **adicionar as 5 sub-seções de apresentação no mesmo `content/<edicao>.json`** — não precisa de arquivos separados.
-
-## fluxo recomendado pelo agente
-
-1. Confirmar com `AskUserQuestion` qualquer campo do contrato faltante.
-2. Verificar se `content/<edicao>.json` existe e tem as 5 sub-seções:
-   - se sim → buildar direto
-   - se faltar parte do conteúdo → autorar primeiro, lintar, buildar
-3. Rodar `build-apresentacao.mjs`.
-4. Listar pro usuário os 3-5 pontos editoriais que decidiu (qual peça classificar como positiva/negativa, quais hipóteses priorizar).
-5. Push opcional pro Drive na pasta do mês via Drive MCP.
-
 ## decisões editoriais por sub-seção
 
 - **KPIs:** só métricas de interação criativa — impressões, CTR, frequência, retenção, hook rate. **Sem R$.**
-- **Positivos vs Negativos:** classifica pela fase do ad (scaling/holding = positivo; declining/hidden = negativo). Buracos de cobertura entram em "Negativos" como contexto.
-- **Benchmarks:** sempre tag em colchetes (`[Warby Parker]`). Tese curta — 1-2 frases por marca, sem citação de spend.
+- **Positivos vs Negativos:** scaling/holding = positivo; declining/hidden = negativo. Buracos entram em "Negativos" como contexto.
+- **Benchmarks:** sempre tag em colchetes (`[Warby Parker]`). Tese curta — 1-2 frases, sem spend.
 - **Oportunidades & Testes:** numeradas, cada uma com janela `[maio]` ou `[concepção]`. Critério de sucesso explícito quando possível.
 
 ## arquivos críticos
 
-- Drive `[ Book Digital] Fechamento mensal Março 2026.pdf` — gabarito visual.
-- `system/template/apresentacao-fechamento-mensal.template.html` — template A4 landscape.
-- `system/scripts/_render-apresentacao.mjs` — renderers por sub-seção.
-- `system/scripts/build-apresentacao.mjs` — comando.
-- `system/scripts/extract-april.mjs` — one-shot abril 2026.
-- `system/clients/zerezes/config.json#presentation` — paleta + fontes da apresentação.
+| arquivo | função |
+|---|---|
+| `apresentacoes/2026-04/midia-fechamento-mensal.pptx` | output PPTX editável (abril 2026) |
+| `apresentacoes/2026-04/midia-fechamento-mensal.html` | output HTML/PDF (abril 2026) |
+| `system/scripts/build-apresentacao-pptx.mjs` | gerador PPTX (PptxGenJS) |
+| `system/scripts/build-apresentacao.mjs` | gerador HTML |
+| `system/scripts/_render-apresentacao.mjs` | renderers HTML (5 sub-seções) |
+| `system/template/apresentacao-fechamento-mensal.template.html` | template HTML A4 landscape |
+| `system/scripts/extract-april.mjs` | one-shot extrator abril 2026 |
+| Drive `18v9b4jsRodEB87c8PK9lbklMKnVI9chE` | gabarito PPT visual (Março 2026) |
 
 ## troubleshooting
 
 - **"content not found"** → rodar `extract-april.mjs` (abril) ou `draft-content.mjs` (futuro).
-- **Lint falhando em "espaço largo" / "bestseller" / "R$ X"** → ajustar texto no `content/<edicao>.json`. Lint é fail-fast por design.
-- **PDF cortando slide** → garantir Print configurado: A4 landscape, margens "None", "background graphics" ativado.
-- **Cores erradas** → conferir se `cfg.presentation.palette` está preenchido. Se ausente, build cai pra `cfg.brand.palette` (paleta editorial creme/laranja, não brandbook).
+- **Lint falhando** → ajustar texto no `content/<edicao>.json`. Lint é fail-fast por design.
+- **PDF cortando slide** → Print: A4 landscape, margens "None", "background graphics" ativado.
+- **PPTX sem sidebar vertical** → normal se PptxGenJS clipa texto fora dos limites; o conteúdo de todas as seções está correto. Ajuste visual fino no PowerPoint/Slides.
+- **pptxgenjs not found** → `npm install` na raiz do repo.

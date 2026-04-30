@@ -5,7 +5,7 @@ type: state
 last_updated: 2026-04-30
 ---
 
-> **Atualização 30/04/2026 (tarde):** apresentação institucional (Book Digital) implementada. Gabarito espelha o Book Digital de Março. Comando: `build-apresentacao.mjs`. Detalhes em `howto_apresentacao.md`.
+> **Atualização 30/04/2026 (fim de dia):** apresentação institucional completa — HTML + PPTX editável. Template redesenhado para espelhar o gabarito PPT do Drive (`[ Book Digital] Fechamento mensal Março 2026-final.pptx`, id `18v9b4jsRodEB87c8PK9lbklMKnVI9chE`). Layout: sidebar preta vertical com texto `mídia · 2026 · mkt growth`, capa dark, sem section-covers. Dois outputs: `midia-fechamento-mensal.html` (HTML/PDF) e `midia-fechamento-mensal.pptx` (PptxGenJS, editável). Detalhes em `howto_apresentacao.md`.
 
 > Este arquivo é o "primeiro briefing" para uma nova sessão. Resume **onde estamos agora**, o que está aberto, e quais ações imediatas fazem sentido. Manter curto. Atualizar ao final de cada rodada.
 
@@ -43,9 +43,10 @@ Pronta, mas não exercitada em produção. Maio é a 1ª chance.
 | thumbnail helper | `system/scripts/_thumbnails.mjs` | ✅ resolve URLs `motionaccountassets` |
 | template editorial | `system/template/index.template.html` | ✅ placeholders `{{section_*}}` |
 | **apresentação** — extrator abril | `system/scripts/extract-april.mjs` | ✅ one-shot — `content/2026-04.json` gerado |
-| **apresentação** — template | `system/template/apresentacao-fechamento-mensal.template.html` | ✅ A4 landscape, paleta brandbook, Plus Jakarta Sans |
-| **apresentação** — renderers | `system/scripts/_render-apresentacao.mjs` | ✅ 5 sub-seções (KPIs · Positivos · Negativos · Benchmarks · Oportunidades) |
-| **apresentação** — build | `system/scripts/build-apresentacao.mjs` | ✅ `apresentacoes/<edicao>/midia-fechamento-mensal.html` |
+| **apresentação** — template HTML | `system/template/apresentacao-fechamento-mensal.template.html` | ✅ redesenhado: sidebar preta vertical, capa dark, sem section-covers |
+| **apresentação** — renderers HTML | `system/scripts/_render-apresentacao.mjs` | ✅ 5 sub-seções sem sectionCover, numeração local por seção |
+| **apresentação** — build HTML | `system/scripts/build-apresentacao.mjs` | ✅ `apresentacoes/<edicao>/midia-fechamento-mensal.html` |
+| **apresentação** — build PPTX | `system/scripts/build-apresentacao-pptx.mjs` | ✅ `apresentacoes/<edicao>/midia-fechamento-mensal.pptx` (PptxGenJS) |
 | n8n workflow | `workflows/n8n-monthly-leitura.json` | existe, não exercitado |
 
 ## pendências (frente 2 do plano de melhorias — mostly done)
