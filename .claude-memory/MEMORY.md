@@ -1,13 +1,28 @@
+# índice de memória — zerezes :: leitura criativa
+
+> **Ler primeiro:** [`state_current.md`](state_current.md) — snapshot vivo do projeto, atualizado a cada rodada. Contém branch ativa, estado da PR, comandos canônicos, pendências e regras-mãe num único lugar.
+
+## sobre o usuário e o tom
+
 - [User role](user_role.md) — trabalha no time de **mídia** da Zerezes; entrega leituras criativas para criação/comunicação/studio.
-- [Tom editorial preferido](feedback_tone.md) — "menos número, mais abstrato"; prefere autonomia ("faça o seu melhor") com entregas grandes em vez de micro-aprovações.
-- [Datas sempre absolutas](feedback_dates.md) — é abril de **2026**; precisou corrigir isso duas vezes no histórico. Converter qualquer "abril" em ano absoluto.
-- [Zerezes Grau26 context](project_zerezes_grau26.md) — collab/coleção central da conta em abril/2026; 16 modelos com nomes literários; 4 personas (laura lufesi, túlio linare, letrux, philipp lavra).
-- [Pipeline de leituras criativas](project_pipeline_leituras.md) — entregáveis mensais em HTML editorial; assinatura `;;)`; paleta creme+laranja+DM Sans/Serif.
-- [Workflow de assets por leitura](project_workflow_assets.md) — Motion cobre 95% (qualitativo + concorrentes HD); pedir 2–5 high-res dos ads próprios no turno 1; product shots Grau26 já em `zerezes-imgs/`.
-- [Ferramentas de dados](reference_tools.md)
-- [Google Drive do Zerezes](reference_drive.md) — pasta "ABRIL 2026" (`168SMrJcE784VO1vCLXEMrFG-0368Pmml`) com estáticos Grau26 e AON Sports; convenção `midia_{produto}_{tipo}_{etapa}_{formato}`. Creators estão fora desta pasta. — Motion.app MCP (creatives + insights), Windsor.ai, n8n; workspace Zerezes já autenticado.
-- [Collabs/ativações conhecidas](project_ativacoes.md) — Grau26 (central), AON Solar, AON Sports, clássicos, collab MASP (R$6K scaling), collab FARM (R$3,6K scaling), collab The Simple Gym (Sports, alavanca sem asset próprio, fim abr→início mai), novas cores clássicos (previsão maio).
-- [Vocabulário Zerezes](project_vocabulario.md) — *clássicos* (não "bestsellers"), "entrantes" para ativações novas, "alavanca" para collabs sem asset próprio, "previsão maio" para previstas; MouraJo removida dos creators ativos; The Simple Gym (NÃO "Gyn").
-- [Fuel — referência só de site](project_fuel_pending.md) — Fuel nunca rodou Meta Ads; usar apenas como referência de posicionamento (coleções nomeadas, tom urbano), não como concorrente de mídia paga.
-- [How-to: jq em payloads Motion](howto_motion_jq.md) — receitas para parsear `tool-results/*.txt` quando Motion estoura token limit; extração de URLs `motionaccountassets` para fallback de thumbnail.
-- [How-to: workflow n8n mensal](howto_n8n_monthly.md) — passos do workflow, env vars, troubleshooting comum e equivalente CLI manual quando o n8n está fora.
+- [Tom editorial preferido](feedback_tone.md) — autonomia + entregas grandes; prefere tom direto em headlines e editorial em texto corrido.
+- [Datas sempre absolutas](feedback_dates.md) — é **2026**. Nunca "abril" sozinho.
+- [Vocabulário Zerezes](project_vocabulario.md) — termos preferidos, proibidos e regras: *clássicos* (não "bestsellers"), "alavanca", "previsão maio", "espaço largo" proibido, **sem R$ em texto editorial corrido**, tom direto > editorial-abstrato em headlines.
+
+## projeto / produto
+
+- [Pipeline de leituras criativas](project_pipeline_leituras.md) — entregáveis mensais em HTML; `;;)`; lições aprendidas; protocolo Motion SPEND-first.
+- [Zerezes Grau26](project_zerezes_grau26.md) — coleção central em abril/2026; 16 modelos literários; 4 personas (laura lufesi, túlio linare, letrux, philipp lavra); performance abril (CTR 0,88%, Rodrigo Bez dominante).
+- [Collabs/ativações conhecidas](project_ativacoes.md) — Grau26, AON Solar, AON Sports, clássicos, MASP, FARM, The Simple Gym (alavanca), novas cores clássicos (previsão maio). **Plano de maio confirmado** (Grau/Solar/Sports 01–31 + clássicos 14–31).
+- [Workflow de assets](project_workflow_assets.md) — Motion cobre 95% (qualitativo + concorrentes HD); pedir 2–5 high-res no turno 1; product shots Grau26 já em `zerezes-imgs/`.
+- [Fuel — referência só de site](project_fuel_pending.md) — nunca rodou Meta Ads; só posicionamento.
+
+## fontes e ferramentas
+
+- [Ferramentas de dados](reference_tools.md) — Motion MCP (workspace, padrão `motionaccountassets`, ads < 48h), Windsor.ai (escopo só criativo, sem $), n8n.
+- [Google Drive Zerezes](reference_drive.md) — pasta-pai `1lFADkpEqaCRT_PnAFD4hA-MfocKssjT3`, brandbook `19D6L2GgHsq5QDVMl0tTjycERqDnRg-Tq`, ABRIL 2026 `168SMrJcE784VO1vCLXEMrFG-0368Pmml`.
+
+## how-tos operacionais
+
+- [jq em payloads Motion](howto_motion_jq.md) — parsear `tool-results/*.txt` quando estoura token limit; extrair URLs `motionaccountassets`.
+- [Workflow n8n mensal](howto_n8n_monthly.md) — passos, env vars, troubleshooting, equivalente CLI manual.

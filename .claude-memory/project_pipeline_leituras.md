@@ -18,6 +18,23 @@ Entregável recorrente: **"leitura criativa"** — HTML editorial de análise qu
 
 **Formato confirmado:** mensal (não quinzenal). Recorte 01–último dia útil do mês. Próxima edição: maio de 2026.
 
+## lições aprendidas (atualizadas 30/04/2026)
+
+**1. Não autorar preview editorial de mês futuro com dados especulativos.**
+Em 29/04/2026 tentei gerar um preview pré-mês de maio (Grau/Solar/Sports + clássicos novas cores) baseado só no plano confirmado pelo usuário, sem dados Motion. O usuário **rejeitou** ("não gostei como ficou"). Lição: editorial sem evidência de dado fica genérico e abstrato. Esperar primeira semana de dados antes de draftar.
+
+**2. Verificar SEMPRE qual URL o usuário está vendo.**
+A `main` produção fica defasada quando trabalho está em branch+PR. Se usuário reclama de "dados antigos", quase certo que ele está vendo a URL `https://zerezes-leitura-criativa.vercel.app/` (produção) em vez do preview do branch (`zerezes-leitura-cria-git-af01d2-...vercel.app`). Antes de qualquer "investigação" — confirmar URL.
+
+**3. Tom editorial × tom direto.**
+Headlines e labels de cards: **diretos e funcionais** ("oportunidade de mercado"). Texto corrido editorial pode ser mais autoral. Não trocar essas duas camadas. Ver `project_vocabulario.md` seção "tom direto > editorial-abstrato".
+
+**4. Sem valores em R$ no texto editorial corrido.**
+Esta é leitura **criativa**, não de mídia. Mantê-lo só em caps técnicos de cards de criativo. Ver `project_vocabulario.md` seção "regra editorial sobre dados de orçamento".
+
+**5. Pipeline `system/` não rodou em produção ainda.**
+A edição de abril foi autorada direto em `index.html` raiz (~900 linhas hardcoded). A infra (`build.mjs`, `_render.mjs`, template, lint, archive) está pronta mas só foi exercitada uma vez no preview rejeitado de maio. Quando a edição de maio for retomada com dados reais, é a chance de validar o fluxo completo.
+
 **Why:** o briefing original listou estes 4 (+ Warby/Lapima como referências). Cada marca ancora uma "postura criativa" e o report compara a voz delas com o que a Zerezes está dizendo.
 
 **How to apply:**

@@ -18,6 +18,20 @@ Termos a usar/evitar nos deliverables Zerezes:
 - **The Simple Gym** (NÃO "The Simple Gyn") — nome da collab de AON Sports. Typo "Gyn" foi corrigido em abril de 2026 em `index.html` e `config.json`.
 - **alavanca** — label para ativações sem material de mídia próprio que funcionam como impulsionadores do ad Zerezes (ex: collab The Simple Gym). NÃO usar "ativo" para esses casos.
 - **previsão maio** — label para ativações anunciadas mas não veiculadas no período do report (ex: clássicos novas cores). NÃO usar "entrante" quando ainda não está no ar.
-- **"espaço largo"** — expressão **proibida** (decisão usuário, 30/04/2026). É clichê genérico. Substitutos: "lugar editorial sem ocupante", "vaga em aberto", "ninguém ocupa o lugar editorial". Já registrado em `voice.forbidden`.
+- **"espaço largo"** — expressão **proibida** (decisão usuário, 30/04/2026). É clichê genérico. Quando precisar dizer que o mercado está aberto, prefira algo direto e funcional: **"oportunidade de mercado"** foi a forma escolhida pelo usuário. Substitutos editoriais ("lugar editorial sem ocupante", "vaga em aberto") foram **rejeitados como abstratos demais**.
+- **tom direto > tom editorial-abstrato** — regra reforçada em 30/04/2026: o usuário prefere labels diretos e funcionais a metáforas editoriais elaboradas. Ex: "oportunidade de mercado" ✓ vs "o lugar editorial sem ocupante" ✗. Mantém o tom editorial nas descrições corridas; mas **headlines e labels de cards devem ser diretas**.
 
-**How to apply:** em cada nova leitura criativa, fazer um pass final de busca por "bestsellers", "The Simple Gyn", "MouraJo" e outros termos — substituir pelos termos Zerezes antes de entregar. Marcar ativações que entram no recorte com tag "entrante" (estilo laranja sobre creme, discreto). Usar "alavanca" para collabs sem asset próprio e "previsão maio" para previstas.
+## regra editorial sobre dados de orçamento
+
+Esta é uma **leitura criativa**, não de mídia. Em narrativas (lead, descrições corridas, headlines), **NÃO citar valores em R$ de spend/investimento**. Manter apenas métricas que indicam interação criativa: impressões, CTR, frequência, retenção de vídeo, fase (testing/scaling/holding/declining).
+
+- ❌ "abril fechou com R$162 mil investidos, 23,5M impressões..."
+- ✓ "abril fechou com 23,5M impressões e CTR médio de 0,88%..."
+- ❌ "Rodrigo Bez escalou forte — R$7,1K em alcance e 6,6M impressões"
+- ✓ "Rodrigo Bez escalou forte — 6,6M impressões no mês todo"
+
+Em tabelas de evidência granulares (ex: caps de cards de criativos individuais), valores em R$ podem aparecer como dado de contexto — mas só ali. **Nunca em texto editorial corrido**.
+
+Esta regra está alinhada com `pull-windsor.mjs` (FORBIDDEN_FIELDS bloqueia spend/cpc/cpm/roas) e `voice.forbidden` em config (lint pega "espaço largo" e variações de bestseller).
+
+**How to apply:** em cada nova leitura criativa, fazer um pass final de busca por "bestsellers", "The Simple Gyn", "MouraJo", "espaço largo", "R$\d" em parágrafos editoriais — substituir/remover antes de entregar. Marcar ativações que entram no recorte com tag "entrante" (estilo laranja sobre creme, discreto). Usar "alavanca" para collabs sem asset próprio e "previsão maio" para previstas.
