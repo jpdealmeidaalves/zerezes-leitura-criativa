@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{title}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{fonts_url}}" rel="stylesheet">
+<style>
+:root {
+{{css_vars}}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--cinza);font-family:'{{font_sans}}','Plus Jakarta Sans',-apple-system,sans-serif;color:var(--preto);line-height:1.4}
+body{padding:24px 0;display:flex;flex-direction:column;align-items:center;gap:24px}
+
+.slide{
+  width:297mm;
+  height:210mm;
+  background:var(--branco);
+  padding:24mm 28mm;
+  display:flex;
+  flex-direction:column;
+  page-break-after:always;
+  break-after:page;
+  position:relative;
+  box-shadow:0 4px 24px rgba(0,0,0,.12);
+  font-size:11pt;
+  overflow:hidden;
+}
+.slide:last-child{page-break-after:auto}
+
+/* Header tipo "1 CRM" do gabarito */
+.s-head{
+  font-size:10pt;
+  letter-spacing:.04em;
+  color:var(--cinza);
+  margin-bottom:14mm;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-bottom:1px solid var(--linha);
+  padding-bottom:6mm;
+}
+.s-head .s-num{font-weight:600;color:var(--verde);font-size:9pt}
+.s-head .s-tag{font-weight:600;color:var(--azul);text-transform:uppercase;letter-spacing:.08em;font-size:9pt}
+.s-head .s-page{font-variant-numeric:tabular-nums}
+
+/* Slide title (h1, h2) */
+.s-kicker{
+  font-size:10pt;
+  letter-spacing:.08em;
+  text-transform:lowercase;
+  color:var(--azul);
+  font-weight:600;
+  margin-bottom:6mm;
+}
+.s-title{
+  font-size:32pt;
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  color:var(--preto);
+  margin-bottom:8mm;
+}
+.s-title.sm{font-size:24pt}
+.s-title em{font-style:italic;color:var(--verde);font-weight:600}
+.s-lead{
+  font-size:13pt;
+  line-height:1.5;
+  color:var(--preto2);
+  max-width:240mm;
+  margin-bottom:8mm;
+  font-weight:400;
+}
+.s-lead strong{color:var(--preto);font-weight:600}
+
+/* Cover slide do deck */
+.slide.cover{
+  background:linear-gradient(135deg,var(--verde) 0%,var(--azul) 100%);
+  color:var(--branco);
+  padding:32mm 36mm;
+  justify-content:space-between;
+}
+.slide.cover .c-eyebrow{font-size:11pt;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.85;margin-bottom:12mm}
+.slide.cover .c-title{font-size:48pt;font-weight:700;line-height:1;letter-spacing:-.02em;max-width:230mm}
+.slide.cover .c-title em{font-style:italic;font-weight:600}
+.slide.cover .c-meta{display:flex;justify-content:space-between;font-size:11pt;letter-spacing:.04em;border-top:1px solid rgba(255,255,255,.3);padding-top:8mm}
+
+/* Cover de secao */
+.slide.section-cover{
+  background:var(--preto);
+  color:var(--branco);
+  padding:32mm 36mm;
+  justify-content:center;
+}
+.slide.section-cover .sc-num{font-size:80pt;font-weight:700;color:var(--verde);line-height:.9;margin-bottom:6mm;letter-spacing:-.04em}
+.slide.section-cover .sc-kicker{font-size:11pt;letter-spacing:.16em;text-transform:uppercase;color:var(--azul);font-weight:600;margin-bottom:6mm}
+.slide.section-cover .sc-title{font-size:36pt;font-weight:700;line-height:1.05;letter-spacing:-.02em;max-width:230mm}
+
+/* Agenda */
+.agenda-list{display:flex;flex-direction:column;gap:6mm;margin-top:6mm}
+.agenda-item{display:grid;grid-template-columns:24mm 1fr;gap:8mm;padding-bottom:5mm;border-bottom:1px solid var(--linha);align-items:baseline}
+.agenda-item .ai-num{font-size:18pt;font-weight:700;color:var(--verde);font-variant-numeric:tabular-nums}
+.agenda-item .ai-label{font-size:14pt;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--preto)}
+.agenda-item .ai-note{font-size:10pt;color:var(--cinza);font-weight:400;text-transform:none;letter-spacing:0;display:block;margin-top:1mm}
+
+/* KPIs grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin-top:4mm}
+.kpi-card{padding:8mm;border:1px solid var(--linha);border-left:3px solid var(--verde);background:#fafafa}
+.kpi-card .kpi-label{font-size:10pt;letter-spacing:.06em;text-transform:lowercase;color:var(--azul);font-weight:600;margin-bottom:3mm}
+.kpi-card .kpi-value{font-size:24pt;font-weight:700;color:var(--preto);line-height:1;letter-spacing:-.01em;margin-bottom:3mm}
+.kpi-card .kpi-note{font-size:10pt;color:var(--cinza);line-height:1.4}
+
+/* Grupo de pecas (Destaques +/-) */
+.grupo{margin-top:4mm}
+.grupo-titulo{font-size:14pt;font-weight:700;color:var(--azul);margin-bottom:5mm;padding-bottom:3mm;border-bottom:1px solid var(--linha)}
+.peca-list{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.peca{padding:6mm;background:#fafafa;border:1px solid var(--linha);border-top:3px solid var(--verde)}
+.peca.neg{border-top-color:var(--azul)}
+.peca .p-nome{font-size:11pt;font-weight:600;color:var(--preto);margin-bottom:2mm;font-family:'Plus Jakarta Sans',sans-serif;word-break:break-word}
+.peca .p-cap{font-size:10pt;color:var(--cinza);margin-bottom:4mm;font-style:italic}
+.peca .p-pontos{font-size:10pt;color:var(--preto2);line-height:1.5}
+.peca .p-pontos li{margin-left:5mm;margin-bottom:1.5mm}
+.peca .p-pontos-label{font-size:9pt;font-weight:700;color:var(--verde);text-transform:lowercase;letter-spacing:.04em;margin-bottom:2mm;display:block}
+.peca.neg .p-pontos-label{color:var(--azul)}
+
+/* Benchmarks */
+.bench-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm;margin-top:4mm}
+.bench-card{padding:7mm 8mm;background:#fafafa;border:1px solid var(--linha);border-left:3px solid var(--azul)}
+.bench-card .b-tag{font-size:10pt;font-weight:700;color:var(--azul);letter-spacing:.04em;margin-bottom:3mm;text-transform:uppercase}
+.bench-card .b-tese{font-size:11pt;line-height:1.5;color:var(--preto2)}
+
+/* Oportunidades */
+.opo-list{display:flex;flex-direction:column;gap:4mm;margin-top:4mm}
+.opo-item{display:grid;grid-template-columns:32mm 1fr;gap:6mm;padding:5mm 6mm;background:#fafafa;border:1px solid var(--linha);align-items:start}
+.opo-item .o-tag{font-size:10pt;font-weight:700;color:var(--verde);letter-spacing:.04em}
+.opo-item .o-titulo{font-size:12pt;font-weight:700;color:var(--preto);margin-bottom:2mm;line-height:1.3}
+.opo-item .o-descricao{font-size:10pt;line-height:1.5;color:var(--preto2)}
+
+/* Footer numero da pagina */
+.s-foot{
+  position:absolute;
+  bottom:10mm;
+  left:28mm;
+  right:28mm;
+  display:flex;
+  justify-content:space-between;
+  font-size:9pt;
+  color:var(--cinza);
+  letter-spacing:.04em;
+  border-top:1px solid var(--linha);
+  padding-top:4mm;
+}
+.s-foot .s-foot-tag{font-weight:600;color:var(--azul);text-transform:uppercase;letter-spacing:.06em}
+
+/* Print */
+@media print{
+  body{background:#fff;padding:0;gap:0}
+  .slide{box-shadow:none;margin:0}
+  @page{size:A4 landscape;margin:0}
+}
+
+/* Tela menor — preview navegavel */
+@media (max-width: 1300px){
+  .slide{transform-origin:top center}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="slide cover">
+  <div>
+    <div class="c-eyebrow">[ Book Digital ] · Fechamento mensal</div>
+    <div class="c-title">{{cover_title}}</div>
+  </div>
+  <div class="c-meta">
+    <span>{{client_name}} · mídia</span>
+    <span>{{period}}</span>
+  </div>
+</div>
+
+<!-- AGENDA -->
+<div class="slide">
+  <div class="s-head"><span class="s-num">00</span><span class="s-tag">agenda</span><span class="s-page">{{client_name}} · mídia · {{period}}</span></div>
+  <div class="s-kicker">o que tem nesse fechamento</div>
+  <h1 class="s-title">agenda</h1>
+  <div class="agenda-list">
+    <div class="agenda-item"><div class="ai-num">a.</div><div><div class="ai-label">KPIs</div><span class="ai-note">números-chave do mês na disciplina</span></div></div>
+    <div class="agenda-item"><div class="ai-num">b.</div><div><div class="ai-label">Destaques Positivos</div><span class="ai-note">peças que funcionaram, por linha</span></div></div>
+    <div class="agenda-item"><div class="ai-num">c.</div><div><div class="ai-label">Destaques Negativos</div><span class="ai-note">o que não performou + buracos de cobertura</span></div></div>
+    <div class="agenda-item"><div class="ai-num">d.</div><div><div class="ai-label">Benchmarks</div><span class="ai-note">leitura do mercado em abril</span></div></div>
+    <div class="agenda-item"><div class="ai-num">e.</div><div><div class="ai-label">Oportunidades & Testes</div><span class="ai-note">apostas para maio</span></div></div>
+  </div>
+  <div class="s-foot"><span class="s-foot-tag">{{client_name}} mkt growth</span><span>02</span></div>
+</div>
+
+{{section_kpis}}
+
+{{section_destaques_positivos}}
+
+{{section_destaques_negativos}}
+
+{{section_benchmarks}}
+
+{{section_oportunidades_testes}}
+
+<!-- CLOSING -->
+<div class="slide cover">
+  <div>
+    <div class="c-eyebrow">obrigado · próximas leituras em {{next_window}}</div>
+    <div class="c-title"><em>;;)</em></div>
+  </div>
+  <div class="c-meta">
+    <span>{{client_name}} · mídia</span>
+    <span>{{period}}</span>
+  </div>
+</div>
+
+</body>
+</html>

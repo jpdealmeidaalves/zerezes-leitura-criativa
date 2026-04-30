@@ -26,3 +26,4 @@
 
 - [jq em payloads Motion](howto_motion_jq.md) — parsear `tool-results/*.txt` quando estoura token limit; extrair URLs `motionaccountassets`.
 - [Workflow n8n mensal](howto_n8n_monthly.md) — passos, env vars, troubleshooting, equivalente CLI manual.
+- [Apresentação institucional (Book Digital)](howto_apresentacao.md) — gerar deck no formato Fechamento Mensal a partir da leitura criativa; contrato de pedido, comando, decisões editoriais por sub-seção.

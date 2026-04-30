@@ -5,6 +5,8 @@ type: state
 last_updated: 2026-04-30
 ---
 
+> **Atualização 30/04/2026 (tarde):** apresentação institucional (Book Digital) implementada. Gabarito espelha o Book Digital de Março. Comando: `build-apresentacao.mjs`. Detalhes em `howto_apresentacao.md`.
+
 > Este arquivo é o "primeiro briefing" para uma nova sessão. Resume **onde estamos agora**, o que está aberto, e quais ações imediatas fazem sentido. Manter curto. Atualizar ao final de cada rodada.
 
 ## edicao publicada
@@ -39,7 +41,11 @@ Pronta, mas não exercitada em produção. Maio é a 1ª chance.
 | lint editorial | `system/scripts/lint-content.mjs` | ✅ pega `voice.forbidden` + typos |
 | renderers | `system/scripts/_render.mjs` | ✅ 7 seções (resumo, tese, funil, consideração, mercado, apostas, outras_frentes) |
 | thumbnail helper | `system/scripts/_thumbnails.mjs` | ✅ resolve URLs `motionaccountassets` |
-| template | `system/template/index.template.html` | ✅ placeholders `{{section_*}}` |
+| template editorial | `system/template/index.template.html` | ✅ placeholders `{{section_*}}` |
+| **apresentação** — extrator abril | `system/scripts/extract-april.mjs` | ✅ one-shot — `content/2026-04.json` gerado |
+| **apresentação** — template | `system/template/apresentacao-fechamento-mensal.template.html` | ✅ A4 landscape, paleta brandbook, Plus Jakarta Sans |
+| **apresentação** — renderers | `system/scripts/_render-apresentacao.mjs` | ✅ 5 sub-seções (KPIs · Positivos · Negativos · Benchmarks · Oportunidades) |
+| **apresentação** — build | `system/scripts/build-apresentacao.mjs` | ✅ `apresentacoes/<edicao>/midia-fechamento-mensal.html` |
 | n8n workflow | `workflows/n8n-monthly-leitura.json` | existe, não exercitado |
 
 ## pendências (frente 2 do plano de melhorias — mostly done)
@@ -78,6 +84,18 @@ node system/scripts/build.mjs --client zerezes --edition 2026-05 --as-root
 
 # validar deploy (depois do push)
 node system/scripts/deploy-check.mjs
+
+# === apresentação institucional (Book Digital) ===
+
+# extrair abril (one-shot — só re-rodar se editar o index.html raiz)
+node system/scripts/extract-april.mjs --client zerezes
+
+# gerar a apresentação de uma edição já com content/<edicao>.json
+node system/scripts/build-apresentacao.mjs \
+  --client zerezes --edition 2026-04 \
+  --estilo fechamento-mensal --janela maio
+# saída: apresentacoes/2026-04/midia-fechamento-mensal.html
+# PDF: abrir no navegador → Print → Save as PDF (A4 landscape, sem margens)
 ```
 
 ## regras-mãe (decisões duradouras)

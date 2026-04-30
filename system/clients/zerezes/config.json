@@ -54,6 +54,23 @@
       "_note": "brandbook vive em sources.drive.brandbook_folder_id; canva nativo nao configurado"
     }
   },
+  "presentation": {
+    "palette": {
+      "verde": "#80AA9D",
+      "azul": "#5F8DB5",
+      "cinza": "#C1C6BF",
+      "branco": "#FFFFFF",
+      "preto": "#000000",
+      "preto2": "#1a1a1a",
+      "linha": "#E5E5E5",
+      "linha2": "#D4D4D4"
+    },
+    "fonts": {
+      "sans": "Plus Jakarta Sans",
+      "serif": "Plus Jakarta Sans"
+    },
+    "reference_pdf": "1_M2UHN0l5_hfgNCHuqxYMgJpQNjF4_ZN"
+  },
   "social": {
     "base_url": "https://zerezes-leitura-criativa.vercel.app",
     "og_site_name": "zerezes :: leitura criativa",

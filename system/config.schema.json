@@ -96,6 +96,28 @@
         }
       }
     },
+    "presentation": {
+      "type": "object",
+      "description": "Override de paleta/tipografia para a apresentação institucional (formato Book Digital). Mantém brand.* intacto para o relatório editorial.",
+      "properties": {
+        "palette": {
+          "type": "object",
+          "description": "Paleta da apresentação (geralmente o brandbook clássico). Tokens com nome livre.",
+          "additionalProperties": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" }
+        },
+        "fonts": {
+          "type": "object",
+          "properties": {
+            "sans": { "type": "string" },
+            "serif": { "type": "string" }
+          }
+        },
+        "reference_pdf": {
+          "type": "string",
+          "description": "ID do Drive do PDF de referência (gabarito visual)."
+        }
+      }
+    },
     "competitors": {
       "type": "array",
       "description": "Landscape competitivo completo: diretos, indiretos e referências. Ordem importa (aparece nessa ordem na leitura, agrupada por category).",
